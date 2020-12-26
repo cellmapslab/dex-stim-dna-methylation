@@ -30,7 +30,7 @@ targets         <- read.csv(sample.sheet.fn, sep = ',' )
 
 detP <- detectionP(rgSet)
 head(detP)
-save(detP, file = "RData/detP.Rdata") 
+save(detP, file = paste0(src.data.dir, "detP.Rdata")) 
 
 
 ##--- Examine mean detection p-values across all samples to identify any failed samples
