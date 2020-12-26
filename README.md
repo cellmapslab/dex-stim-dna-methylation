@@ -15,3 +15,17 @@
     * `gRatioSet_original`: the same as _RatioSet_ but mapped to a genome;
     * `pd_original`: phenotype data
 
+
+**Issues**
+
+__On cluster:__
+
+1. Installation `minfi` : 
+
+```R
+Sys.setenv(LC_CTYPE="en_US.UTF-8")
+Sys.setenv(LC_ALL="en_US.UTF-8")
+
+install.packages("remotes")
+remotes::install_github("hansenlab/minfi")
+````
