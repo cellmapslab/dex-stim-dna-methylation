@@ -29,3 +29,8 @@ Sys.setenv(LC_ALL="en_US.UTF-8")
 install.packages("remotes")
 remotes::install_github("hansenlab/minfi")
 ````
+or
+```sh
+export LC_CTYPE="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+```
