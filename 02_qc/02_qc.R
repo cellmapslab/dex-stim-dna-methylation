@@ -32,10 +32,12 @@ detP <- detectionP(rgSet)
 head(detP)
 save(detP, file = paste0(src.data.dir, "detP.Rdata")) 
 
+pvalues.fn <- paste0(src.data.dir, "detP.Rdata")
+load(pvalues.fn)
 
 ##--- Examine mean detection p-values across all samples to identify any failed samples
 
-pdf(paste(report.dir, "detectionP.pdf", sep("/")), width = 8, height = 3)
+pdf(paste(report.dir, "detectionP.pdf", sep="/"), width = 8, height = 3)
 pal <- brewer.pal(8,"Dark2")
 par(mfrow = c(1,2))
 
@@ -44,10 +46,10 @@ barplot(colMeans(detP),
 	las = 2, cex.names = 0.8, ylab = "Mean detection p-values")
 abline(h = 0.05, col = "red")
 legend("topleft", 
-	legend=levels(factor(targets$Sample_Group)), fill=pal, bg="white")
+	legend=levels(factor(targets$SampleName)), fill=pal, bg="white")
 
 barplot(colMeans(detP), 
 	col = pal[factor(targets$Sample_Group)], 
 	las = 2, cex.names = 0.8, ylim = c(0,0.002), ylab = "Mean detection p-values")
 abline(h = 0.05, col = "red")
-legend("topleft", legend = levels(factor(targets$Sample_Group)), fill = pal, bg = "white")
+legend("topleft", legend = levels(factor(targets$SampleName)), fill = pal, bg = "white")
