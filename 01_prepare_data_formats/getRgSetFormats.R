@@ -12,9 +12,9 @@ rgSet <- rgSubSet
 
 sh.script.mkdir <- sprintf("cd %s ; 
                     
-                    if [ ! -d RData ] 
+                    if [ ! -d rData ] 
                     then 
-                      mkdir RData 
+                      mkdir rData 
                     fi ; 
                     
                     cd RData ;
