@@ -17,7 +17,7 @@ sh.script.mkdir <- sprintf("cd %s ;
                       mkdir rData 
                     fi ; 
                     
-                    cd RData ;
+                    cd rData ;
       
                     ", src.data.dir)
 
