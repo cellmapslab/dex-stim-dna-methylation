@@ -4,3 +4,4 @@ if(!require(minfi)) {
 if(!require(future)) {
   install.packages("future"); require(future)}
 
+require(RColorBrewer)
