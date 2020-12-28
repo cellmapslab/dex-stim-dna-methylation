@@ -62,3 +62,31 @@ abline(h = 0.001, col = "red")
 # legend("topleft", legend = levels(factor(targets$BeadChipPosition)), fill = pal, bg = "white")
 
 dev.off()
+
+
+##---  Remove poor quality samples with a mean detection p-value _> 0.01_
+
+# remove poor quality samples with a mean detection p-value >.05
+keep     <- colMeans(detP) < 0.01 
+rgSet_qc <- rgSet[, keep] # dim: 403 out of 404
+save(rgSet_qc, file = paste0(src.data.dir, "rgSet_qc.Rdata")) 
+
+# remove poor quality samples from raw betas
+load(paste0(src.data.dir, "RawBetas.Rdata"))
+rawBetas_ql <- RawBetas[, keep]
+dim(RawBetas_ql)
+save(rawBetas_ql, file = paste(src.data.dir, "rawBetas_ql.Rdata")) 
+
+# remove poor quality samples from targets data = targets_qual
+targets_qual <- targets[keep,] 
+targets_qual[, 1:5] 
+
+# remove poor quality samples from detection p-value table 
+detP_ql <- detP[, keep] 
+dim(detP_ql) 
+save(detP_ql, file = paste0(src.data.dir, "detP_ql.Rdata"))
+
+# -> note how many samples were excluded
+
+# run minfi QC Report
+qcReport(rgSet_ql, sampGroups = targets_ql$Slides, pdf = paste0(report.dir, "qcReport.pdf")) 
