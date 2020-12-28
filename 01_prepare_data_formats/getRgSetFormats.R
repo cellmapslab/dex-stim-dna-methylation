@@ -23,7 +23,7 @@ sh.script.mkdir <- sprintf("cd %s ;
 system(sh.script.mkdir)
 
 sample.sheet.fn <- paste0(src.data.dir, "samplesheet_epic_methylation_dex.csv")
-targets         <- read.csv(sample.sheet.fn, sep = ',' )
+targets         <- read.csv(sample.sheet.fn, sep = ';' )
 
 rgSet           <- read.metharray.exp(targets = targets) 
 save(rgSet, file = rgSet.fn)
