@@ -54,7 +54,6 @@ barplot(colMeans(detP),
 	col = pal[factor(targets$Sample_Group)], 
 	las = 2, 
 	xaxt = "n", 
-	border="transparent",
 	ylim = c(0,0.002),
 	xlab = "Samples" ,
 	ylab = "Mean detection p-values")
