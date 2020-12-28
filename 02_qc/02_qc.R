@@ -35,21 +35,25 @@ load(pvalues.fn)
 
 ##--- Examine mean detection p-values across all samples to identify any failed samples
 
-pdf(paste(report.dir, "detectionP.pdf", sep="/"), paper = "a4r", width = 11, height = 8)
+pdf(paste(report.dir, "detectionP.pdf", sep="/"), paper = "a4", width = 11, height = 8)
 pal <- brewer.pal(12,"Set3")
-par(mfrow = c(1,2))
+par(mfrow = c(2,))
 
 barplot(colMeans(detP), 
 	col = pal[factor(targets$BeadChipPosition)], 
-	las = 2, cex.names = 0.2, ylab = "Mean detection p-values")
+	las = 2, 
+	cex.names = 0.2, 
+	ylab = "Mean detection p-values")
 abline(h = 0.01, col = "red")
-legend("topleft", 
-	legend=levels(factor(targets$BeadChipPosition)), fill = pal, bg = "white")
+# legend("topleft", legend=levels(factor(targets$BeadChipPosition)), fill = pal, bg = "white")
 
 barplot(colMeans(detP), 
 	col = pal[factor(targets$Sample_Group)], 
-	las = 2, cex.names = 0.8, ylim = c(0,0.002), ylab = "Mean detection p-values")
-abline(h = 0.01, col = "red")
-legend("topleft", legend = levels(factor(targets$BeadChipPosition)), fill = pal, bg = "white")
+	las = 2, 
+	cex.names = 0.4, 
+	ylim = c(0,0.002), 
+	ylab = "Mean detection p-values")
+# abline(h = 0.001, col = "red")
+# legend("topleft", legend = levels(factor(targets$BeadChipPosition)), fill = pal, bg = "white")
 
 dev.off()
