@@ -6,5 +6,5 @@
 
 module load R
 
-Rscript getRgSetFormats.R
+Rscript --vanilla getRgSetFormats.R
 

@@ -1,10 +1,9 @@
-
 # src.dir      <- "/binder/mgp/workspace/2020_DexStim_Array_Human/methylation/"
 src.dir      <- "~/github/dex-stim-dna-methylation/"
 src.data.dir <- "/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/" 
 
 packages.fn <- paste0(src.dir, "packages.R")
-rgSet.fn    <- paste0(src.data.dir, "rgSet_dex.RData")
+rgSet.fn    <- paste0(src.data.dir, "rData/rgSet_dex.RData")
 
 source(packages.fn)
 
