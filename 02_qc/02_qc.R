@@ -1,6 +1,6 @@
 src.data.dir <- '/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/'
 src.dir      <- '~/github/dex-stim-dna-methylation/'
-report.dir   <- paste(getwd(), "reports", sep = "/")
+report.dir   <- paste0(getwd(), "/reports")
 
 sh.script.mkdir <- sprintf("cd %s ; 
                     
@@ -73,9 +73,9 @@ save(rgSet_qc, file = paste0(src.data.dir, "rgSet_qc.Rdata"))
 
 # remove poor quality samples from raw betas
 load(paste0(src.data.dir, "RawBetas_original.Rdata"))
-rawBetas_qc <- RawBetas[, keep]
+RawBetas_qc <- RawBetas[, keep]
 dim(RawBetas_qc)
-save(rawBetas_qc, file = paste(src.data.dir, "RawBetas_qc.Rdata")) 
+save(RawBetas_qc, file = paste(src.data.dir, "RawBetas_qc.Rdata")) 
 
 # remove poor quality samples from targets data = targets_qual
 targets_qc <- targets[keep,] 
