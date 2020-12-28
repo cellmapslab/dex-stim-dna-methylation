@@ -27,11 +27,12 @@ load(rgSet.fn)
 ##--- Calculate the detection p-values
 
 pvalues.fn <- paste0(src.data.dir, "detP.Rdata")
-detP       <- detectionP(rgSet)
-head(detP)
-save(detP, file = paste0(src.data.dir, "detP.Rdata")
-
-load(pvalues.fn)
+if(file.exists(pvalues.fn)) {
+	load(pvalues.fn) } else {
+	detP       <- detectionP(rgSet)
+	head(detP)
+	save(detP, file = pvalues.fn)
+}
 
 ##--- Examine mean detection p-values across all samples to identify any failed samples
 
@@ -42,7 +43,7 @@ par(mfrow = c(2,))
 barplot(colMeans(detP), 
 	col = pal[factor(targets$BeadChipPosition)], 
 	las = 2, 
-	names.arg = NULL,
+	xaxt = "n",
 	xlab = "Samples", 
 	ylab = "Mean detection p-values")
 abline(h = 0.01, col = "red")
@@ -51,7 +52,7 @@ abline(h = 0.01, col = "red")
 barplot(colMeans(detP), 
 	col = pal[factor(targets$Sample_Group)], 
 	las = 2, 
-	cex.names = 0, 
+	xaxt = "n", 
 	ylim = c(0,0.002),
 	xlab = "Samples" ,
 	ylab = "Mean detection p-values")
