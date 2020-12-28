@@ -72,21 +72,21 @@ rgSet_qc <- rgSet[, keep] # dim: 403 out of 404
 save(rgSet_qc, file = paste0(src.data.dir, "rgSet_qc.Rdata")) 
 
 # remove poor quality samples from raw betas
-load(paste0(src.data.dir, "RawBetas.Rdata"))
-rawBetas_ql <- RawBetas[, keep]
-dim(RawBetas_ql)
-save(rawBetas_ql, file = paste(src.data.dir, "rawBetas_ql.Rdata")) 
+load(paste0(src.data.dir, "RawBetas_original.Rdata"))
+rawBetas_qc <- RawBetas[, keep]
+dim(RawBetas_qc)
+save(rawBetas_qc, file = paste(src.data.dir, "RawBetas_qc.Rdata")) 
 
 # remove poor quality samples from targets data = targets_qual
-targets_qual <- targets[keep,] 
-targets_qual[, 1:5] 
+targets_qc <- targets[keep,] 
+targets_qc[, 1:5] 
 
 # remove poor quality samples from detection p-value table 
 detP_ql <- detP[, keep] 
-dim(detP_ql) 
+dim(detP_ql) # 866836 x 403 
 save(detP_ql, file = paste0(src.data.dir, "detP_ql.Rdata"))
 
 # -> note how many samples were excluded
 
 # run minfi QC Report
-qcReport(rgSet_ql, sampGroups = targets_ql$Slides, pdf = paste0(report.dir, "qcReport.pdf")) 
+qcReport(rgSet_qc, pdf = paste0(report.dir, "qcReport.pdf")) 
