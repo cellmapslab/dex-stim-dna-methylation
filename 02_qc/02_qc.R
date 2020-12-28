@@ -42,7 +42,8 @@ par(mfrow = c(2,))
 barplot(colMeans(detP), 
 	col = pal[factor(targets$BeadChipPosition)], 
 	las = 2, 
-	cex.names = 0.2, 
+	cex.names = 0,
+	xlad = "Samples" 
 	ylab = "Mean detection p-values")
 abline(h = 0.01, col = "red")
 # legend("topleft", legend=levels(factor(targets$BeadChipPosition)), fill = pal, bg = "white")
@@ -50,10 +51,11 @@ abline(h = 0.01, col = "red")
 barplot(colMeans(detP), 
 	col = pal[factor(targets$Sample_Group)], 
 	las = 2, 
-	cex.names = 0.4, 
-	ylim = c(0,0.002), 
+	cex.names = 0, 
+	ylim = c(0,0.002),
+	xlab = "Samples" 
 	ylab = "Mean detection p-values")
-# abline(h = 0.001, col = "red")
+abline(h = 0.001, col = "red")
 # legend("topleft", legend = levels(factor(targets$BeadChipPosition)), fill = pal, bg = "white")
 
 dev.off()
