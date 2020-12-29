@@ -18,8 +18,8 @@ system(sh.script.mkdir)
 packages.fn     <- paste0(src.dir, "packages.R")
 source(packages.fn)
 
-sample.sheet.fn <- paste0(src.dir, "samplesheet_epic_methylation_dex.csv")
-targets         <- read.csv(sample.sheet.fn, sep = ',' )
+sample.sheet.fn <- paste0(src.dir, "00_samplesheets/samplesheet_epic_methylation_dex.csv")
+targets         <- read.csv(sample.sheet.fn, sep = ';' )
 
 rgSet.fn        <- paste0(src.data.dir, "rgSet_dex.RData")
 load(rgSet.fn)
@@ -38,7 +38,7 @@ if(file.exists(pvalues.fn)) {
 
 pdf(paste(report.dir, "detectionP.pdf", sep="/"), paper = "a4", width = 11, height = 8)
 pal <- brewer.pal(12,"Set3")
-par(mfrow = c(2,))
+par(mfrow = c(2, 1))
 
 barplot(colMeans(detP), 
 	col = pal[factor(targets$BeadChipPosition)], 
