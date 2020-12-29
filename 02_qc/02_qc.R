@@ -1,6 +1,6 @@
 src.data.dir <- '/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/'
 src.dir      <- '~/github/dex-stim-dna-methylation/'
-report.dir   <- paste0(getwd(), "/reports")
+report.dir   <- paste0(src.dir, "02_qc/reports/")
 
 sh.script.mkdir <- sprintf("cd %s ; 
                     
@@ -89,4 +89,7 @@ save(detP_ql, file = paste0(src.data.dir, "detP_ql.Rdata"))
 # -> note how many samples were excluded
 
 # run minfi QC Report
-qcReport(rgSet_qc, pdf = paste0(report.dir, "qcReport.pdf")) 
+names <- pData(rgSet_qc)$Sample_Name
+groups <- pData(rgSet_qc)$Sample_Group
+qcReport(rgSet_qc, sampNames = names, sampGroups = groups, 
+		pdf = paste0(report.dir, "qcReport.pdf")) 
