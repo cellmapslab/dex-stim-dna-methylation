@@ -41,7 +41,7 @@ pal <- brewer.pal(12,"Set3")
 par(mfrow = c(2, 1))
 
 barplot(colMeans(detP), 
-	col = pal[factor(targets$Sample_Name)], 
+	col = pal[factor(targets$Sample_Group)], 
 	las = 2, 
 	xaxt = "n",
 	border="transparent",
@@ -51,7 +51,7 @@ abline(h = 0.01, col = "red")
 # legend("topleft", legend=levels(factor(targets$BeadChipPosition)), fill = pal, bg = "white")
 
 barplot(colMeans(detP), 
-	col = pal[factor(targets$SampleName)], 
+	col = pal[factor(targets$Sample_Group)], 
 	las = 2, 
 	xaxt = "n", 
 	border="transparent",
