@@ -1,6 +1,6 @@
 # __DEX-stimulated DNAm arrays processing__
 
-**Issues**
+## **Issues**
 
 __On cluster:__
 
@@ -27,7 +27,7 @@ m
 srun -u --pty --part=pe -c 12 --mem=50G R --vanilla
 ```
 
-__Note:___
+## __Note:___
 
 _from https://bioconductor.org/packages/devel/workflows/vignettes/methylationArrayAnalysis/inst/doc/methylationArrayAnalysis.html_
 
@@ -39,7 +39,7 @@ _from https://bioconductor.org/packages/devel/workflows/vignettes/methylationArr
 
 - **Beta values** are generally preferable for describing the level of methylation at a locus or for graphical presentation because percentage methylation is easily interpretable. However, due to their distributional properties, **M-values** are more appropriate for statistical testing 
 
-**Input data:**
+## **Input data:**
 
 - iData data : `/binder/mgp/workspace/2020_DexStim_Array_Human/methylation/`
 - RData: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/`
@@ -62,31 +62,31 @@ chmod +x ./getRgSetFormats.sh
 sbatch ./getRgSetFormats.sh
 ```
 
-**QC:**
+## **QC:**
 
 1.  Calculate detection p-values. We can generate a detection p-value for every CpG in every sample, which is indicative of the quality of the signal. The method used by minfi to calculate detection p-values compares the total signal (_M_ + _U_) for each probe to the background signal level, which is estimated from the negative control probes. Very small p-values are indicative of a reliable signal whilst large p-values, for example _> 0.01_, generally indicate a poor quality signal.
 
 2. Remove poor quality samples with a mean detection p-value _> 0.01_:
 
-a) from _rgSet_
-
-b) from _beta_ matrix
-
-c) from _p-values_ table
-
-d) from _targets_ table
+* from _rgSet_
+* from _beta_ matrix
+* from _p-values_ table
+* from _targets_ table
 
 _Result:_
 
 **Data**
 
 > `rgSet_qc.Rdata`
+
 > `RawBetas_qc.Rdata`
+
 > `detP_qc.Rdata` : _p-values_ table;
 
 **Reports**
 
 >  `detectionP.pdf`
+
 > `qcReport.pdf`
 
 3. Distribution artefacts
@@ -114,9 +114,13 @@ _Result:_
 **Data**
 
 > `rgSet_clean.Rdata`
+
 > `RawBetas_clean.Rdata`
+
 > `detP_clean.Rdata`
+
 > `pd_celan.Rdata`
+
 > `annotated_data_clean.Rdata`
 
-**Normalization:**
+## **Normalization:**
