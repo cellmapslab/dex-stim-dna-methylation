@@ -84,3 +84,26 @@ sex.test.df[sex.test.df$realSex == "F" & sex.test.df$predictedSex == "M", ]
   # TODO: Exclude the distribution artefacts and sex mismatches from the files
 
 
+out.ids <- c("200705940062_R06C01") # sample to exclude
+
+out.ids <- out.ids[!duplicated(out.ids)] 
+i1      <- intersect(out.ids, colnames(rgSet_qc)) # see how many are still in RGSet_qual
+i2      <- intersect(out.ids, colnames(rgSet)) # re-check that all identified IDs are in the full RGset (no misspelling)
+setdiff(i2, i1) # ID(s) identified in detP step and again in later quality control
+
+rgSet_clean    <- rgSet_qc[, !(colnames(rgSet_qc) %in% out.ids)]
+rgSet_clean
+save(rgSet_clean, file = paste0(src.data.dir, "rgSet_clean.Rdata")
+
+RawBetas_clean <-  RawBetas_qc[, !(colnames(RawBetas_qc) %in% out.ids)]
+save(RawBetas_clean, file = paste0(src.data.dir, "RawBetas_clean.Rdata")) 
+
+detP_clean     <- detP_qc[, !(colnames(detP_qc) %in% out.ids)] 
+save(detP_clean, file = paste0(src.data.dir, "detP_clean.Rdata")) 
+
+pd_clean       <- pData(rgSet_clean)
+save(pd_clean, file = paste0(src.data.dir, "pd_clean.Rdata")) 
+
+##--- Get annotations probes:
+annot          <- getAnnotation(rgSet_clean)
+save(annot, file = paste0(src.data.dir, "annotated_data_clean.Rdata"))
