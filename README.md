@@ -27,7 +27,7 @@ m
 srun -u --pty --part=pe -c 12 --mem=50G R --vanilla
 ```
 
-## __Note:___
+## __Note:__
 
 _from https://bioconductor.org/packages/devel/workflows/vignettes/methylationArrayAnalysis/inst/doc/methylationArrayAnalysis.html_
 
