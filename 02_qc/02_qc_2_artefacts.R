@@ -33,6 +33,9 @@ dev.off()
 detP.fn	<- paste0(src.data.dir, "detP.Rdata")
 load(detP.fn)
 
+detP_qc.fn <- paste0(src.data.dir, "detP_qc.Rdata")
+load(detP_qc.fn)
+
 gRatio.fn <- paste0(src.data.dir, "gRatioSet_original.Rdata")
 load(gRatio.fn)
 
@@ -74,6 +77,9 @@ sex.test.df[sex.test.df$realSex == "F" & sex.test.df$predictedSex == "M", ]
 # ID                      ArrayID     predictedSex    yMed      xMed         yMed-xMed       realSex
 # 200705940062_R06C01 200705940062_R06C01   M       9.390169  11.0858   -1.69563538590411       F
 
+# Checked with genotype data:
+# MPIPSYKL_009498 MPIPSYKL_009498 0 0 2 -9 
+
 ##--- Sample exclusions:
   # 1. Distribution artefacts
   # 2. Poor quality (detection p-value)
@@ -93,7 +99,7 @@ setdiff(i2, i1) # ID(s) identified in detP step and again in later quality contr
 
 rgSet_clean    <- rgSet_qc[, !(colnames(rgSet_qc) %in% out.ids)]
 rgSet_clean
-save(rgSet_clean, file = paste0(src.data.dir, "rgSet_clean.Rdata")
+save(rgSet_clean, file = paste0(src.data.dir, "rgSet_clean.Rdata"))
 
 RawBetas_clean <-  RawBetas_qc[, !(colnames(RawBetas_qc) %in% out.ids)]
 save(RawBetas_clean, file = paste0(src.data.dir, "RawBetas_clean.Rdata")) 
