@@ -97,11 +97,21 @@ _Result:_
 
 > `03_beta_densities_report.pdf`
 
+**Suspicious observations:**
+
+> From array _R01C01_;
+
+> Partially from _R03C01_;
+
+> Sample _200712160065_.
+
 4. Sex mismatches
 
 By looking at the median total intensity of the X chromosome-mapped probes, denoted _xMed_, and the median total intensity of the Y-chromosome-mapped probes, denoted _yMed_, one can observe two different clusters of points corresponding to which gender the samples belong to. To predict the gender, minfi separates the points by using a cutoff on _log2(yMed)−log2(xMed)_. The default cutoff is −2. 
 
 _Result:_
+
+_The resukt should be cheked with genitype data_
 
 **Data**
 
