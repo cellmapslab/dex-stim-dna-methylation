@@ -33,7 +33,7 @@ dev.off()
 detP.fn	<- paste0(src.data.dir, "detP.Rdata")
 load(detP.fn)
 
-detP_qc.fn <- paste0(src.data.dir, "detP_qc.Rdata")
+detP_qc.fn <- paste0(src.data.dir, "detP_ql.Rdata")
 load(detP_qc.fn)
 
 gRatio.fn <- paste0(src.data.dir, "gRatioSet_original.Rdata")
@@ -104,7 +104,7 @@ save(rgSet_clean, file = paste0(src.data.dir, "rgSet_clean.Rdata"))
 RawBetas_clean <-  RawBetas_qc[, !(colnames(RawBetas_qc) %in% out.ids)]
 save(RawBetas_clean, file = paste0(src.data.dir, "RawBetas_clean.Rdata")) 
 
-detP_clean     <- detP_qc[, !(colnames(detP_qc) %in% out.ids)] 
+detP_clean     <- detP_ql[, !(colnames(detP_ql) %in% out.ids)] 
 save(detP_clean, file = paste0(src.data.dir, "detP_clean.Rdata")) 
 
 pd_clean       <- pData(rgSet_clean)
