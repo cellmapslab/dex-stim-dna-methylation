@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --job-name="methylNormalization-quantileNMs"
+#SBATCH --job-name="methylNormalization-quantileNBetas"
 #SBATCH --part=pe
 #SBATCH --mem=50GB
-#SBATCH --output=methyl_normalization-quantileNMs.out
+#SBATCH --output=methyl_normalization-quantileNBetas.out
 
 module load R
 
