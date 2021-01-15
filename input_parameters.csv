@@ -1,18 +1,18 @@
-src.data.dir	/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/
-src.dir	~/github/dex-stim-dna-methylation/
-report.dir	"paste0(src.dir, ""02_qc/reports/"")"
-packages.fn	~/github/dex-stim-dna-methylation/packages.R
-sample.sheet.fn	~/github/dex-stim-dna-methylation/00_samplesheets/samplesheet_epic_methylation_dex.csv"
-rgSet.fn	"/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/rgSet_dex.RData"
-rgSet_qc.fn	"/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/rgSet_qc.Rdata"
-rgSet.fn	"/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/rgSet_dex.RData"
-rawBetas_qc.fn	"/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/RawBetas_qc.Rdata"
-rgSet_clean.fn	"/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/rgSet_clean.RData"
-detP_clean.fn	"/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/detP_clean.Rdata"
-rawBetas_clean.fn 	"/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/RawBetas_clean.Rdata"
-pd_clean.fn	"/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/pd_celan.Rdata"
-annotated_data_clean.fn	"/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/annotated_data_clean.Rdata"
-bmiq.script.fn	~/github/dex-stim-dna-methylation/BMIQ_1.6_Teschendorff.R
-quantileN.fn	"/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/quantileN.Rdata"
-quantileNBetas.fn	"/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/quantileNBetas.Rdata"
-quantileNMs.fn	"/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/quantileNMs.Rdata"
+src.data.dir;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/
+src.dir;~/github/dex-stim-dna-methylation/
+report.dir;~/github/dex-stim-dna-methylation/02_qc/reports/
+packages.fn;~/github/dex-stim-dna-methylation/packages.R
+sample.sheet.fn;~/github/dex-stim-dna-methylation/00_samplesheets/samplesheet_epic_methylation_dex.csv
+rgSet.fn;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/rgSet_dex.Rdata
+rgSet_qc.fn;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/rgSet_qc.Rdata
+rgSet.fn;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/rgSet_dex.Rdata
+rawBetas_qc.fn;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/RawBetas_qc.Rdata
+rgSet_clean.fn;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/rgSet_clean.Rdata
+detP_clean.fn;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/detP_clean.Rdata
+rawBetas_clean.fn ;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/RawBetas_clean.Rdata
+pd_clean.fn;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/pd_celan.Rdata
+annotated_data_clean.fn;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/annotated_data_clean.Rdata
+bmiq.script.fn;~/github/dex-stim-dna-methylation/BMIQ_1.6_Teschendorff.R
+quantileN.fn;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/quantileN.Rdata
+quantileNBetas.fn;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/quantileNBetas.Rdata
+quantileNMs.fn;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/quantileNMs.Rdata

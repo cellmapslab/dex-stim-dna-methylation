@@ -3,7 +3,7 @@
 args                <- commandArgs(T)
 input.parameters.fn <- as.character(args[1])
 
-input.parameters    <- read.csv(input.parameters.fn, sep = "\t", header = F )
+input.parameters    <- read.csv(input.parameters.fn, sep = ";", header = F )
 input.parameters    <- as.data.frame(input.parameters)
 
 for (row in 1:nrow(input.parameters))
