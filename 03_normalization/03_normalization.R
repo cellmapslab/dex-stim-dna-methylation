@@ -9,6 +9,7 @@ input.parameters    <- as.data.frame(input.parameters)
 for (row in 1:nrow(input.parameters))
   assign(input.parameters[row, 1], input.parameters[row, 2])
 
+# print(rgSet_clean.fn)
 source(packages.fn)
 
 load(rgSet_clean.fn)
