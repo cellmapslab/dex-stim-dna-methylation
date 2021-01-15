@@ -1,4 +1,4 @@
-/tmp/slurmd/job2589873/slurm_script: line 7: module: command not found
+/tmp/slurmd/job2589874/slurm_script: line 7: module: command not found
 Loading required package: BiocManager
 Bioconductor version 3.12 (BiocManager 1.30.10), ?BiocManager::install for help
 Loading required package: minfi
@@ -117,9 +117,3 @@ The following object is masked from ‘package:S4Vectors’:
     values
 
 Loading required package: RColorBrewer
-Loading required package: RPMM
-Warning message:
-In library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
-  there is no package called ‘RPMM’
-Error in load(rawBetas_clean.fn) : object 'rawBetas_clean.fn' not found
-Execution halted

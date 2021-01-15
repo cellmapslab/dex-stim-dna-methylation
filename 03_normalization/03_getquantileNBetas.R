@@ -13,9 +13,11 @@ source(bmiq.script.fn)
 
 load(quantileN.fn)
 load(rawBetas_clean.fn)
+load(quantileNBetas.fn)
+load(annotated_data_clean.fn)
 
-quantileNBetas <-  getBeta(quantileN) # get betas
-save(quantileNBetas, file = quantileNBetas.fn)
+# quantileNBetas <-  getBeta(quantileN) # get betas
+# save(quantileNBetas, file = quantileNBetas.fn)
 
 # BMIQ after quantile normalization:
 probeType           <- as.data.frame(annot[rownames(quantileNBetas), c("Name","Type")])
