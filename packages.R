@@ -1,12 +1,20 @@
-if(!require(BiocManager)) {
-install.packages("BiocManager"); require(BiocManager)}
+LoadPackages <- function(pkg.list){
+    new.pkg <- pkg.list[!(pkg.list %in% installed.packages()[, "Package"])]
+    if (length(new.pkg))
+        install.packages(new.pkg, dependencies = TRUE)
+    sapply(pkg.list, library, character.only = TRUE)
+}
 
-if(!require(minfi)) {
-  BiocManager::install("minfi"); require(minfi)}
+LoadPackagesBio <- function(pkg.list){
+    new.pkg <- pkg.list[!(pkg.list %in% installed.packages()[, "Package"])]
+    if (length(new.pkg))
+        BiocManager::install(new.pkg, dependencies = TRUE)
+    sapply(pkg.list, library, character.only = TRUE)
+}
 
-if(!require(future)) {
-  install.packages("future"); require(future)}
+pkg.list <- c("BiocManager", "future", "RColorBrewer", "sva", "RPMM", "ggplot2", "matrixStats", "reshape", "Hmisc")
 
-if(!require(RColorBrewer)) {
-  install.packages("RColorBrewer"); require(RColorBrewer)}
+biocmanager.pkg.list <- c("minfi", "missMethyl", "wateRmelon")
 
+LoadPackages(pkg.list)
+LoadPackagesBio(biocmanager.pkg.list)
