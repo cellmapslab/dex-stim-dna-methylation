@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name="methylFiltering_quantileNBetas"
 #SBATCH --part=pe
-#SBATCH --mem=300GB
+#SBATCH --mem=200GB
 #SBATCH --output=betas.out
 
 module load R

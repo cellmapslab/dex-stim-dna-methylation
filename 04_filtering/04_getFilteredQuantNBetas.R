@@ -17,5 +17,5 @@ source(bmiq.script.fn)
 load(quantileN.filtered.fn)
 
 Betas_quantileN_filtered <- getBeta(quantileN_filtered) # beta values
-save(Betas_quantileN_filtered, file = ms.quantileN.filtered.fn)
+save(Betas_quantileN_filtered, file = betas.quantileN.filtered.fn)
 
