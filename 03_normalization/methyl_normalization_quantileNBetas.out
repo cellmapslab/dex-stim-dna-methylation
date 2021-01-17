@@ -1,7 +1,6659 @@
-/tmp/slurmd/job2590919/slurm_script: line 7: module: command not found
-Installing packages into ‘/home/ahryhorzhevska/R/x86_64-redhat-linux-gnu-library/4.0’
-(as ‘lib’ is unspecified)
-Error in contrib.url(repos, type) : 
-  trying to use CRAN without setting a mirror
-Calls: source ... LoadPackages -> install.packages -> startsWith -> contrib.url
+/tmp/slurmd/job2591732/slurm_script: line 7: module: command not found
+Bioconductor version 3.12 (BiocManager 1.30.10), ?BiocManager::install for help
+Loading required package: cluster
+Loading required package: lattice
+Loading required package: survival
+
+Attaching package: ‘survival’
+
+The following object is masked from ‘package:future’:
+
+    cluster
+
+Loading required package: Formula
+
+Attaching package: ‘Hmisc’
+
+The following objects are masked from ‘package:base’:
+
+    format.pval, units
+
+Loading required package: BiocGenerics
+Loading required package: parallel
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:parallel’:
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, parApply, parCapply, parLapply,
+    parLapplyLB, parRapply, parSapply, parSapplyLB
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, append, as.data.frame, basename, cbind, colnames,
+    dirname, do.call, duplicated, eval, evalq, Filter, Find, get, grep,
+    grepl, intersect, is.unsorted, lapply, Map, mapply, match, mget,
+    order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
+    rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,
+    union, unique, unsplit, which.max, which.min
+
+Loading required package: GenomicRanges
+Loading required package: stats4
+Loading required package: S4Vectors
+
+Attaching package: ‘S4Vectors’
+
+The following objects are masked from ‘package:reshape’:
+
+    expand, rename
+
+The following object is masked from ‘package:future’:
+
+    values
+
+The following object is masked from ‘package:base’:
+
+    expand.grid
+
+Loading required package: IRanges
+Loading required package: GenomeInfoDb
+Loading required package: SummarizedExperiment
+Loading required package: MatrixGenerics
+
+Attaching package: ‘MatrixGenerics’
+
+The following objects are masked from ‘package:matrixStats’:
+
+    colAlls, colAnyNAs, colAnys, colAvgsPerRowSet, colCollapse,
+    colCounts, colCummaxs, colCummins, colCumprods, colCumsums,
+    colDiffs, colIQRDiffs, colIQRs, colLogSumExps, colMadDiffs,
+    colMads, colMaxs, colMeans2, colMedians, colMins, colOrderStats,
+    colProds, colQuantiles, colRanges, colRanks, colSdDiffs, colSds,
+    colSums2, colTabulates, colVarDiffs, colVars, colWeightedMads,
+    colWeightedMeans, colWeightedMedians, colWeightedSds,
+    colWeightedVars, rowAlls, rowAnyNAs, rowAnys, rowAvgsPerColSet,
+    rowCollapse, rowCounts, rowCummaxs, rowCummins, rowCumprods,
+    rowCumsums, rowDiffs, rowIQRDiffs, rowIQRs, rowLogSumExps,
+    rowMadDiffs, rowMads, rowMaxs, rowMeans2, rowMedians, rowMins,
+    rowOrderStats, rowProds, rowQuantiles, rowRanges, rowRanks,
+    rowSdDiffs, rowSds, rowSums2, rowTabulates, rowVarDiffs, rowVars,
+    rowWeightedMads, rowWeightedMeans, rowWeightedMedians,
+    rowWeightedSds, rowWeightedVars
+
+Loading required package: Biobase
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+
+Attaching package: ‘Biobase’
+
+The following object is masked from ‘package:MatrixGenerics’:
+
+    rowMedians
+
+The following object is masked from ‘package:Hmisc’:
+
+    contents
+
+The following objects are masked from ‘package:matrixStats’:
+
+    anyMissing, rowMedians
+
+Loading required package: Biostrings
+Loading required package: XVector
+
+Attaching package: ‘Biostrings’
+
+The following objects are masked from ‘package:Hmisc’:
+
+    mask, translate
+
+The following object is masked from ‘package:base’:
+
+    strsplit
+
+Loading required package: bumphunter
+Loading required package: foreach
+Loading required package: iterators
+Loading required package: locfit
+locfit 1.5-9.4 	 2020-03-24
+Setting options('download.file.method.GEOquery'='auto')
+Setting options('GEOquery.inmemory.gpl'=FALSE)
+Loading required package: IlluminaHumanMethylation450kanno.ilmn12.hg19
+Loading required package: IlluminaHumanMethylationEPICanno.ilm10b4.hg19
+
+Attaching package: ‘IlluminaHumanMethylationEPICanno.ilm10b4.hg19’
+
+The following objects are masked from ‘package:IlluminaHumanMethylation450kanno.ilmn12.hg19’:
+
+    Islands.UCSC, Locations, Manifest, Other, SNPs.132CommonSingle,
+    SNPs.135CommonSingle, SNPs.137CommonSingle, SNPs.138CommonSingle,
+    SNPs.141CommonSingle, SNPs.142CommonSingle, SNPs.144CommonSingle,
+    SNPs.146CommonSingle, SNPs.147CommonSingle, SNPs.Illumina
+
+
+Loading required package: limma
+
+Attaching package: ‘limma’
+
+The following object is masked from ‘package:BiocGenerics’:
+
+    plotMA
+
+Loading required package: methylumi
+Loading required package: scales
+Loading required package: reshape2
+
+Attaching package: ‘reshape2’
+
+The following objects are masked from ‘package:reshape’:
+
+    colsplit, melt, recast
+
+Loading required package: FDb.InfiniumMethylation.hg19
+Loading required package: GenomicFeatures
+Loading required package: AnnotationDbi
+Loading required package: TxDb.Hsapiens.UCSC.hg19.knownGene
+Loading required package: org.Hs.eg.db
+Loading required package: lumi
+No methods found in package ‘RSQLite’ for request: ‘dbListFields’ when loading ‘lumi’
+
+Attaching package: ‘lumi’
+
+The following objects are masked from ‘package:methylumi’:
+
+    estimateM, getHistory
+
+Loading required package: ROC
+Loading required package: illuminaio
+Loading required package: mgcv
+Loading required package: nlme
+
+Attaching package: ‘nlme’
+
+The following object is masked from ‘package:Biostrings’:
+
+    collapse
+
+The following object is masked from ‘package:IRanges’:
+
+    collapse
+
+This is mgcv 1.8-33. For overview type 'help("mgcv-package")'.
+Loading required package: genefilter
+
+Attaching package: ‘genefilter’
+
+The following objects are masked from ‘package:ROC’:
+
+    AUC, pAUC
+
+The following objects are masked from ‘package:methylumi’:
+
+    featureFilter, varFilter
+
+The following objects are masked from ‘package:MatrixGenerics’:
+
+    rowSds, rowVars
+
+The following objects are masked from ‘package:matrixStats’:
+
+    rowSds, rowVars
+
+Loading required package: BiocParallel
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01138801
+[1] 0.008933105
+[1] 0.007512623
+[1] 0.006555372
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00498803
+[1] 0.002451738
+[1] 0.001616157
+[1] 0.001268149
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01200069
+[1] 0.009774176
+[1] 0.008299645
+[1] 0.007251268
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003971333
+[1] 0.00248257
+[1] 0.001852683
+[1] 0.001416678
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01151434
+[1] 0.009312661
+[1] 0.007890442
+[1] 0.006893824
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007515833
+[1] 0.00405017
+[1] 0.002892278
+[1] 0.002426694
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01219648
+[1] 0.009124534
+[1] 0.007351718
+[1] 0.006208463
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005637664
+[1] 0.003169612
+[1] 0.00223797
+[1] 0.00174681
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0113407
+[1] 0.009319048
+[1] 0.008013547
+[1] 0.007077071
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006414304
+[1] 0.003394884
+[1] 0.002343549
+[1] 0.001907605
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01522445
+[1] 0.01156765
+[1] 0.009427711
+[1] 0.008025439
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003796855
+[1] 0.002293821
+[1] 0.001872347
+[1] 0.001664568
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01296739
+[1] 0.009674797
+[1] 0.007875941
+[1] 0.006728771
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007583929
+[1] 0.003754746
+[1] 0.002303108
+[1] 0.001641969
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01414402
+[1] 0.01110111
+[1] 0.009157157
+[1] 0.007830924
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004325936
+[1] 0.002250723
+[1] 0.001571955
+[1] 0.00124892
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008774481
+[1] 0.006770053
+[1] 0.005642075
+[1] 0.004907201
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007766894
+[1] 0.004463249
+[1] 0.003185024
+[1] 0.002560528
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0110663
+[1] 0.009161323
+[1] 0.007889772
+[1] 0.006974058
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004284154
+[1] 0.001618895
+[1] 0.001285161
+[1] 0.00129643
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009047891
+[1] 0.007922453
+[1] 0.007162988
+[1] 0.006552064
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.01106808
+[1] 0.006647842
+[1] 0.00475574
+[1] 0.003771137
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01008392
+[1] 0.007707235
+[1] 0.00640204
+[1] 0.005543204
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005544063
+[1] 0.003174726
+[1] 0.002259999
+[1] 0.001789884
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01150634
+[1] 0.009185751
+[1] 0.007771
+[1] 0.006793659
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007509724
+[1] 0.004357377
+[1] 0.00325539
+[1] 0.00277785
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01438223
+[1] 0.01098863
+[1] 0.008908818
+[1] 0.007525989
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004288071
+[1] 0.00293588
+[1] 0.002455227
+[1] 0.002157457
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01074738
+[1] 0.00846968
+[1] 0.007211295
+[1] 0.006379771
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.009455278
+[1] 0.005382158
+[1] 0.003740762
+[1] 0.002935093
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01299919
+[1] 0.01014868
+[1] 0.008433975
+[1] 0.007276685
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005452312
+[1] 0.003140163
+[1] 0.002243505
+[1] 0.001764824
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01162733
+[1] 0.008826721
+[1] 0.007160074
+[1] 0.00607283
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00569109
+[1] 0.003241265
+[1] 0.002365325
+[1] 0.001937831
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01242356
+[1] 0.01050445
+[1] 0.009084601
+[1] 0.008006621
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008367429
+[1] 0.006493711
+[1] 0.005582275
+[1] 0.004924194
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008427487
+[1] 0.006617029
+[1] 0.005647435
+[1] 0.005001937
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007528953
+[1] 0.004290768
+[1] 0.003095223
+[1] 0.002540083
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01298981
+[1] 0.010022
+[1] 0.008219976
+[1] 0.007014441
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005976737
+[1] 0.003797123
+[1] 0.002925425
+[1] 0.002433447
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008349061
+[1] 0.006261953
+[1] 0.005195362
+[1] 0.004525958
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005025659
+[1] 0.002016659
+[1] 0.00126971
+[1] 0.00127716
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01222639
+[1] 0.008757312
+[1] 0.006909858
+[1] 0.005781034
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004259442
+[1] 0.002043334
+[1] 0.001329728
+[1] 0.001066703
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01147756
+[1] 0.009355785
+[1] 0.008077558
+[1] 0.007175877
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.009452335
+[1] 0.005305999
+[1] 0.003816799
+[1] 0.003171024
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01261352
+[1] 0.01016198
+[1] 0.008611218
+[1] 0.007518429
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006281764
+[1] 0.004002454
+[1] 0.003188431
+[1] 0.00276514
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.007859651
+[1] 0.006286852
+[1] 0.005412938
+[1] 0.004815546
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003803045
+[1] 0.001602781
+[1] 0.0008839801
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009821856
+[1] 0.008295609
+[1] 0.007311079
+[1] 0.006576116
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006919978
+[1] 0.003626004
+[1] 0.002459852
+[1] 0.001953079
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.011053
+[1] 0.008443899
+[1] 0.006977553
+[1] 0.006029274
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.002939243
+[1] 0.000987468
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01031837
+[1] 0.007865467
+[1] 0.006492069
+[1] 0.005608908
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008799153
+[1] 0.004891282
+[1] 0.003393988
+[1] 0.002716639
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01190076
+[1] 0.009441293
+[1] 0.007925295
+[1] 0.006881659
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005627939
+[1] 0.002982139
+[1] 0.002055041
+[1] 0.001626746
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009318499
+[1] 0.007597221
+[1] 0.006529049
+[1] 0.005774321
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007377518
+[1] 0.004187161
+[1] 0.002986892
+[1] 0.002409602
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01184734
+[1] 0.008834035
+[1] 0.007100766
+[1] 0.005974596
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004843289
+[1] 0.002574721
+[1] 0.001820995
+[1] 0.001481469
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01178968
+[1] 0.008826586
+[1] 0.007073814
+[1] 0.005940647
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005723385
+[1] 0.003320882
+[1] 0.002512182
+[1] 0.00213451
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01203
+[1] 0.009597795
+[1] 0.008117357
+[1] 0.007093109
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005982416
+[1] 0.003255185
+[1] 0.002355346
+[1] 0.001978634
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01208954
+[1] 0.009808231
+[1] 0.008343756
+[1] 0.00730955
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004172169
+[1] 0.002386225
+[1] 0.001841946
+[1] 0.001576233
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01308165
+[1] 0.01007439
+[1] 0.008214994
+[1] 0.006982582
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005425164
+[1] 0.002875773
+[1] 0.002049973
+[1] 0.001710649
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01390687
+[1] 0.01070852
+[1] 0.008724561
+[1] 0.007393075
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003627989
+[1] 0.001893399
+[1] 0.001540129
+[1] 0.001461459
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.007842339
+[1] 0.006175094
+[1] 0.005306307
+[1] 0.004737378
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007641668
+[1] 0.003921665
+[1] 0.002549912
+[1] 0.001935964
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.00999568
+[1] 0.007694653
+[1] 0.006400812
+[1] 0.005552323
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004852603
+[1] 0.00255279
+[1] 0.001730898
+[1] 0.001341485
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01320233
+[1] 0.01033524
+[1] 0.008598677
+[1] 0.007411265
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004329217
+[1] 0.002009537
+[1] 0.00140486
+[1] 0.001444392
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01273545
+[1] 0.009064801
+[1] 0.007032037
+[1] 0.00575868
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004192781
+[1] 0.002018334
+[1] 0.001260443
+[1] 0.001169139
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01109497
+[1] 0.008347801
+[1] 0.006792805
+[1] 0.005766077
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004612924
+[1] 0.002252204
+[1] 0.001525753
+[1] 0.001332864
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01452503
+[1] 0.01117818
+[1] 0.009071332
+[1] 0.007641702
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006866341
+[1] 0.004591203
+[1] 0.003630141
+[1] 0.003055429
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01021962
+[1] 0.008516361
+[1] 0.007427472
+[1] 0.006632963
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006253043
+[1] 0.00360618
+[1] 0.002670922
+[1] 0.002218937
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01140257
+[1] 0.009154105
+[1] 0.007709595
+[1] 0.006696446
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007487948
+[1] 0.00535558
+[1] 0.00442433
+[1] 0.003821144
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01046513
+[1] 0.008581456
+[1] 0.007409167
+[1] 0.006585933
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008433951
+[1] 0.004850776
+[1] 0.003524788
+[1] 0.002923221
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009403736
+[1] 0.007731209
+[1] 0.006769059
+[1] 0.00608939
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00817586
+[1] 0.004668513
+[1] 0.003226609
+[1] 0.002484974
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01111948
+[1] 0.008734724
+[1] 0.007351693
+[1] 0.00642551
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007874144
+[1] 0.004269858
+[1] 0.002898456
+[1] 0.002268447
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01306063
+[1] 0.009716764
+[1] 0.007817407
+[1] 0.006604933
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005734145
+[1] 0.003388873
+[1] 0.002532851
+[1] 0.002076113
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009574478
+[1] 0.007789428
+[1] 0.006740306
+[1] 0.006016268
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.009374734
+[1] 0.005075998
+[1] 0.003370745
+[1] 0.002553444
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008867908
+[1] 0.007370006
+[1] 0.006543038
+[1] 0.005949466
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.01241566
+[1] 0.00776369
+[1] 0.005790424
+[1] 0.004769508
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01482589
+[1] 0.01166154
+[1] 0.009680951
+[1] 0.008330628
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004833037
+[1] 0.003101846
+[1] 0.002451077
+[1] 0.002054338
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009376736
+[1] 0.006738682
+[1] 0.005327328
+[1] 0.004450716
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005403579
+[1] 0.002901306
+[1] 0.001983666
+[1] 0.001528324
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009125803
+[1] 0.00686966
+[1] 0.005644337
+[1] 0.00483956
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005986156
+[1] 0.004154277
+[1] 0.003251341
+[1] 0.00262669
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01068683
+[1] 0.008402018
+[1] 0.007110399
+[1] 0.006243773
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006392899
+[1] 0.00317941
+[1] 0.002018147
+[1] 0.001497735
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01382163
+[1] 0.01030034
+[1] 0.008247045
+[1] 0.006925396
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.001925668
+[1] 0.0008723731
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01273967
+[1] 0.009786625
+[1] 0.008022322
+[1] 0.006839304
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005856772
+[1] 0.002908764
+[1] 0.001899448
+[1] 0.001474258
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01442241
+[1] 0.01171296
+[1] 0.009921989
+[1] 0.008654432
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006180395
+[1] 0.003740186
+[1] 0.002963833
+[1] 0.00263036
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0140585
+[1] 0.01101747
+[1] 0.009126258
+[1] 0.00785226
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.01030613
+[1] 0.006489046
+[1] 0.005051153
+[1] 0.004340525
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01159141
+[1] 0.008671445
+[1] 0.00701163
+[1] 0.005948035
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004542867
+[1] 0.002746136
+[1] 0.002203283
+[1] 0.001946914
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01463128
+[1] 0.01136344
+[1] 0.009384003
+[1] 0.00806496
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008163382
+[1] 0.005047492
+[1] 0.003986923
+[1] 0.00350691
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0124828
+[1] 0.009146465
+[1] 0.007256678
+[1] 0.006058253
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00541406
+[1] 0.003872774
+[1] 0.003194396
+[1] 0.002724133
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01173732
+[1] 0.009081082
+[1] 0.007517048
+[1] 0.006480492
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006198469
+[1] 0.002368115
+[1] 0.001014774
+[1] 0.001051144
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01266721
+[1] 0.009781677
+[1] 0.008084137
+[1] 0.006947798
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005759621
+[1] 0.003719747
+[1] 0.002947703
+[1] 0.002513458
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01262456
+[1] 0.009586697
+[1] 0.007836125
+[1] 0.006669967
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003933556
+[1] 0.001738092
+[1] 0.001040552
+[1] 0.001116831
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01207834
+[1] 0.009686925
+[1] 0.008226527
+[1] 0.007221815
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007522596
+[1] 0.0054059
+[1] 0.00446077
+[1] 0.00385309
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01173141
+[1] 0.009385047
+[1] 0.007962186
+[1] 0.00697616
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004032197
+[1] 0.002211969
+[1] 0.001590628
+[1] 0.001264036
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01156046
+[1] 0.009097717
+[1] 0.007565683
+[1] 0.006524543
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006999268
+[1] 0.004762453
+[1] 0.003849504
+[1] 0.003295888
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01226467
+[1] 0.009689131
+[1] 0.008040207
+[1] 0.006904667
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007001461
+[1] 0.004508507
+[1] 0.003530577
+[1] 0.00300713
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01300717
+[1] 0.00969574
+[1] 0.007753046
+[1] 0.006500649
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007150461
+[1] 0.004676853
+[1] 0.003798471
+[1] 0.003354628
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01296269
+[1] 0.01004686
+[1] 0.008211361
+[1] 0.006987947
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008053635
+[1] 0.004570822
+[1] 0.003310082
+[1] 0.00275129
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01359919
+[1] 0.01086157
+[1] 0.009058182
+[1] 0.007794664
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005051964
+[1] 0.003032324
+[1] 0.00239534
+[1] 0.00210212
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01172472
+[1] 0.008656334
+[1] 0.006909322
+[1] 0.005793915
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003709509
+[1] 0.001813399
+[1] 0.001261849
+[1] 0.001291079
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009087557
+[1] 0.008029291
+[1] 0.00729035
+[1] 0.006678478
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006851445
+[1] 0.004406713
+[1] 0.003343703
+[1] 0.002709599
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0111257
+[1] 0.008923119
+[1] 0.007566199
+[1] 0.006631197
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004703457
+[1] 0.002364144
+[1] 0.001678672
+[1] 0.001414533
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01074118
+[1] 0.008720376
+[1] 0.007523688
+[1] 0.006687149
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.009039237
+[1] 0.005185724
+[1] 0.003725009
+[1] 0.003032475
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008348974
+[1] 0.006590945
+[1] 0.005686577
+[1] 0.005088763
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.01146792
+[1] 0.006800446
+[1] 0.00488165
+[1] 0.003917996
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01192687
+[1] 0.009477794
+[1] 0.007982942
+[1] 0.006958855
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006473739
+[1] 0.004758534
+[1] 0.003956833
+[1] 0.003402262
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01233775
+[1] 0.009200191
+[1] 0.007377921
+[1] 0.006202395
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006741778
+[1] 0.0038888
+[1] 0.002854943
+[1] 0.002366688
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01149813
+[1] 0.008876367
+[1] 0.007360107
+[1] 0.006353743
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006321612
+[1] 0.003507601
+[1] 0.00250304
+[1] 0.002044721
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01308979
+[1] 0.01027235
+[1] 0.008614815
+[1] 0.007504796
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006434627
+[1] 0.003597834
+[1] 0.002678778
+[1] 0.002314565
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0123383
+[1] 0.0101105
+[1] 0.008622909
+[1] 0.007556619
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00316592
+[1] 0.001706843
+[1] 0.001324856
+[1] 0.001159337
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008875846
+[1] 0.007041656
+[1] 0.005929603
+[1] 0.005169052
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007530862
+[1] 0.00432253
+[1] 0.003143781
+[1] 0.002598196
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01217662
+[1] 0.008345859
+[1] 0.006326979
+[1] 0.005127923
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006592451
+[1] 0.004743476
+[1] 0.003917809
+[1] 0.003360056
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008158641
+[1] 0.005374668
+[1] 0.003988187
+[1] 0.003175884
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007491897
+[1] 0.004362131
+[1] 0.003192367
+[1] 0.002638671
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01131584
+[1] 0.008801571
+[1] 0.007346789
+[1] 0.006383192
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.002594225
+[1] 0.001294817
+[1] 0.001577331
+[1] 0.001626071
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.00880503
+[1] 0.007160886
+[1] 0.00620375
+[1] 0.005536748
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00789542
+[1] 0.004504899
+[1] 0.00325451
+[1] 0.002689631
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01298342
+[1] 0.009635156
+[1] 0.007689779
+[1] 0.006430586
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005495705
+[1] 0.003927687
+[1] 0.003274736
+[1] 0.002833226
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01315592
+[1] 0.01009982
+[1] 0.008231438
+[1] 0.006988975
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006272808
+[1] 0.003925147
+[1] 0.003156787
+[1] 0.002822087
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01097824
+[1] 0.009031696
+[1] 0.007755082
+[1] 0.006830951
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006606315
+[1] 0.003510039
+[1] 0.002446449
+[1] 0.001976882
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01204475
+[1] 0.009795342
+[1] 0.008360291
+[1] 0.007340181
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004381983
+[1] 0.002996535
+[1] 0.002486355
+[1] 0.002111698
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01050738
+[1] 0.008202212
+[1] 0.00687915
+[1] 0.006000311
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006914595
+[1] 0.003595001
+[1] 0.002420127
+[1] 0.001896589
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01284853
+[1] 0.01018969
+[1] 0.008533738
+[1] 0.007407868
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006550371
+[1] 0.004024901
+[1] 0.003109766
+[1] 0.002633669
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01122655
+[1] 0.00888419
+[1] 0.007518103
+[1] 0.006592966
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007223292
+[1] 0.004590371
+[1] 0.003661623
+[1] 0.003198737
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01134854
+[1] 0.008473531
+[1] 0.006857324
+[1] 0.005830018
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004518609
+[1] 0.002401375
+[1] 0.001711499
+[1] 0.001413137
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009311494
+[1] 0.007535008
+[1] 0.006471275
+[1] 0.005729521
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007678004
+[1] 0.004255668
+[1] 0.003033848
+[1] 0.002497946
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0123714
+[1] 0.00895157
+[1] 0.007055074
+[1] 0.005873179
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00485692
+[1] 0.002057233
+[1] 0.00112574
+[1] 0.001118612
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01099918
+[1] 0.008267767
+[1] 0.006681704
+[1] 0.005649126
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00686407
+[1] 0.003885555
+[1] 0.00286101
+[1] 0.002415518
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01097006
+[1] 0.008411281
+[1] 0.006933347
+[1] 0.005962129
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.01085837
+[1] 0.00668936
+[1] 0.005028415
+[1] 0.004195449
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0132919
+[1] 0.01043086
+[1] 0.008610458
+[1] 0.007371993
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00754963
+[1] 0.005813139
+[1] 0.004983015
+[1] 0.004368769
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01189217
+[1] 0.009214088
+[1] 0.007581122
+[1] 0.006490966
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006968792
+[1] 0.004469915
+[1] 0.003490908
+[1] 0.002939029
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01119062
+[1] 0.008478639
+[1] 0.006974535
+[1] 0.005997519
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004848849
+[1] 0.002594066
+[1] 0.001791167
+[1] 0.001394478
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01100292
+[1] 0.008924998
+[1] 0.007635702
+[1] 0.006727916
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007535899
+[1] 0.004609793
+[1] 0.003538719
+[1] 0.003020165
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01252199
+[1] 0.009082472
+[1] 0.007208113
+[1] 0.006043658
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004465321
+[1] 0.001975104
+[1] 0.001236277
+[1] 0.00125414
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009616584
+[1] 0.007045806
+[1] 0.005670635
+[1] 0.004804976
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007409767
+[1] 0.0039694
+[1] 0.002778738
+[1] 0.002295896
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01093837
+[1] 0.008403558
+[1] 0.006908646
+[1] 0.005922679
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006909948
+[1] 0.004511164
+[1] 0.0035475
+[1] 0.002998622
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01013373
+[1] 0.0080494
+[1] 0.006823152
+[1] 0.005991644
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008453059
+[1] 0.004984973
+[1] 0.003655802
+[1] 0.003009601
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008580196
+[1] 0.005760369
+[1] 0.004368164
+[1] 0.003563777
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.009061561
+[1] 0.006183463
+[1] 0.005026861
+[1] 0.004386814
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.007747982
+[1] 0.006202444
+[1] 0.005333369
+[1] 0.004748851
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008126177
+[1] 0.004555483
+[1] 0.003091715
+[1] 0.002341944
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0103403
+[1] 0.008034178
+[1] 0.006668014
+[1] 0.005757375
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004169802
+[1] 0.001996081
+[1] 0.001423717
+[1] 0.001448275
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01321404
+[1] 0.01028117
+[1] 0.008471702
+[1] 0.00726074
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00667297
+[1] 0.003806646
+[1] 0.00277997
+[1] 0.002300644
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01321565
+[1] 0.009953843
+[1] 0.008018822
+[1] 0.006761431
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007132147
+[1] 0.005017184
+[1] 0.004150822
+[1] 0.003630514
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01105006
+[1] 0.008160425
+[1] 0.006516594
+[1] 0.005475534
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.009376457
+[1] 0.007008176
+[1] 0.005936932
+[1] 0.005307435
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01222978
+[1] 0.009477532
+[1] 0.007850314
+[1] 0.006767243
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.0085253
+[1] 0.005500225
+[1] 0.004315028
+[1] 0.003683413
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01140374
+[1] 0.009260085
+[1] 0.007886974
+[1] 0.006915909
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.009027664
+[1] 0.005173851
+[1] 0.003789084
+[1] 0.003177322
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01100839
+[1] 0.008084182
+[1] 0.006450669
+[1] 0.005430868
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006344613
+[1] 0.004656495
+[1] 0.003916523
+[1] 0.003427008
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008708023
+[1] 0.006248472
+[1] 0.004972944
+[1] 0.004189223
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005984161
+[1] 0.003688853
+[1] 0.002818093
+[1] 0.002370384
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01410873
+[1] 0.0101905
+[1] 0.007981003
+[1] 0.006593171
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005329624
+[1] 0.003162807
+[1] 0.002526929
+[1] 0.002253512
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01198183
+[1] 0.00857339
+[1] 0.006695675
+[1] 0.005531229
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005188748
+[1] 0.002917809
+[1] 0.002125937
+[1] 0.001742639
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01080687
+[1] 0.008451524
+[1] 0.00707768
+[1] 0.006146748
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005590888
+[1] 0.003237345
+[1] 0.002422304
+[1] 0.002037657
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009377939
+[1] 0.007162504
+[1] 0.005869473
+[1] 0.005003232
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008051586
+[1] 0.004490291
+[1] 0.003219452
+[1] 0.00266966
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008283594
+[1] 0.007076861
+[1] 0.006281209
+[1] 0.005675602
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008461595
+[1] 0.004598885
+[1] 0.00312796
+[1] 0.002439375
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01033684
+[1] 0.008003094
+[1] 0.006664401
+[1] 0.0057799
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007667539
+[1] 0.005453232
+[1] 0.004446007
+[1] 0.00378167
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009746778
+[1] 0.007214244
+[1] 0.005805756
+[1] 0.004924521
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006373141
+[1] 0.003698897
+[1] 0.002657893
+[1] 0.002121368
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01096821
+[1] 0.008413826
+[1] 0.006942375
+[1] 0.005985122
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004605578
+[1] 0.003007773
+[1] 0.002352564
+[1] 0.001903286
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01306046
+[1] 0.009934881
+[1] 0.008055029
+[1] 0.006828345
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.009876543
+[1] 0.005930183
+[1] 0.004391613
+[1] 0.003650546
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01137217
+[1] 0.008673181
+[1] 0.007077358
+[1] 0.006025672
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007000835
+[1] 0.004858888
+[1] 0.003931083
+[1] 0.003327134
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01461168
+[1] 0.01059534
+[1] 0.008343437
+[1] 0.006931776
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005766727
+[1] 0.003732002
+[1] 0.003045218
+[1] 0.00268534
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01217424
+[1] 0.008615854
+[1] 0.006632838
+[1] 0.005402037
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00858046
+[1] 0.006331683
+[1] 0.005231089
+[1] 0.004492682
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01180776
+[1] 0.00947438
+[1] 0.007949191
+[1] 0.006890254
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008302227
+[1] 0.005050506
+[1] 0.003741047
+[1] 0.003065889
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.00995635
+[1] 0.007502565
+[1] 0.006115495
+[1] 0.005225947
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004638736
+[1] 0.003000639
+[1] 0.002478352
+[1] 0.002189998
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01026226
+[1] 0.007598825
+[1] 0.006200794
+[1] 0.005328777
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006860924
+[1] 0.003386051
+[1] 0.002058921
+[1] 0.001426202
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01066437
+[1] 0.007852282
+[1] 0.006319322
+[1] 0.005361946
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004574573
+[1] 0.002377067
+[1] 0.001672944
+[1] 0.001349689
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01021816
+[1] 0.00740575
+[1] 0.005881718
+[1] 0.004924972
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.01155617
+[1] 0.006695317
+[1] 0.004724113
+[1] 0.003761714
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0117283
+[1] 0.008706425
+[1] 0.007008056
+[1] 0.005921346
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.009485383
+[1] 0.00577973
+[1] 0.004380141
+[1] 0.003714113
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01181285
+[1] 0.008890987
+[1] 0.007212367
+[1] 0.0061141
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007788745
+[1] 0.005414511
+[1] 0.00449268
+[1] 0.003985479
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01238179
+[1] 0.009194766
+[1] 0.007312979
+[1] 0.006087514
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003827269
+[1] 0.002266071
+[1] 0.001687538
+[1] 0.001366835
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01306794
+[1] 0.01044668
+[1] 0.008819145
+[1] 0.007693308
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007230846
+[1] 0.004960664
+[1] 0.004015731
+[1] 0.003424414
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01055133
+[1] 0.008554269
+[1] 0.007306809
+[1] 0.006427465
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005872744
+[1] 0.003016156
+[1] 0.002011036
+[1] 0.001548235
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01004789
+[1] 0.007857222
+[1] 0.006546011
+[1] 0.005665979
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005823919
+[1] 0.003434014
+[1] 0.00257324
+[1] 0.002114323
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01047549
+[1] 0.007478684
+[1] 0.005893905
+[1] 0.004921044
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.009327999
+[1] 0.005654799
+[1] 0.00437785
+[1] 0.003864532
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01336149
+[1] 0.00983849
+[1] 0.007774939
+[1] 0.006452361
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005487554
+[1] 0.004128003
+[1] 0.003608491
+[1] 0.003237661
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01322112
+[1] 0.01024338
+[1] 0.008430377
+[1] 0.00722086
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00681943
+[1] 0.004279812
+[1] 0.003287859
+[1] 0.002741386
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01016979
+[1] 0.007320768
+[1] 0.00576777
+[1] 0.004805128
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003479641
+[1] 0.001309349
+[1] 0.001491871
+[1] 0.001471772
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008331893
+[1] 0.00663037
+[1] 0.00568073
+[1] 0.005035809
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.009303241
+[1] 0.005433992
+[1] 0.004017668
+[1] 0.003390458
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0113248
+[1] 0.008941595
+[1] 0.007484664
+[1] 0.006491201
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006504576
+[1] 0.004526294
+[1] 0.003671145
+[1] 0.003111959
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01179588
+[1] 0.008724233
+[1] 0.006951426
+[1] 0.005808277
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005703945
+[1] 0.00329729
+[1] 0.002435739
+[1] 0.002009969
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01194903
+[1] 0.008798588
+[1] 0.00700904
+[1] 0.005865934
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006852299
+[1] 0.004518609
+[1] 0.003546356
+[1] 0.002983719
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01087775
+[1] 0.008465168
+[1] 0.007019136
+[1] 0.006046899
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007504432
+[1] 0.00479392
+[1] 0.003890311
+[1] 0.003489527
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01261856
+[1] 0.008937238
+[1] 0.0069771
+[1] 0.00579481
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006830928
+[1] 0.004174596
+[1] 0.003214098
+[1] 0.002738031
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01057748
+[1] 0.007455443
+[1] 0.005776996
+[1] 0.004752719
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006896466
+[1] 0.003726271
+[1] 0.002534921
+[1] 0.001977286
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01149144
+[1] 0.008449003
+[1] 0.006817774
+[1] 0.005797029
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007615619
+[1] 0.004608839
+[1] 0.003541394
+[1] 0.003042654
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01034409
+[1] 0.008081245
+[1] 0.006763946
+[1] 0.005883612
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008794624
+[1] 0.005173919
+[1] 0.003805568
+[1] 0.003162544
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01113838
+[1] 0.008883796
+[1] 0.007488721
+[1] 0.00652298
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005360827
+[1] 0.002893077
+[1] 0.002081079
+[1] 0.001715665
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01302972
+[1] 0.009284606
+[1] 0.007189337
+[1] 0.005881015
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.009549242
+[1] 0.006262394
+[1] 0.004864933
+[1] 0.004093864
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01284033
+[1] 0.009430643
+[1] 0.007498878
+[1] 0.006285602
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.009048446
+[1] 0.006604421
+[1] 0.005542321
+[1] 0.004895283
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.007200517
+[1] 0.00507396
+[1] 0.004041564
+[1] 0.003426976
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008345364
+[1] 0.004944289
+[1] 0.003570269
+[1] 0.00287057
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01027767
+[1] 0.006849486
+[1] 0.005182803
+[1] 0.004237233
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.01028473
+[1] 0.00791749
+[1] 0.006765715
+[1] 0.006013604
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.00912424
+[1] 0.006679179
+[1] 0.005379433
+[1] 0.004568823
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008681928
+[1] 0.005041592
+[1] 0.003646
+[1] 0.002968067
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01409522
+[1] 0.009845197
+[1] 0.007517062
+[1] 0.006105193
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.01194809
+[1] 0.009695337
+[1] 0.008434205
+[1] 0.007520949
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01201492
+[1] 0.008141802
+[1] 0.005988336
+[1] 0.004675615
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007589453
+[1] 0.005810036
+[1] 0.005029479
+[1] 0.004509905
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01580861
+[1] 0.01298492
+[1] 0.01110513
+[1] 0.00974705
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006272755
+[1] 0.004913161
+[1] 0.004378822
+[1] 0.003965674
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01052977
+[1] 0.007584489
+[1] 0.005970401
+[1] 0.004970287
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003159144
+[1] 0.001366936
+[1] 0.00154049
+[1] 0.001504845
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01537279
+[1] 0.01159162
+[1] 0.009328394
+[1] 0.007860163
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005391847
+[1] 0.003064355
+[1] 0.002366211
+[1] 0.002084834
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01191748
+[1] 0.009179266
+[1] 0.007600864
+[1] 0.006569236
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008217612
+[1] 0.004384935
+[1] 0.002985476
+[1] 0.002370894
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0156305
+[1] 0.01176786
+[1] 0.009470734
+[1] 0.007977767
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005014955
+[1] 0.003322328
+[1] 0.002783387
+[1] 0.002501171
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01176757
+[1] 0.007839224
+[1] 0.005837722
+[1] 0.004669754
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004439624
+[1] 0.002085905
+[1] 0.001329309
+[1] 0.001286109
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01200105
+[1] 0.00879935
+[1] 0.006967722
+[1] 0.005798215
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004176428
+[1] 0.002344919
+[1] 0.00176485
+[1] 0.001512452
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01208533
+[1] 0.008573206
+[1] 0.006662394
+[1] 0.005487339
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008416713
+[1] 0.004551502
+[1] 0.00303652
+[1] 0.002313939
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01090598
+[1] 0.008773906
+[1] 0.007496105
+[1] 0.006607791
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006147854
+[1] 0.003289182
+[1] 0.002274882
+[1] 0.001811341
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0119755
+[1] 0.009155336
+[1] 0.007501626
+[1] 0.006413602
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008776921
+[1] 0.007004842
+[1] 0.006056756
+[1] 0.00536099
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01139187
+[1] 0.008168421
+[1] 0.006426369
+[1] 0.005348777
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007400006
+[1] 0.004106902
+[1] 0.002917019
+[1] 0.002370276
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01371949
+[1] 0.0101385
+[1] 0.008063409
+[1] 0.006735245
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004309982
+[1] 0.002444687
+[1] 0.001956414
+[1] 0.001773414
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009686454
+[1] 0.007464341
+[1] 0.006211053
+[1] 0.005385975
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005164516
+[1] 0.002560851
+[1] 0.001731564
+[1] 0.001400898
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01082321
+[1] 0.007062854
+[1] 0.00524267
+[1] 0.004225196
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00769544
+[1] 0.005335015
+[1] 0.004244006
+[1] 0.003572991
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01159425
+[1] 0.008937946
+[1] 0.007366386
+[1] 0.00630813
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005517375
+[1] 0.003106797
+[1] 0.002116768
+[1] 0.001559935
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009107254
+[1] 0.007015456
+[1] 0.005801568
+[1] 0.005000754
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003122801
+[1] 0.001197707
+[1] 0.001315361
+[1] 0.001363612
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0113333
+[1] 0.008980053
+[1] 0.007542935
+[1] 0.006557934
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006486719
+[1] 0.003388791
+[1] 0.002305294
+[1] 0.001826847
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01328979
+[1] 0.01109091
+[1] 0.009561825
+[1] 0.008437271
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008297327
+[1] 0.005737428
+[1] 0.004692856
+[1] 0.00408621
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0123106
+[1] 0.009037667
+[1] 0.007129705
+[1] 0.00591825
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005304746
+[1] 0.002941309
+[1] 0.002137636
+[1] 0.001767902
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01508496
+[1] 0.01140617
+[1] 0.009203098
+[1] 0.007765185
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004741178
+[1] 0.00275764
+[1] 0.002217775
+[1] 0.001987003
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009853878
+[1] 0.007169388
+[1] 0.005679984
+[1] 0.004748656
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006386483
+[1] 0.003421274
+[1] 0.002347656
+[1] 0.001872223
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01198514
+[1] 0.008635026
+[1] 0.006805625
+[1] 0.005679757
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007254337
+[1] 0.005173669
+[1] 0.0043144
+[1] 0.003781853
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009621233
+[1] 0.006999085
+[1] 0.00551675
+[1] 0.004568365
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007831479
+[1] 0.004307587
+[1] 0.0030487
+[1] 0.002503849
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01080497
+[1] 0.007970013
+[1] 0.00639373
+[1] 0.005393691
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005356013
+[1] 0.003707648
+[1] 0.0030589
+[1] 0.002643601
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0122436
+[1] 0.009901574
+[1] 0.008358416
+[1] 0.007269399
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00537158
+[1] 0.003308009
+[1] 0.002643004
+[1] 0.002323939
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009501718
+[1] 0.008064375
+[1] 0.007105512
+[1] 0.006381698
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00833557
+[1] 0.004770229
+[1] 0.003479033
+[1] 0.002885708
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01289295
+[1] 0.01036268
+[1] 0.008697253
+[1] 0.007528017
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005863488
+[1] 0.003885385
+[1] 0.003176783
+[1] 0.002784435
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0102874
+[1] 0.00767922
+[1] 0.006280655
+[1] 0.005388907
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006541394
+[1] 0.003879169
+[1] 0.002812211
+[1] 0.002250546
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01388838
+[1] 0.01061223
+[1] 0.00865242
+[1] 0.007362384
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003250808
+[1] 0.001926441
+[1] 0.001674284
+[1] 0.001595264
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01076113
+[1] 0.008175642
+[1] 0.006780597
+[1] 0.005879434
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005692837
+[1] 0.003052177
+[1] 0.002184552
+[1] 0.001832524
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01277281
+[1] 0.009426297
+[1] 0.007476027
+[1] 0.006247359
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004917049
+[1] 0.00295484
+[1] 0.002301545
+[1] 0.00198741
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009033193
+[1] 0.006870485
+[1] 0.00566654
+[1] 0.00489079
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008399411
+[1] 0.005026022
+[1] 0.003782871
+[1] 0.003206585
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01020969
+[1] 0.008453087
+[1] 0.00734852
+[1] 0.006546302
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.01035141
+[1] 0.005907295
+[1] 0.004075426
+[1] 0.003166247
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01323317
+[1] 0.01051079
+[1] 0.008797432
+[1] 0.007614011
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006358974
+[1] 0.003849028
+[1] 0.003006366
+[1] 0.002607694
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01126831
+[1] 0.008811277
+[1] 0.007359089
+[1] 0.006392585
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004374093
+[1] 0.002109703
+[1] 0.001494258
+[1] 0.001305238
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01381556
+[1] 0.01083989
+[1] 0.008995112
+[1] 0.0077397
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008071485
+[1] 0.006390083
+[1] 0.0056359
+[1] 0.005079987
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01382474
+[1] 0.0103856
+[1] 0.008380169
+[1] 0.00707818
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005620359
+[1] 0.002732353
+[1] 0.001734738
+[1] 0.001300383
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01505753
+[1] 0.01167621
+[1] 0.009604386
+[1] 0.008193779
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003097298
+[1] 0.001304219
+[1] 0.001203718
+[1] 0.001285654
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01559975
+[1] 0.01213088
+[1] 0.009895376
+[1] 0.008346673
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003246691
+[1] 0.001884309
+[1] 0.001518197
+[1] 0.001341537
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009972187
+[1] 0.007320391
+[1] 0.005903602
+[1] 0.005009471
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.001865777
+[1] 0.001171685
+[1] 0.001518435
+[1] 0.00159923
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01212564
+[1] 0.009771504
+[1] 0.008291214
+[1] 0.007256779
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003923685
+[1] 0.001750844
+[1] 0.001156625
+[1] 0.001198062
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01034241
+[1] 0.00850765
+[1] 0.007376661
+[1] 0.006565829
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005808166
+[1] 0.003679185
+[1] 0.002982502
+[1] 0.002617699
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0108292
+[1] 0.008738226
+[1] 0.007411044
+[1] 0.006481257
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003844176
+[1] 0.001350912
+[1] 0.001259673
+[1] 0.001290177
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009737269
+[1] 0.008134773
+[1] 0.00717691
+[1] 0.006488142
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.009404474
+[1] 0.005648555
+[1] 0.00412334
+[1] 0.003348211
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01233032
+[1] 0.009441729
+[1] 0.007719779
+[1] 0.006581268
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005618148
+[1] 0.002989082
+[1] 0.002222451
+[1] 0.001965574
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.00952827
+[1] 0.006767965
+[1] 0.005307059
+[1] 0.004400023
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007257355
+[1] 0.003652365
+[1] 0.00239003
+[1] 0.001869934
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0136163
+[1] 0.0104166
+[1] 0.008485992
+[1] 0.007195103
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004056039
+[1] 0.002093983
+[1] 0.001466434
+[1] 0.001276181
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.007544427
+[1] 0.005463463
+[1] 0.00439752
+[1] 0.003732242
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006940371
+[1] 0.003355232
+[1] 0.001991963
+[1] 0.001422726
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01084385
+[1] 0.00885279
+[1] 0.007565833
+[1] 0.00664378
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006671923
+[1] 0.003677691
+[1] 0.002559136
+[1] 0.00200385
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01135709
+[1] 0.008888912
+[1] 0.007412873
+[1] 0.006413695
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006576877
+[1] 0.004499802
+[1] 0.003731891
+[1] 0.003290874
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008266759
+[1] 0.006661613
+[1] 0.005776702
+[1] 0.005174903
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00907564
+[1] 0.004614393
+[1] 0.002880223
+[1] 0.002073971
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009945061
+[1] 0.007889812
+[1] 0.006715476
+[1] 0.005927938
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007511599
+[1] 0.004562623
+[1] 0.003583316
+[1] 0.003160691
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01219142
+[1] 0.009874449
+[1] 0.008449738
+[1] 0.007459173
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.01002534
+[1] 0.006320311
+[1] 0.004815435
+[1] 0.004040492
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01399482
+[1] 0.01078147
+[1] 0.008823183
+[1] 0.007498546
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005152654
+[1] 0.003611401
+[1] 0.003045213
+[1] 0.002715172
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01064909
+[1] 0.007739133
+[1] 0.006206114
+[1] 0.005249314
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005607914
+[1] 0.002680695
+[1] 0.001665388
+[1] 0.001225485
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01307211
+[1] 0.009762491
+[1] 0.007786334
+[1] 0.0064933
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004744607
+[1] 0.002861149
+[1] 0.002220124
+[1] 0.001908313
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008986083
+[1] 0.006933415
+[1] 0.005736217
+[1] 0.004951136
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004967002
+[1] 0.002509617
+[1] 0.001627903
+[1] 0.001198222
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01020538
+[1] 0.008988566
+[1] 0.008094497
+[1] 0.00735724
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006148127
+[1] 0.003694193
+[1] 0.002926137
+[1] 0.002600463
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01237031
+[1] 0.009349537
+[1] 0.007587242
+[1] 0.006448925
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007438294
+[1] 0.004314335
+[1] 0.003173767
+[1] 0.002643979
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01077765
+[1] 0.007791286
+[1] 0.006160541
+[1] 0.005137551
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008689461
+[1] 0.00605401
+[1] 0.004904573
+[1] 0.004238018
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01172652
+[1] 0.008514961
+[1] 0.006736168
+[1] 0.005603684
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00614901
+[1] 0.003452321
+[1] 0.002468876
+[1] 0.002005972
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01224025
+[1] 0.009274854
+[1] 0.007555031
+[1] 0.006424129
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005374661
+[1] 0.003000746
+[1] 0.0022356
+[1] 0.001912797
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01216222
+[1] 0.009228136
+[1] 0.00751781
+[1] 0.006383898
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006333745
+[1] 0.003500392
+[1] 0.002491233
+[1] 0.002039555
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01167606
+[1] 0.008765843
+[1] 0.007073347
+[1] 0.005945036
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005510739
+[1] 0.003223715
+[1] 0.00241382
+[1] 0.002020939
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01032715
+[1] 0.008632852
+[1] 0.007611543
+[1] 0.006865122
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008817815
+[1] 0.004584658
+[1] 0.002942683
+[1] 0.00217648
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0122229
+[1] 0.01009865
+[1] 0.008712258
+[1] 0.007715564
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006889328
+[1] 0.003810342
+[1] 0.002693688
+[1] 0.002177857
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01353743
+[1] 0.01016685
+[1] 0.008285098
+[1] 0.007079173
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005390872
+[1] 0.002212429
+[1] 0.001158913
+[1] 0.0008602514
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01398418
+[1] 0.01066631
+[1] 0.008636286
+[1] 0.007295532
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00472146
+[1] 0.002948536
+[1] 0.002349263
+[1] 0.002038882
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01222843
+[1] 0.009191465
+[1] 0.007443425
+[1] 0.006298586
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005518192
+[1] 0.002827459
+[1] 0.001870502
+[1] 0.001447657
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01410998
+[1] 0.01039845
+[1] 0.008269463
+[1] 0.006900664
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004865785
+[1] 0.002847991
+[1] 0.002155478
+[1] 0.001825872
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01270794
+[1] 0.01010562
+[1] 0.00847085
+[1] 0.007331633
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003823901
+[1] 0.001450687
+[1] 0.001158452
+[1] 0.001233132
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01325155
+[1] 0.01030598
+[1] 0.008587966
+[1] 0.007422666
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004009537
+[1] 0.001773068
+[1] 0.001079654
+[1] 0.0008026051
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01156702
+[1] 0.009144755
+[1] 0.007650414
+[1] 0.006636398
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004347523
+[1] 0.002393251
+[1] 0.001797185
+[1] 0.001537123
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01142333
+[1] 0.008995477
+[1] 0.00757819
+[1] 0.006622498
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005929148
+[1] 0.003065068
+[1] 0.002137255
+[1] 0.001752367
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01317599
+[1] 0.01057511
+[1] 0.008869108
+[1] 0.007677648
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006132992
+[1] 0.003299327
+[1] 0.00242622
+[1] 0.002097934
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01079316
+[1] 0.008772746
+[1] 0.007535768
+[1] 0.00666362
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008580379
+[1] 0.005237588
+[1] 0.004016288
+[1] 0.003454078
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01276716
+[1] 0.009850315
+[1] 0.008118142
+[1] 0.006958084
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003770373
+[1] 0.002636325
+[1] 0.002136178
+[1] 0.001774958
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01391409
+[1] 0.01063828
+[1] 0.008624087
+[1] 0.007268575
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005357467
+[1] 0.002910924
+[1] 0.002099248
+[1] 0.001739334
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01141025
+[1] 0.00879673
+[1] 0.007212384
+[1] 0.006148866
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004930913
+[1] 0.002435219
+[1] 0.001600919
+[1] 0.001248474
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01166629
+[1] 0.009582493
+[1] 0.008246961
+[1] 0.00729274
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.009145874
+[1] 0.005357466
+[1] 0.004009605
+[1] 0.003413492
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01233632
+[1] 0.01004244
+[1] 0.008625723
+[1] 0.007623663
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006932236
+[1] 0.004353689
+[1] 0.003364357
+[1] 0.002845544
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01563454
+[1] 0.01259247
+[1] 0.01055627
+[1] 0.009119051
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.002167999
+[1] 0.001105994
+[1] 0.001314037
+[1] 0.001311198
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.013722
+[1] 0.01089952
+[1] 0.0090736
+[1] 0.007809585
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007271633
+[1] 0.005443826
+[1] 0.004628272
+[1] 0.004074733
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01389737
+[1] 0.01129165
+[1] 0.009617301
+[1] 0.008436535
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004701484
+[1] 0.002867985
+[1] 0.002363412
+[1] 0.002165677
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0154496
+[1] 0.01169056
+[1] 0.009378938
+[1] 0.007856506
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00588423
+[1] 0.004162572
+[1] 0.003515675
+[1] 0.003129846
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01223849
+[1] 0.009553936
+[1] 0.007952842
+[1] 0.006878307
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004042749
+[1] 0.001876881
+[1] 0.001228149
+[1] 0.001334502
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01279097
+[1] 0.009467648
+[1] 0.007541225
+[1] 0.006286857
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006492707
+[1] 0.004388979
+[1] 0.003510537
+[1] 0.002999873
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01419541
+[1] 0.01119246
+[1] 0.009311012
+[1] 0.008030807
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008267111
+[1] 0.004680262
+[1] 0.003343826
+[1] 0.002707491
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01224073
+[1] 0.009414216
+[1] 0.007730028
+[1] 0.006611328
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005166582
+[1] 0.002867316
+[1] 0.002042345
+[1] 0.00163329
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01208533
+[1] 0.00930377
+[1] 0.007666542
+[1] 0.006584305
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00324469
+[1] 0.001148706
+[1] 0.001439418
+[1] 0.001488114
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01030976
+[1] 0.007602166
+[1] 0.006152601
+[1] 0.005250746
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004963995
+[1] 0.003421989
+[1] 0.002825221
+[1] 0.002433124
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01251667
+[1] 0.009250147
+[1] 0.007378708
+[1] 0.006165206
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003136656
+[1] 0.001251535
+[1] 0.001070459
+[1] 0.001160298
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01287587
+[1] 0.009638879
+[1] 0.007758068
+[1] 0.006526721
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00169683
+[1] 0.001401286
+[1] 0.001690621
+[1] 0.001734434
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.00994985
+[1] 0.008043473
+[1] 0.006961273
+[1] 0.006213846
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008091945
+[1] 0.003954151
+[1] 0.002426017
+[1] 0.00176399
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009325555
+[1] 0.006758074
+[1] 0.005348972
+[1] 0.004476528
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003006627
+[1] 0.0007941072
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01410761
+[1] 0.01124348
+[1] 0.009430997
+[1] 0.008173708
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004758904
+[1] 0.003361529
+[1] 0.002857168
+[1] 0.002519105
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01326211
+[1] 0.01042476
+[1] 0.008654592
+[1] 0.00745295
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004503801
+[1] 0.002044998
+[1] 0.001407994
+[1] 0.001244202
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01208949
+[1] 0.009146089
+[1] 0.007426635
+[1] 0.006300952
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00309414
+[1] 0.001389038
+[1] 0.001177896
+[1] 0.00124392
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0120027
+[1] 0.009592884
+[1] 0.008117146
+[1] 0.007099285
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008997105
+[1] 0.005016427
+[1] 0.003498232
+[1] 0.002797497
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01223845
+[1] 0.009251583
+[1] 0.007523387
+[1] 0.006391762
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00583727
+[1] 0.003589267
+[1] 0.002759071
+[1] 0.002337613
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01164416
+[1] 0.008639297
+[1] 0.006911632
+[1] 0.005800603
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004052912
+[1] 0.001708086
+[1] 0.001538763
+[1] 0.00145424
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01348351
+[1] 0.01014158
+[1] 0.008146085
+[1] 0.006811952
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00757918
+[1] 0.004930798
+[1] 0.003900062
+[1] 0.003360473
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009901362
+[1] 0.007625841
+[1] 0.006312305
+[1] 0.005423368
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003104904
+[1] 0.001217939
+[1] 0.001019816
+[1] 0.001143577
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01198435
+[1] 0.009791057
+[1] 0.008427632
+[1] 0.007462393
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008517731
+[1] 0.006684951
+[1] 0.005801493
+[1] 0.00514748
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009410242
+[1] 0.007687202
+[1] 0.006695518
+[1] 0.005991573
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008901793
+[1] 0.004945066
+[1] 0.00349657
+[1] 0.002856859
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01208777
+[1] 0.009229568
+[1] 0.00763085
+[1] 0.006597658
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004855909
+[1] 0.002819795
+[1] 0.002069319
+[1] 0.001649985
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01236523
+[1] 0.01001396
+[1] 0.008519891
+[1] 0.007479409
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00800662
+[1] 0.00462573
+[1] 0.003382673
+[1] 0.002792747
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01180479
+[1] 0.008638331
+[1] 0.006895278
+[1] 0.005788232
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00616746
+[1] 0.003352646
+[1] 0.002354349
+[1] 0.001911044
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01241375
+[1] 0.009729716
+[1] 0.008100814
+[1] 0.006997207
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004024235
+[1] 0.001594396
+[1] 0.001258324
+[1] 0.001263185
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01441568
+[1] 0.01099096
+[1] 0.008923711
+[1] 0.007540332
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003961488
+[1] 0.002297495
+[1] 0.001708617
+[1] 0.001398738
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01102274
+[1] 0.008613706
+[1] 0.007203253
+[1] 0.006243675
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005911941
+[1] 0.003400561
+[1] 0.002474806
+[1] 0.00201931
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01241822
+[1] 0.01035988
+[1] 0.008954494
+[1] 0.007911302
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004161225
+[1] 0.002426092
+[1] 0.001777835
+[1] 0.001394047
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01519635
+[1] 0.01203075
+[1] 0.01000273
+[1] 0.008608093
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005581586
+[1] 0.003272347
+[1] 0.002545083
+[1] 0.002220732
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01300368
+[1] 0.01019795
+[1] 0.008487919
+[1] 0.00734181
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006918868
+[1] 0.004663404
+[1] 0.003792447
+[1] 0.003291659
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01170137
+[1] 0.009319306
+[1] 0.00788452
+[1] 0.006909503
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003845033
+[1] 0.001154889
+[1] 0.001180498
+[1] 0.001223663
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01378626
+[1] 0.01055423
+[1] 0.008585145
+[1] 0.007268683
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004216352
+[1] 0.002150758
+[1] 0.001443679
+[1] 0.001238208
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01291442
+[1] 0.009993477
+[1] 0.008165759
+[1] 0.006912794
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00762797
+[1] 0.004599966
+[1] 0.003541
+[1] 0.003063125
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01490316
+[1] 0.01103213
+[1] 0.008801578
+[1] 0.007352043
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004336733
+[1] 0.002323256
+[1] 0.001701727
+[1] 0.001418904
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01030356
+[1] 0.007702109
+[1] 0.00629684
+[1] 0.005382803
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006843534
+[1] 0.003448047
+[1] 0.002224887
+[1] 0.001700028
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01270304
+[1] 0.009276643
+[1] 0.007346826
+[1] 0.00612664
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007843574
+[1] 0.005107501
+[1] 0.004065462
+[1] 0.003516798
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01192295
+[1] 0.009008729
+[1] 0.007362637
+[1] 0.00629789
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005326212
+[1] 0.002639563
+[1] 0.001717703
+[1] 0.001303357
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01034525
+[1] 0.007724238
+[1] 0.006340551
+[1] 0.005467437
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005987457
+[1] 0.002928925
+[1] 0.001791776
+[1] 0.001253574
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01066688
+[1] 0.008196341
+[1] 0.006798137
+[1] 0.005888611
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007815092
+[1] 0.004114355
+[1] 0.002770347
+[1] 0.00217963
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01091921
+[1] 0.008751577
+[1] 0.007489103
+[1] 0.006628636
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006738867
+[1] 0.003845465
+[1] 0.002793713
+[1] 0.002319383
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008508599
+[1] 0.006693038
+[1] 0.005737938
+[1] 0.005111021
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008530821
+[1] 0.004566914
+[1] 0.003025152
+[1] 0.002299764
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01090344
+[1] 0.008073847
+[1] 0.006458959
+[1] 0.00541833
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003565978
+[1] 0.001913779
+[1] 0.001351656
+[1] 0.00105577
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.011923
+[1] 0.009628414
+[1] 0.008108403
+[1] 0.007020068
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005587251
+[1] 0.002558673
+[1] 0.001655428
+[1] 0.001363249
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01149239
+[1] 0.01010547
+[1] 0.008927966
+[1] 0.007964161
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003979722
+[1] 0.002339049
+[1] 0.001750055
+[1] 0.00139935
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01228057
+[1] 0.01042346
+[1] 0.009099741
+[1] 0.008098328
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004837463
+[1] 0.002156307
+[1] 0.001314691
+[1] 0.001051307
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01396919
+[1] 0.01179932
+[1] 0.01022381
+[1] 0.009024932
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005738266
+[1] 0.003773218
+[1] 0.003086216
+[1] 0.002667021
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01138162
+[1] 0.009439119
+[1] 0.008140344
+[1] 0.007199119
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004829736
+[1] 0.002452753
+[1] 0.001745626
+[1] 0.001494674
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01126712
+[1] 0.009227879
+[1] 0.007993043
+[1] 0.007109811
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003862964
+[1] 0.001687021
+[1] 0.001306846
+[1] 0.001320513
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01298306
+[1] 0.01117849
+[1] 0.009883939
+[1] 0.008887501
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006201142
+[1] 0.002668787
+[1] 0.001572895
+[1] 0.001204005
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01432876
+[1] 0.01137626
+[1] 0.009551377
+[1] 0.00829909
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.01005099
+[1] 0.007968658
+[1] 0.006804677
+[1] 0.005917717
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01078271
+[1] 0.007510763
+[1] 0.005800969
+[1] 0.004755748
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006443253
+[1] 0.003887016
+[1] 0.002947709
+[1] 0.002473242
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.011474
+[1] 0.009808525
+[1] 0.008644738
+[1] 0.007737936
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004949874
+[1] 0.003094072
+[1] 0.002379534
+[1] 0.001928911
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.012394
+[1] 0.0100695
+[1] 0.008499944
+[1] 0.007383298
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00848715
+[1] 0.006710798
+[1] 0.005876833
+[1] 0.005240381
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009418667
+[1] 0.00769475
+[1] 0.00667029
+[1] 0.005940308
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007071628
+[1] 0.004173127
+[1] 0.003070263
+[1] 0.002508642
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01049427
+[1] 0.008181881
+[1] 0.006836251
+[1] 0.005932139
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007975699
+[1] 0.005785315
+[1] 0.004772071
+[1] 0.004099873
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.007584534
+[1] 0.00643022
+[1] 0.005772361
+[1] 0.005284359
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008795072
+[1] 0.005036777
+[1] 0.00356784
+[1] 0.002852746
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009638173
+[1] 0.007073696
+[1] 0.005635665
+[1] 0.004729329
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004855507
+[1] 0.002911693
+[1] 0.002058854
+[1] 0.001523012
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01177909
+[1] 0.009014818
+[1] 0.00735084
+[1] 0.006251375
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004511533
+[1] 0.002216447
+[1] 0.001578854
+[1] 0.001392856
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01112265
+[1] 0.007910668
+[1] 0.006194377
+[1] 0.00513476
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005164279
+[1] 0.003249956
+[1] 0.002486506
+[1] 0.002026939
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01086774
+[1] 0.008338399
+[1] 0.006863632
+[1] 0.005905204
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.01025798
+[1] 0.00592751
+[1] 0.004178507
+[1] 0.003309148
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008367984
+[1] 0.006504943
+[1] 0.005478782
+[1] 0.00479139
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006144171
+[1] 0.004110292
+[1] 0.003230952
+[1] 0.002681402
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0128166
+[1] 0.009839948
+[1] 0.008034373
+[1] 0.006838557
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004749458
+[1] 0.002267407
+[1] 0.001456563
+[1] 0.001373401
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01166861
+[1] 0.009263874
+[1] 0.007781169
+[1] 0.006757629
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.009973525
+[1] 0.007345348
+[1] 0.006145199
+[1] 0.005383479
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01007171
+[1] 0.007465217
+[1] 0.006052558
+[1] 0.005147169
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007763382
+[1] 0.004680284
+[1] 0.00354988
+[1] 0.003007629
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01441101
+[1] 0.01025969
+[1] 0.007916385
+[1] 0.006455907
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005386843
+[1] 0.004152726
+[1] 0.003614898
+[1] 0.003187247
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01231258
+[1] 0.009481033
+[1] 0.007819167
+[1] 0.006724673
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007320699
+[1] 0.004305865
+[1] 0.003220058
+[1] 0.002699257
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01083698
+[1] 0.007960432
+[1] 0.006445365
+[1] 0.005497477
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006944321
+[1] 0.004723058
+[1] 0.003822154
+[1] 0.003276427
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009091385
+[1] 0.00741564
+[1] 0.006400749
+[1] 0.005685931
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.009929775
+[1] 0.005397641
+[1] 0.003686198
+[1] 0.002903965
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01457582
+[1] 0.01100882
+[1] 0.009001252
+[1] 0.007707572
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003261322
+[1] 0.001336049
+[1] 0.001182276
+[1] 0.001216869
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009478689
+[1] 0.006960419
+[1] 0.005615028
+[1] 0.004767754
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006683501
+[1] 0.003944829
+[1] 0.002975218
+[1] 0.002518507
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009792909
+[1] 0.007657991
+[1] 0.006418961
+[1] 0.005599492
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005318496
+[1] 0.003508457
+[1] 0.002938851
+[1] 0.002648496
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01044128
+[1] 0.00808068
+[1] 0.006693662
+[1] 0.005762436
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006436793
+[1] 0.003936473
+[1] 0.002968174
+[1] 0.0024556
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008401573
+[1] 0.005645228
+[1] 0.004264531
+[1] 0.003446033
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.01070374
+[1] 0.007683689
+[1] 0.006278748
+[1] 0.005450015
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.003846799
+[1] 0.002236482
+[1] 0.002168119
+[1] 0.002159382
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.01497529
+[1] 0.009233979
+[1] 0.006807888
+[1] 0.00558904
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.003931755
+[1] 0.002467071
+[1] 0.002168263
+[1] 0.002014046
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.01446699
+[1] 0.008609921
+[1] 0.006134948
+[1] 0.004904943
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0120548
+[1] 0.009434486
+[1] 0.007799426
+[1] 0.006695
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005682228
+[1] 0.004158839
+[1] 0.003549943
+[1] 0.00313058
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01701659
+[1] 0.01310279
+[1] 0.01062007
+[1] 0.008960286
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.009186598
+[1] 0.007645257
+[1] 0.00691464
+[1] 0.006304192
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01082102
+[1] 0.008587565
+[1] 0.007238992
+[1] 0.006320766
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007573511
+[1] 0.00489902
+[1] 0.003869312
+[1] 0.003335362
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01094024
+[1] 0.008002458
+[1] 0.006387335
+[1] 0.005371943
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005946225
+[1] 0.003453007
+[1] 0.002522828
+[1] 0.002062151
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.00939255
+[1] 0.006618536
+[1] 0.005177136
+[1] 0.004312135
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007594011
+[1] 0.004501609
+[1] 0.003278029
+[1] 0.002661679
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01317572
+[1] 0.00983239
+[1] 0.007868023
+[1] 0.006587957
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006037306
+[1] 0.00434186
+[1] 0.003678079
+[1] 0.003269409
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008881841
+[1] 0.007208751
+[1] 0.006290524
+[1] 0.00565538
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008713555
+[1] 0.004559816
+[1] 0.002969736
+[1] 0.00222652
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01598239
+[1] 0.01220173
+[1] 0.009813465
+[1] 0.008196449
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003525053
+[1] 0.001804921
+[1] 0.001467838
+[1] 0.001522131
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01111709
+[1] 0.008965067
+[1] 0.007619993
+[1] 0.006669837
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004267527
+[1] 0.002465471
+[1] 0.001788791
+[1] 0.001391195
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009941469
+[1] 0.007811217
+[1] 0.006570811
+[1] 0.005731064
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008747747
+[1] 0.004782312
+[1] 0.003417132
+[1] 0.002841807
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01112365
+[1] 0.008795832
+[1] 0.007350937
+[1] 0.006361283
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.009294619
+[1] 0.007115791
+[1] 0.006045601
+[1] 0.005310224
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01306975
+[1] 0.009908225
+[1] 0.008074025
+[1] 0.006880141
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006407378
+[1] 0.003789219
+[1] 0.002808548
+[1] 0.002295167
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008216473
+[1] 0.005968656
+[1] 0.004743509
+[1] 0.003972319
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004831899
+[1] 0.003075866
+[1] 0.002379492
+[1] 0.001966757
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009640206
+[1] 0.006922829
+[1] 0.005467878
+[1] 0.004579585
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003826112
+[1] 0.001883849
+[1] 0.00123987
+[1] 0.001354014
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01330105
+[1] 0.009678125
+[1] 0.007567693
+[1] 0.006231644
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003989916
+[1] 0.002389473
+[1] 0.001868869
+[1] 0.001581566
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01111622
+[1] 0.007894291
+[1] 0.006185108
+[1] 0.005135058
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006539765
+[1] 0.003521646
+[1] 0.002528091
+[1] 0.002134542
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01263939
+[1] 0.01023478
+[1] 0.008679942
+[1] 0.007574254
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006528149
+[1] 0.004802646
+[1] 0.004053761
+[1] 0.00354592
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01302176
+[1] 0.01070687
+[1] 0.009139982
+[1] 0.008006088
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005872042
+[1] 0.003831481
+[1] 0.003161174
+[1] 0.002826008
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01321087
+[1] 0.01023427
+[1] 0.008416952
+[1] 0.007196714
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006809656
+[1] 0.005241744
+[1] 0.004439497
+[1] 0.003803847
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01351603
+[1] 0.01003636
+[1] 0.008057078
+[1] 0.006784572
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004059209
+[1] 0.002638871
+[1] 0.002154318
+[1] 0.001855684
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01177985
+[1] 0.009007771
+[1] 0.007383156
+[1] 0.006306291
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005868284
+[1] 0.003897615
+[1] 0.003150256
+[1] 0.002706125
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01029615
+[1] 0.007768367
+[1] 0.006294493
+[1] 0.005341054
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00550218
+[1] 0.002580517
+[1] 0.001592434
+[1] 0.001200299
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01282287
+[1] 0.009957887
+[1] 0.008212004
+[1] 0.00702102
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003889826
+[1] 0.002323907
+[1] 0.001815749
+[1] 0.001545303
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.011835
+[1] 0.009049192
+[1] 0.00740761
+[1] 0.006322059
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005454679
+[1] 0.002634779
+[1] 0.001740239
+[1] 0.001403662
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.011579
+[1] 0.00902221
+[1] 0.007478494
+[1] 0.006444987
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003848051
+[1] 0.001996586
+[1] 0.001449675
+[1] 0.001207215
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009604207
+[1] 0.007224589
+[1] 0.005965758
+[1] 0.005164539
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005483117
+[1] 0.002986674
+[1] 0.002066771
+[1] 0.001570132
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008932402
+[1] 0.006735014
+[1] 0.005547614
+[1] 0.00478838
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00491228
+[1] 0.002597204
+[1] 0.0018273
+[1] 0.001490676
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0116511
+[1] 0.009142347
+[1] 0.007586772
+[1] 0.006542968
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006646459
+[1] 0.004718772
+[1] 0.003896206
+[1] 0.003346985
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0126166
+[1] 0.009754563
+[1] 0.008052612
+[1] 0.006923423
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005425235
+[1] 0.002775203
+[1] 0.001807486
+[1] 0.001337017
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01455278
+[1] 0.01093828
+[1] 0.008844055
+[1] 0.007481478
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004821007
+[1] 0.002775397
+[1] 0.001965792
+[1] 0.001501759
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01093521
+[1] 0.008175926
+[1] 0.006702615
+[1] 0.005758162
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.009427166
+[1] 0.005343036
+[1] 0.003800517
+[1] 0.003100891
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01220732
+[1] 0.009636448
+[1] 0.008046513
+[1] 0.006957303
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.003237746
+[1] 0.001387661
+[1] 0.001181546
+[1] 0.001329842
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009614122
+[1] 0.007313466
+[1] 0.006016422
+[1] 0.005161585
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004542764
+[1] 0.002559057
+[1] 0.001838537
+[1] 0.001464874
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01136985
+[1] 0.009547759
+[1] 0.00838069
+[1] 0.007523556
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.010304
+[1] 0.005794539
+[1] 0.003924673
+[1] 0.002984329
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01226875
+[1] 0.009012186
+[1] 0.007202887
+[1] 0.006070489
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00586653
+[1] 0.003617808
+[1] 0.002840108
+[1] 0.00243574
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01291029
+[1] 0.009278584
+[1] 0.007310006
+[1] 0.006098772
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005728673
+[1] 0.003493016
+[1] 0.00268776
+[1] 0.002280068
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01113829
+[1] 0.008045314
+[1] 0.006331706
+[1] 0.005232405
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004026908
+[1] 0.002035368
+[1] 0.001323785
+[1] 0.00141537
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01136425
+[1] 0.008574146
+[1] 0.006997984
+[1] 0.005959501
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008192127
+[1] 0.004591522
+[1] 0.003245406
+[1] 0.002622097
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01162878
+[1] 0.008680302
+[1] 0.007074001
+[1] 0.006044918
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008520334
+[1] 0.006279195
+[1] 0.005260104
+[1] 0.004642709
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01161609
+[1] 0.008466149
+[1] 0.006710048
+[1] 0.005598768
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007705682
+[1] 0.004550799
+[1] 0.003381944
+[1] 0.002833505
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01301894
+[1] 0.01034743
+[1] 0.008756732
+[1] 0.007675599
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006618386
+[1] 0.005185014
+[1] 0.004558386
+[1] 0.004089165
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0109531
+[1] 0.008473903
+[1] 0.006966882
+[1] 0.00594108
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008030036
+[1] 0.004735539
+[1] 0.003583461
+[1] 0.003075497
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008865098
+[1] 0.007036154
+[1] 0.005948397
+[1] 0.005200858
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007152152
+[1] 0.005326401
+[1] 0.004418112
+[1] 0.003789745
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01261026
+[1] 0.009316636
+[1] 0.007435522
+[1] 0.006239202
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005034214
+[1] 0.003148453
+[1] 0.002467402
+[1] 0.002096671
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01315836
+[1] 0.00896953
+[1] 0.00661699
+[1] 0.005181384
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.009203449
+[1] 0.007557525
+[1] 0.006737397
+[1] 0.006115397
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009434906
+[1] 0.007239473
+[1] 0.006002749
+[1] 0.005184428
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008566474
+[1] 0.005221071
+[1] 0.003899618
+[1] 0.003243432
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01116001
+[1] 0.008824831
+[1] 0.007453529
+[1] 0.006525635
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005009616
+[1] 0.002554592
+[1] 0.00170474
+[1] 0.00132485
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01142749
+[1] 0.009143955
+[1] 0.007719594
+[1] 0.006733378
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007897378
+[1] 0.004228947
+[1] 0.002921112
+[1] 0.002363286
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01271794
+[1] 0.0100696
+[1] 0.008428652
+[1] 0.007310867
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00646689
+[1] 0.003867719
+[1] 0.002925284
+[1] 0.002454265
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01107394
+[1] 0.008552121
+[1] 0.007053083
+[1] 0.006057061
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006695635
+[1] 0.005555598
+[1] 0.004948669
+[1] 0.004433197
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01082781
+[1] 0.008661259
+[1] 0.007339838
+[1] 0.006428198
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006611395
+[1] 0.003787122
+[1] 0.002717139
+[1] 0.002183583
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01482873
+[1] 0.01136909
+[1] 0.009273997
+[1] 0.007877968
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007081753
+[1] 0.005985646
+[1] 0.005375997
+[1] 0.004824079
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01108652
+[1] 0.007704916
+[1] 0.005962712
+[1] 0.004922706
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00414039
+[1] 0.002063203
+[1] 0.001468067
+[1] 0.001497111
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01130675
+[1] 0.008392743
+[1] 0.006756766
+[1] 0.005711065
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007004089
+[1] 0.00534216
+[1] 0.004449159
+[1] 0.003790626
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009731789
+[1] 0.00799614
+[1] 0.006963084
+[1] 0.00623137
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008835781
+[1] 0.00527331
+[1] 0.003922134
+[1] 0.00329043
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009459426
+[1] 0.007596407
+[1] 0.006489579
+[1] 0.005720247
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005343498
+[1] 0.002597199
+[1] 0.001625156
+[1] 0.001208374
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01325841
+[1] 0.01014775
+[1] 0.008371916
+[1] 0.007207335
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007155986
+[1] 0.005456601
+[1] 0.004746502
+[1] 0.004228056
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009915716
+[1] 0.007981172
+[1] 0.006830562
+[1] 0.006030772
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005519816
+[1] 0.002752994
+[1] 0.001877579
+[1] 0.001507947
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01244775
+[1] 0.01004005
+[1] 0.008466056
+[1] 0.007361024
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006734811
+[1] 0.005234465
+[1] 0.004520007
+[1] 0.003944767
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0121835
+[1] 0.009887263
+[1] 0.008400045
+[1] 0.00734455
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004115462
+[1] 0.002189805
+[1] 0.001587104
+[1] 0.001399142
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01514899
+[1] 0.01134693
+[1] 0.009083802
+[1] 0.007621457
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005769979
+[1] 0.003313903
+[1] 0.002533821
+[1] 0.002190833
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01044452
+[1] 0.008219289
+[1] 0.006950585
+[1] 0.006093474
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005636587
+[1] 0.003038891
+[1] 0.0021165
+[1] 0.001691975
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01246812
+[1] 0.009090631
+[1] 0.007156838
+[1] 0.005936113
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004991808
+[1] 0.002657625
+[1] 0.001831507
+[1] 0.00143128
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008575722
+[1] 0.006965343
+[1] 0.006038131
+[1] 0.005395995
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006820799
+[1] 0.003582544
+[1] 0.002481029
+[1] 0.002015069
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0129467
+[1] 0.009894614
+[1] 0.008083293
+[1] 0.00689429
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007404527
+[1] 0.005464685
+[1] 0.004576103
+[1] 0.003956245
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01310786
+[1] 0.0105625
+[1] 0.008883917
+[1] 0.007699658
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007328091
+[1] 0.004223435
+[1] 0.003150289
+[1] 0.002677229
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01366945
+[1] 0.01095165
+[1] 0.009148612
+[1] 0.007888269
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00681242
+[1] 0.004243646
+[1] 0.003244666
+[1] 0.002699179
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01013745
+[1] 0.008449111
+[1] 0.007419927
+[1] 0.006668401
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007158842
+[1] 0.003508763
+[1] 0.002260986
+[1] 0.001743847
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01654003
+[1] 0.01244047
+[1] 0.009905332
+[1] 0.008246676
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006587263
+[1] 0.003825
+[1] 0.002857125
+[1] 0.002382285
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.008761041
+[1] 0.0070407
+[1] 0.006051568
+[1] 0.005362292
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005204849
+[1] 0.002424339
+[1] 0.001442196
+[1] 0.001295007
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01381256
+[1] 0.01054617
+[1] 0.008644963
+[1] 0.007396148
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00691217
+[1] 0.00484067
+[1] 0.00396652
+[1] 0.003427578
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01106508
+[1] 0.008473142
+[1] 0.007012908
+[1] 0.00606267
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.004883691
+[1] 0.002203335
+[1] 0.001201132
+[1] 0.001113482
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01120831
+[1] 0.009744225
+[1] 0.008658099
+[1] 0.007807073
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.008869015
+[1] 0.00508058
+[1] 0.00359869
+[1] 0.002892514
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01306227
+[1] 0.01023205
+[1] 0.008556466
+[1] 0.007424753
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005283603
+[1] 0.003083258
+[1] 0.002340632
+[1] 0.001971983
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01170536
+[1] 0.00913825
+[1] 0.007598538
+[1] 0.006558011
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006102118
+[1] 0.003713673
+[1] 0.002752956
+[1] 0.002216255
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01319897
+[1] 0.009481304
+[1] 0.007438267
+[1] 0.006176292
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.01182828
+[1] 0.008919823
+[1] 0.007561363
+[1] 0.006697294
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01012145
+[1] 0.008021637
+[1] 0.00679569
+[1] 0.005959708
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.007220761
+[1] 0.003960449
+[1] 0.002757705
+[1] 0.002214851
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0108521
+[1] 0.007923667
+[1] 0.006370383
+[1] 0.005393861
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005403062
+[1] 0.002631307
+[1] 0.001718602
+[1] 0.00139843
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01033185
+[1] 0.007533635
+[1] 0.006068335
+[1] 0.005146726
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005013786
+[1] 0.002340287
+[1] 0.001521869
+[1] 0.001284167
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01182469
+[1] 0.008976171
+[1] 0.007209789
+[1] 0.006026026
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005023253
+[1] 0.002522934
+[1] 0.001745853
+[1] 0.001446589
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.0109083
+[1] 0.008601583
+[1] 0.007242418
+[1] 0.006318784
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.00654633
+[1] 0.003833378
+[1] 0.002781076
+[1] 0.002203563
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.009285711
+[1] 0.00749405
+[1] 0.006437122
+[1] 0.005690827
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.006589221
+[1] 0.003131449
+[1] 0.001919609
+[1] 0.001418085
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01257005
+[1] 0.0100229
+[1] 0.008452111
+[1] 0.007368015
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005962536
+[1] 0.003782948
+[1] 0.002959877
+[1] 0.002497961
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] "Fitting EM beta mixture to type1 probes"
+[1] Inf
+[1] 0.01382769
+[1] 0.01049967
+[1] 0.008500529
+[1] 0.007193548
+[1] "Done"
+[1] "Fitting EM beta mixture to type2 probes"
+[1] Inf
+[1] 0.005674242
+[1] 0.003963263
+[1] 0.003332843
+[1] 0.002975725
+[1] "Done"
+[1] "Start normalising type 2 probes"
+[1] "Finished for sample 1"
+[1] 0
+null device 
+          1 
+Error: unexpected string constant in:
+" names_quantileBetas <- colnames(quantileNBetas)
+ pdf(paste0(report.dir, ""
 Execution halted

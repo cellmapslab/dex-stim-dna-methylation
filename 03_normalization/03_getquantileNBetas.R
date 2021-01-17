@@ -4,12 +4,13 @@ input.parameters.fn <- as.character(args[1])
 input.parameters    <- read.csv(input.parameters.fn, sep = ";", header = F )
 input.parameters    <- as.data.frame(input.parameters)
 
-report.dir          <- paste0(src.dir, "03_normalization/reports/")
-
 for (row in 1:nrow(input.parameters))
   assign(input.parameters[row, 1], input.parameters[row, 2])
 
 # print(rgSet_clean.fn)
+
+report.dir <- paste0(src.dir, "03_normalization/reports/")
+
 source(packages.fn)
 source(bmiq.script.fn)
 
@@ -30,7 +31,7 @@ BMIQ.quantileN      <- apply(quantileNBetas[, 1:length(colnames(quantileNBetas))
 				function(a) BMIQ(a,probeType$probeType,plots = FALSE)$nbeta)
 
 length(which(is.nan(BMIQ.quantileN))) # should be 0
-save(BMIQ.quantileN, file = paste0(src.data.dir, "BMIQ.quantileN.Rdata")
+save(BMIQ.quantileN, file = quantileN.bmiq.fn)
 
 
 ## Check distributions before and after chosen normalization

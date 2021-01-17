@@ -16,3 +16,4 @@ bmiq.script.fn;~/github/dex-stim-dna-methylation/BMIQ_1.6_Teschendorff.R
 quantileN.fn;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/quantileN.Rdata
 quantileNBetas.fn;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/quantileNBetas.Rdata
 quantileNMs.fn;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/quantileNMs.Rdata
+quantileN.bmiq.fn;/home/ahryhorzhevska/mpip/datasets/methyl/rData/BMIQ_quantileN.Rdata
