@@ -150,7 +150,7 @@ save(BMIQ.quantileN_filtered, file = "/home/ahryhorzhevska/mpip/datasets/methyl/
 save(quantileN_filtered, file = "/home/ahryhorzhevska/mpip/datasets/methyl/rData/quantileN_filtered.Rdata") 
 
 ##--- 6. Check density plots after excluding the poorly-detected probes
-png(file = paste0(report.dir, "04_filtering/BetaValue_Distributions_Norm_quantile_Filter.png"))
+png(file = paste0(report.dir, "BetaValue_Distributions_Norm_quantile_Filter.png"))
 densityPlot(BMIQ.quantileN_filtered,sampGroups = pd_clean$Slide, legend = FALSE, main = "Post Filtering - Normalized Beta", xlab = "Beta")
 dev.off() 
 
