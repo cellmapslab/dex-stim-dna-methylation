@@ -75,7 +75,7 @@ dim(BMIQ.quantileN_filtered)
 # features = 788960    samples = 403
 
 # load Chen Probe annotation file and exclude SNP and Cross Hybridizing probes:
-load("addFiles/ChenProbeIDs.rdata") #### Data from Chen et al (2013) PMID: 23314698
+load("ChenProbeIDs.rdata") #### Data from Chen et al (2013) PMID: 23314698
 # loaded as annot2
 annot2$SNPs = annot2[,"EUR"] #### Can change Global to "AFR", "AMR", "ASN", or "EUR" to match content specific allelic frequency; Use "Global" if population is very diverse
 index<-which(annot2$sex=="Exclude" | annot2$CRSH=="Exclude" | annot2$EUR=="Exclude")
