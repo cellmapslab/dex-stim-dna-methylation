@@ -30,7 +30,7 @@ load(pd_clean.fn)
 
 #combat to remove batch effects
 ## function that will calculate the variance of each row
-rowVars <- function(x, na.rm=FALSE, dims=1, unbiased=TRUE, SumSquares=FALSE, twopass=FALSE) {
+rowVars <- function(x, na.rm = FALSE, dims = 1, unbiased = TRUE, SumSquares = FALSE, twopass = FALSE) {
   if (SumSquares) return(rowSums(x^2, na.rm, dims))
   N <- rowSums(!is.na(x), FALSE, dims)
   Nm1 <- if (unbiased) N-1 else N
@@ -43,7 +43,7 @@ mval <- apply(BMIQ.quantileN_filtered, 2, function(x) log2((x)/(1-x))) # M value
 
 ## Calculate the variance of each probe and remove any with a variance of 0 prior to Combat.
 vars = as.matrix(rowVars(mval))
-which(vars==0) # 0
+which(vars ==0) # 0
 
 ## Replace all probes with no variance with NA and remove them from the normalized data set
 vars[vars == 0] = NA
