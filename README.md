@@ -42,7 +42,11 @@ _from https://bioconductor.org/packages/devel/workflows/vignettes/methylationArr
 ## **Input data:**
 
 - iData data : `/binder/mgp/workspace/2020_DexStim_Array_Human/methylation/`
-- RData: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/`
+- RData: 
+
+`/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/`
+
+`/home/ahryhorzhevska/mpip/datasets/methyl/rData` (starting with normalization step, the data are stored in this folder)
 
     * `rgSet_dex`: raw data from the dex IDAT files; organized at the probe (not CpG locus) level and has two channels (Red and Green).
     
@@ -111,7 +115,7 @@ By looking at the median total intensity of the X chromosome-mapped probes, deno
 
 _Result:_
 
-_The resukt should be cheked with genitype data_
+_The result should be cheked with genotype data_
 
 **Data**
 
@@ -134,3 +138,45 @@ _Result:_
 > `annotated_data_clean.Rdata`
 
 ## **Normalization:**
+
+_Result:_
+
+**Data**
+
+Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData`:
+
+> `BMIQ.quantileN.Rdata`
+
+>`quantileN.Rdata`
+
+>`quantileNBetas.Rdata`
+
+>`quantileNMs.Rdat`
+
+Folder: `/home/ahryhorzhevska/mpip/datasets/methyl/rData`
+
+> `BMIQ_quantileN.Rdata`
+
+**Reports**
+
+> `BetaValue_Distributions_Norm_Quantile.pdf`
+
+## **Filtering:**
+
+_Result:_
+
+**Data**
+
+Folder: `/home/ahryhorzhevska/mpip/datasets/methyl/rData`
+
+> `quantileN_filtered.Rdata`
+
+>`BMIQ.quantileN_filtered.Rdata` 
+
+>`Betas_quantileN_filtered.Rdata`
+
+>`Ms_quantileN_filtered.Rdata`
+
+**Reports**
+
+> `BetaValue_Distributions_Norm_quantile_Filter.png`
