@@ -28,12 +28,13 @@ load(pd_clean.fn)
 # load(quantileN.fn)
 # load(annotated_data_clean.fn)
 
-#combat to remove batch effects
-## function that will calculate the variance of each row
+##--- Combat to remove batch effects
+
+#-- Function that will calculate the variance of each row
 rowVars <- function(x, na.rm = FALSE, dims = 1, unbiased = TRUE, SumSquares = FALSE, twopass = FALSE) {
   if (SumSquares) return(rowSums(x^2, na.rm, dims))
   N <- rowSums(!is.na(x), FALSE, dims)
-  Nm1 <- if (unbiased) N-1 else N
+  Nm1 <- if (unbiased) N - 1 else N
   if (twopass) {x <- if (dims==0) x - mean(x, na.rm=na.rm) else
     sweep(x, 1:dims, rowMeans(x,na.rm,dims))}
   (rowSums(x^2, na.rm, dims) - rowSums(x, na.rm, dims)^2/N) / Nm1
@@ -41,34 +42,34 @@ rowVars <- function(x, na.rm = FALSE, dims = 1, unbiased = TRUE, SumSquares = FA
 
 mval <- apply(BMIQ.quantileN_filtered, 2, function(x) log2((x)/(1-x))) # M values
 
-## Calculate the variance of each probe and remove any with a variance of 0 prior to Combat.
-vars = as.matrix(rowVars(mval))
-which(vars ==0) # 0
+#-- Calculate the variance of each probe and remove any with a variance of 0 prior to Combat.
+vars <- as.matrix(rowVars(mval))
+which(vars == 0) # 0
 
-## Replace all probes with no variance with NA and remove them from the normalized data set
-vars[vars == 0] = NA
-vars = na.omit(vars)
-intersect = intersect(rownames(vars), rownames(mval))
+#-- Replace all probes with no variance with NA and remove them from the normalized data set
+vars[vars == 0] <- NA # 0
+vars            <- na.omit(vars)
+intersect       <- intersect(rownames(vars), rownames(mval))
 print(length(intersect)) # probes without variance == 0
 
-BMIQ.quantileN_filtered_batch = BMIQ.quantileN_filtered[intersect,]
-mval = mval[intersect,]
+BMIQ.quantileN_filtered_batch <- BMIQ.quantileN_filtered[intersect, ]
+mval                          <-  mval[intersect,]
 
-## Ensure Objects are aligned
+#-- Ensure Objects are aligned
 table(ifelse(rownames(pd_clean) == colnames(mval),"Match","Off")) # All should match
 
 ## Check variation in array data associated with batch (ie. Slide/plate/box)
 ## Run a principle component analysis to determine if there are any remaining batch effects following data normalization.
 
-PCobj = prcomp(t(mval), retx = T, center = T, scale. = T)
-save(PCobj, file="RData/PCobj.Rdata")
+PCobj <- prcomp(t(mval), retx = T, center = T, scale. = T)
+save(PCobj, file = "/home/ahryhorzhevska/mpip/datasets/methyl/rData/PCobj.Rdata")
 
-pdf("Reports/boxplot_PCA.pdf")
-boxplot(PCobj$x,col="grey",frame=F)
+pdf(paste0(report.dir, "boxplot_PCA.pdf"))
+boxplot(PCobj$x, col = "grey",frame=F)
 dev.off()
 
 # Can use Scree plot to determine number of PCs to keep
-pdf("Reports/screeplot_PCA.pdf")
+pdf(paste0(report.dir, "screeplot_PCA.pdf"))
 plot(PCobj,type="line",cex.lab=1.5, cex.main=1.5) 
 dev.off()
 
