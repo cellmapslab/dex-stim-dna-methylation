@@ -129,3 +129,83 @@ Setting options('download.file.method.GEOquery'='auto')
 Setting options('GEOquery.inmemory.gpl'=FALSE)
 Loading required package: IlluminaHumanMethylation450kanno.ilmn12.hg19
 Loading required package: IlluminaHumanMethylationEPICanno.ilm10b4.hg19
+
+Attaching package: ‘IlluminaHumanMethylationEPICanno.ilm10b4.hg19’
+
+The following objects are masked from ‘package:IlluminaHumanMethylation450kanno.ilmn12.hg19’:
+
+    Islands.UCSC, Locations, Manifest, Other, SNPs.132CommonSingle,
+    SNPs.135CommonSingle, SNPs.137CommonSingle, SNPs.138CommonSingle,
+    SNPs.141CommonSingle, SNPs.142CommonSingle, SNPs.144CommonSingle,
+    SNPs.146CommonSingle, SNPs.147CommonSingle, SNPs.Illumina
+
+
+Loading required package: limma
+
+Attaching package: ‘limma’
+
+The following object is masked from ‘package:BiocGenerics’:
+
+    plotMA
+
+Loading required package: methylumi
+Loading required package: scales
+Loading required package: reshape2
+
+Attaching package: ‘reshape2’
+
+The following objects are masked from ‘package:reshape’:
+
+    colsplit, melt, recast
+
+Loading required package: FDb.InfiniumMethylation.hg19
+Loading required package: GenomicFeatures
+Loading required package: AnnotationDbi
+Loading required package: TxDb.Hsapiens.UCSC.hg19.knownGene
+Loading required package: org.Hs.eg.db
+Loading required package: lumi
+No methods found in package ‘RSQLite’ for request: ‘dbListFields’ when loading ‘lumi’
+
+Attaching package: ‘lumi’
+
+The following objects are masked from ‘package:methylumi’:
+
+    estimateM, getHistory
+
+Loading required package: ROC
+Loading required package: illuminaio
+Loading required package: mgcv
+Loading required package: nlme
+
+Attaching package: ‘nlme’
+
+The following object is masked from ‘package:Biostrings’:
+
+    collapse
+
+The following object is masked from ‘package:IRanges’:
+
+    collapse
+
+This is mgcv 1.8-33. For overview type 'help("mgcv-package")'.
+Loading required package: genefilter
+
+Attaching package: ‘genefilter’
+
+The following objects are masked from ‘package:ROC’:
+
+    AUC, pAUC
+
+The following objects are masked from ‘package:methylumi’:
+
+    featureFilter, varFilter
+
+The following objects are masked from ‘package:MatrixGenerics’:
+
+    rowSds, rowVars
+
+The following objects are masked from ‘package:matrixStats’:
+
+    rowSds, rowVars
+
+Loading required package: BiocParallel
