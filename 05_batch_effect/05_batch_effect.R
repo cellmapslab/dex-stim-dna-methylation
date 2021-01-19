@@ -28,7 +28,9 @@ load(bmiq.quantileN.filtered.fn)
 # load(quantileN.fn)
 # load(annotated_data_clean.fn)
 
+#################################################################################
 ##--- Combat to remove batch effects
+#################################################################################
 
 #-- Function that will calculate the variance of each row
 rowVars <- function(x, na.rm = FALSE, dims = 1, unbiased = TRUE, SumSquares = FALSE, twopass = FALSE) {
@@ -104,61 +106,63 @@ PCs <- PCobj$x
 PCs <- PCs[, 1:R]
 Prin.comp <- merge(PCs, pd_clean, by = "row.names", all = T) 
 
-pdf(paste0(report.dir, "PC_Variation_by_batch.pdf"))
+PlotPCAIndMap <- function(PCobj, Princ.comp, pdf.fn){
+  pdf(paste0(report.dir, pdf.fn))
+  
+  #-- by Plate
+  pca.plate <- fviz_pca_ind(PCobj,
+                            col.ind = as.factor(Prin.comp$Sample_Plate),
+                            geom = "point",
+                            repel = T)
+  ggpar(pca.plate,
+        title = "PCA: DEX-Methylation data",
+        subtitle = "by Plate",
+        legend.title = "Plate", legend = "bottom")
+  
+  #-- by Slide
+  pca.plate <- fviz_pca_ind(PCobj,
+                            col.ind = as.factor(as.character(Prin.comp$Slide)),
+                            geom = "point",
+                            repel = T)
+  ggpar(pca.plate,
+        title = "PCA: DEX-Methylation data",
+        subtitle = "by Slide",
+        legend = "none")
+  
+  #-- by Array
+  pca.plate <- fviz_pca_ind(PCobj,
+                            col.ind = as.factor(Prin.comp$Array),
+                            geom = "point",
+                            repel = T)
+  ggpar(pca.plate,
+        title = "PCA: DEX-Methylation data",
+        subtitle = "by Array",
+        legend.title = "Array", legend = "bottom")
+  
+  #-- by Group (dex, veh)
+  pca.plate <- fviz_pca_ind(PCobj,
+                            col.ind = as.factor(Prin.comp$Sample_Group),
+                            geom = "point",
+                            repel = T)
+  ggpar(pca.plate,
+        title = "PCA: DEX-Methylation data",
+        subtitle = "by Group",
+        legend.title = "Group", legend = "bottom")
+  
+  #-- by sex (dex, veh)
+  pca.plate <- fviz_pca_ind(PCobj,
+                            col.ind = as.factor(Prin.comp$sex),
+                            geom = "point",
+                            repel = T)
+  ggpar(pca.plate,
+        title = "PCA: DEX-Methylation data",
+        subtitle = "by Gender",
+        legend.title = "Gender", legend = "bottom")
+  
+  dev.off()
+}
 
-#-- by Plate
-pca.plate <- fviz_pca_ind(PCobj,
-             col.ind = as.factor(Prin.comp$Sample_Plate),
-             geom = "point",
-             repel = T)
-ggpar(pca.plate,
-      title = "PCA: DEX-Methylation data",
-      subtitle = "by Plate",
-      legend.title = "Plate", legend = "bottom")
-
-#-- by Slide
-pca.plate <- fviz_pca_ind(PCobj,
-                          col.ind = as.factor(as.character(Prin.comp$Slide)),
-                          geom = "point",
-                          repel = T)
-ggpar(pca.plate,
-      title = "PCA: DEX-Methylation data",
-      subtitle = "by Slide",
-      legend = "none")
-
-#-- by Array
-pca.plate <- fviz_pca_ind(PCobj,
-                          col.ind = as.factor(Prin.comp$Array),
-                          geom = "point",
-                          repel = T)
-ggpar(pca.plate,
-      title = "PCA: DEX-Methylation data",
-      subtitle = "by Array",
-      legend.title = "Array", legend = "bottom")
-
-#-- by Group (dex, veh)
-pca.plate <- fviz_pca_ind(PCobj,
-                          col.ind = as.factor(Prin.comp$Sample_Group),
-                          geom = "point",
-                          repel = T)
-ggpar(pca.plate,
-      title = "PCA: DEX-Methylation data",
-      subtitle = "by Group",
-      legend.title = "Group", legend = "bottom")
-
-#-- by sex (dex, veh)
-pca.plate <- fviz_pca_ind(PCobj,
-                          col.ind = as.factor(Prin.comp$sex),
-                          geom = "point",
-                          repel = T)
-ggpar(pca.plate,
-      title = "PCA: DEX-Methylation data",
-      subtitle = "by Gender",
-      legend.title = "Gender", legend = "bottom")
-
-dev.off()
-
-
+PlotPCAIndMap(PCobj, Princ.comp, "PC_Variation_by_batch.pdf")
 ##--- Find extreme outliers
 
 o1 <- 3 * sd(Prin.comp$PC1)
@@ -312,21 +316,54 @@ anova.array.tbl # PC1, PC5, PC6
 # Prin.comp$Array   7  113967 16281.0  1.8607 0.0747 .
 # Residuals       395 3456217  8749.9
 
-
+#################################################################################
 ##--- Batch correction
-#first correct for plate
-## Model matrix for batch-corrections (May need to adjust model matrix to 'protect' coefficients (study specific)):
+#################################################################################
+
+#################################################################################
+#-- 1. Combat Correction for plate
+#################################################################################
+
+# Model matrix for batch-corrections (May need to adjust model matrix to 'protect' coefficients (study specific)):
 model.mtrx <- model.matrix(~1, data = pd_clean)
 
-## Run ComBat to remove most significant batch effects itertively
+# Run ComBat to remove most significant batch effects itertively
 M_combat_1plate <- ComBat(mval, batch = pd_clean$Sample_Plate, mod = model.mtrx)
 save(M_combat_1plate, file = paste0(src.data.dir, "M_combat_1plate.Rdata"))
 
-## Check to see if batch effect was succesfully removed
-PCobj = prcomp(t(M_combat_1plate), retx = T, center = T, scale. = T)
-PCs = PCobj$x
-PCs =PCs[,1:R]
-Prin.comp<-merge(PCs,pd_clean, by = "row.names",all=T) 
+# Check to see if batch effect was succesfully removed
+PCobj     <- prcomp(t(M_combat_1plate), retx = T, center = T, scale. = T)
+PCs       <- PCobj$x[, 1:R]
+Prin.comp <- merge(PCs, pd_clean, by = "row.names", all = T) 
+PlotPCAIndMap(PCobj, Princ.comp, "PC_Variation_by_batch_after_combated_plate.pdf")
+
+##--- ANOVA for detection of variation between PCs and batch
+
+#-- for Plate 
+
+models.plate <- apply(PCs, 2, function(pc){
+  lm(pc ~ Prin.comp$Sample_Plate) 
+})
+anova.plate.tbl <- sapply(models.plate, anova, simplify = F)
+anova.plate.tbl # PC1, PC4
+
+#-- for Slide
+models.slide <- apply(PCs, 2, function(pc){
+  lm(pc ~ as.factor(as.character(Prin.comp$Slide)))
+})
+
+anova.slide.tbl <- sapply(models.slide, anova, simplify = F)
+anova.slide.tbl
+
+#-- for Array
+models.array <- apply(PCs, 2, function(pc){
+  lm(pc ~ Prin.comp$Array) 
+})
+anova.array.tbl <- sapply(models.array, anova, simplify = F)
+anova.array.tbl # PC1, PC5, PC6
+
+
+
 
 #### Check whether batches are still distinguished by first and second PC:
 pdf(paste0(report.dir, "PC_Variation_by_batch_afterCombat1.pdf"))
@@ -354,10 +391,43 @@ anova(lm(Prin.comp$PC2~Prin.comp$Array))
 anova(lm(Prin.comp$PC3~Prin.comp$Array)) 
 anova(lm(Prin.comp$PC4~Prin.comp$Array)) 
 
-#second correction for slide
-mod <- model.matrix(~1, data=pd_clean)
-M_combat_2slide = ComBat(M_combat_1plate,batch = pd_clean$Slide, mod = mod)
-save(M_combat_2slide, file = m.combat.2slide.fn)       
+#################################################################################
+#-- 2. Combat Correction for Slide
+#################################################################################
+
+mod             <- model.matrix(~1, data=pd_clean)
+M_combat_2slide <- ComBat(M_combat_1plate,batch = pd_clean$Slide, mod = mod)
+# save(M_combat_2slide, file = m.combat.2slide.fn)       
+
+# Check to see if batch effect was succesfully removed
+PCobj     <- prcomp(t(M_combat_2slide), retx = T, center = T, scale. = T)
+PCs       <- PCobj$x[, 1:R]
+Prin.comp <- merge(PCs, pd_clean, by = "row.names", all = T) 
+PlotPCAIndMap(PCobj, Princ.comp, "PC_Variation_by_batch_after_combated_plate_slide.pdf")
+
+##--- ANOVA for detection of variation between PCs and batch
+
+#-- for Plate 
+
+models.plate <- apply(PCs, 2, function(pc){
+  lm(pc ~ Prin.comp$Sample_Plate) 
+})
+anova.plate.tbl <- sapply(models.plate, anova, simplify = F)
+anova.plate.tbl # PC1, PC5
+
+#-- for Slide
+models.slide <- apply(PCs, 2, function(pc){
+  lm(pc ~ as.factor(as.character(Prin.comp$Slide)))
+})
+anova.slide.tbl <- sapply(models.slide, anova, simplify = F)
+anova.slide.tbl
+
+#-- for Array
+models.array <- apply(PCs, 2, function(pc){
+  lm(pc ~ Prin.comp$Array) 
+})
+anova.array.tbl <- sapply(models.array, anova, simplify = F)
+anova.array.tbl # PC1, PC5, PC6
 
 ## Check to see if batch effect was succesfully removed
 PCobj = prcomp(t(M_combat_2slide), retx = T, center = T, scale. = T)
@@ -391,6 +461,44 @@ anova(lm(Prin.comp$PC1~Prin.comp$Array))
 anova(lm(Prin.comp$PC2~Prin.comp$Array)) 
 anova(lm(Prin.comp$PC3~Prin.comp$Array)) 
 anova(lm(Prin.comp$PC4~Prin.comp$Array)) 
+
+#################################################################################
+#-- 3. Combat Correction for Array
+#################################################################################
+
+mod             <- model.matrix(~1, data = pd_clean)
+M_combat_3array <- ComBat(M_combat_2slide, batch = pd_clean$Array, mod = mod)
+# save(M_combat_2slide, file = m.combat.2slide.fn)       
+
+# Check to see if batch effect was succesfully removed
+PCobj     <- prcomp(t(M_combat_3array), retx = T, center = T, scale. = T)
+PCs       <- PCobj$x[, 1:R]
+Prin.comp <- merge(PCs, pd_clean, by = "row.names", all = T) 
+PlotPCAIndMap(PCobj, Princ.comp, "PC_Variation_by_batch_after_combated_plate_slide_array.pdf")
+
+##--- ANOVA for detection of variation between PCs and batch
+
+#-- for Plate 
+
+models.plate <- apply(PCs, 2, function(pc){
+  lm(pc ~ Prin.comp$Sample_Plate) 
+})
+anova.plate.tbl <- sapply(models.plate, anova, simplify = F)
+anova.plate.tbl # PC1, PC4
+
+#-- for Slide
+models.slide <- apply(PCs, 2, function(pc){
+  lm(pc ~ as.factor(as.character(Prin.comp$Slide)))
+})
+anova.slide.tbl <- sapply(models.slide, anova, simplify = F)
+anova.slide.tbl
+
+#-- for Array
+models.array <- apply(PCs, 2, function(pc){
+  lm(pc ~ Prin.comp$Array) 
+})
+anova.array.tbl <- sapply(models.array, anova, simplify = F)
+anova.array.tbl # PC1, PC5, PC6
 
 #third correction for array
 mod <- model.matrix(~1, data=pd_clean)
@@ -436,7 +544,8 @@ anova(lm(Prin.comp$PC4~Prin.comp$Array))
 
 
 #################################################################################
-## Convert the batch-adjusted M-values back into betas:
+##--- Convert the batch-adjusted M-values back into betas:
+#################################################################################
 
 expit2 = function(x) 2^x/(1+2^x)
 Betas_combated = expit2(M_combat_3array)
@@ -447,12 +556,12 @@ dim(Betas_combated) # for now final betas!
 save(Betas_combated, file = beta.combat.fn)
 
 #plot final densities
-png(paste0(report.dir, "BetaValue_Distributions_afterNormCombat.png",width=700,height=700,pointsize=12))
-densityPlot(Betas_combated, sampGroups = pd_clean$Slide, legend=FALSE, main = "PostQC - Normalized and Batch Corrected Beta", xlab = "Beta")
+pdf(file = paste0(report.dir, "BetaValue_Distributions_afterNormCombat.png"))
+densityPlot(Betas_combated, sampGroups = pd_clean$Slide, legend = FALSE, main = "PostQC - Normalized and Batch Corrected Beta", xlab = "Beta")
 dev.off() 
 
 all.equal(colnames(Betas_combated),rownames(pd_clean)) #TRUE
-annotated_pd_clean =new("AnnotatedDataFrame", data= as.data.frame(pd_clean)) #extend to AnnotatedDataFrame (required for ESet)
 
-Betas_combated_ExprSet = new("ExpressionSet", exprs = as.matrix(Betas_combated), phenoData=annotated_pd_clean)
+annotated_pd_clean     <- new("AnnotatedDataFrame", data= as.data.frame(pd_clean)) #extend to AnnotatedDataFrame (required for ESet)
+Betas_combated_ExprSet <- new("ExpressionSet", exprs = as.matrix(Betas_combated), phenoData = annotated_pd_clean)
 save(Betas_combated_ExprSet, file = beta.combat.expr.set.fn)
