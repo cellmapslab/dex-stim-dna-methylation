@@ -12,7 +12,7 @@ LoadPackagesBio <- function(pkg.list){
     sapply(pkg.list, library, character.only = TRUE)
 }
 
-pkg.list <- c("BiocManager", "future", "RColorBrewer", "RPMM", "ggplot2", "matrixStats", "reshape", "Hmisc")
+pkg.list <- c("BiocManager", "future", "RColorBrewer", "RPMM", "ggplot2", "matrixStats", "reshape", "Hmisc", "factoextra")
 
 biocmanager.pkg.list <- c("minfi", "missMethyl", "wateRmelon", "sva")
 
