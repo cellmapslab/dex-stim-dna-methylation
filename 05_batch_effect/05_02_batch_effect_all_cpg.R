@@ -328,7 +328,7 @@ all.equal(colnames(Betas_combated), rownames(pd_clean)) #TRUE
 
 annotated_pd_clean      <- new("AnnotatedDataFrame", data = as.data.frame(pd_clean)) #extend to AnnotatedDataFrame (required for ESet)
 bmiq.quantilen.expr.set <- new("ExpressionSet", exprs = as.matrix(betas.bmiq.quantilen.combat), phenoData = annotated_pd_clean)
-save(bmiq.quantilen.expr.set, file = paste0(src.data.dir, "bmiq_quantilen_expr_set.rds"))
+saveRDS(bmiq.quantilen.expr.set, file = paste0(src.data.dir, "bmiq_quantilen_expr_set.rds"))
 
 # Save normalized and batch-adjusted beta values
 saveRDS(betas.bmiq.quantilen.combat, file = paste0(src.data.dir, "betas_bmiq_quantilen_combat.rds"))
