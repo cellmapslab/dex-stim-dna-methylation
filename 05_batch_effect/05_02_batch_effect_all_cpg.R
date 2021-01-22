@@ -11,7 +11,7 @@ args                <- commandArgs(T)
 input.parameters.fn <- as.character(args[1])
 # or
 input.parameters.fn <- "input_parameters.csv"
-  
+
 input.parameters    <- read.csv(input.parameters.fn, sep = ";", header = F )
 input.parameters    <- as.data.frame(input.parameters)
 
@@ -19,30 +19,19 @@ for (row in 1:nrow(input.parameters))
   assign(input.parameters[row, 1], input.parameters[row, 2])
 
 source(packages.fn)
+source("functions.R")
 
-report.dir <- paste0(src.dir, "05_batch_effect/reports/")
+report.dir <- paste0(src.dir, "05_batch_effect/reports_all_CpGs/")
 
 load(pd_clean.fn)
-load(bmiq.quantileN.filtered.fn)
-# load(quantileN.bmiq.fn)
-# load(quantileN.fn)
-# load(annotated_data_clean.fn)
+load(bmiq.quantileN.fn)
+
 
 #################################################################################
 ##--- Combat to remove batch effects
 #################################################################################
 
-#-- Function that will calculate the variance of each row
-rowVars <- function(x, na.rm = FALSE, dims = 1, unbiased = TRUE, SumSquares = FALSE, twopass = FALSE) {
-  if (SumSquares) return(rowSums(x^2, na.rm, dims))
-  N <- rowSums(!is.na(x), FALSE, dims)
-  Nm1 <- if (unbiased) N - 1 else N
-  if (twopass) {x <- if (dims==0) x - mean(x, na.rm=na.rm) else
-    sweep(x, 1:dims, rowMeans(x,na.rm,dims))}
-  (rowSums(x^2, na.rm, dims) - rowSums(x, na.rm, dims)^2/N) / Nm1
-}
-
-mval <- apply(BMIQ.quantileN_filtered, 2, function(x) log2((x)/(1-x))) # M values
+mval <- apply(BMIQ.quantileN, 2, function(x) log2((x)/(1-x))) # M values
 
 #-- Calculate the variance of each probe and remove any with a variance of 0 prior to Combat.
 vars <- as.matrix(rowVars(mval))
@@ -54,8 +43,8 @@ vars            <- na.omit(vars)
 intersect       <- intersect(rownames(vars), rownames(mval))
 print(length(intersect)) # probes without variance == 0
 
-BMIQ.quantileN_filtered_batch <- BMIQ.quantileN_filtered[intersect, ]
-mval                          <- mval[intersect,]
+BMIQ.quantileN_batch <- BMIQ.quantileN[intersect, ]
+mval                 <- mval[intersect,]
 
 #-- Ensure Objects are aligned
 table(ifelse(rownames(pd_clean) == colnames(mval),"Match","Off")) # All should match
@@ -89,16 +78,6 @@ cummvar <- round(summary(PCobj)$importance["Cumulative Proportion", 1:R] * 100, 
 t(propvar); t(cumvar)
 
 R <- 6 # choose eg 6 PCs
-## Generate plots of the resulting PCs
-# Plot of the proportion of variability explained by the top R PCs
-# Plot of the cummulative proportion of variability explained by the top R PCs
-# pdf(paste0(report.dir, "PCA_variance_explained.pdf"))
-# par(mfrow = c(1,2))	
-# par(mar = c(5, 5, 4, 2))
-# barplot(propvar, xlab = paste("Top", R, "PCs", sep = " "), ylab = "Variation Explained (%)", cex.axis = 1.5, cex.lab = 1.8, cex.names = 1.5)
-# par(mar = c(5, 5, 4, 2))
-# barplot(cummvar, xlab = paste("Top", R, "PCs", sep = " "), ylab = "Cumulative Variation Explained (%)",cex.axis = 1.5, cex.lab = 1.8, cex.names = 1.5)
-# dev.off()
 
 ##---  Plot of pca individal map by Batch, group (dex, veh) and sex 
 
@@ -106,63 +85,12 @@ PCs <- PCobj$x
 PCs <- PCs[, 1:R]
 Prin.comp <- merge(PCs, pd_clean, by = "row.names", all = T) 
 
-PlotPCAIndMap <- function(PCobj, Princ.comp, pdf.fn){
-  # pdf(paste0(report.dir, pdf.fn))
-  
-  #-- by Plate
-  pca.plate <- fviz_pca_ind(PCobj,
-                            col.ind = as.factor(Prin.comp$Sample_Plate),
-                            geom = "point",
-                            repel = T)
-  ggpar(pca.plate,
-        title = "PCA: DEX-Methylation data",
-        subtitle = "by Plate",
-        legend.title = "Plate", legend = "bottom")
-  
-  #-- by Slide
-  pca.plate <- fviz_pca_ind(PCobj,
-                            col.ind = as.factor(as.character(Prin.comp$Slide)),
-                            geom = "point",
-                            repel = T)
-  ggpar(pca.plate,
-        title = "PCA: DEX-Methylation data",
-        subtitle = "by Slide",
-        legend = "none")
-  
-  #-- by Array
-  pca.plate <- fviz_pca_ind(PCobj,
-                            col.ind = as.factor(Prin.comp$Array),
-                            geom = "point",
-                            repel = T)
-  ggpar(pca.plate,
-        title = "PCA: DEX-Methylation data",
-        subtitle = "by Array",
-        legend.title = "Array", legend = "bottom")
-  
-  #-- by Group (dex, veh)
-  pca.plate <- fviz_pca_ind(PCobj,
-                            col.ind = as.factor(Prin.comp$Sample_Group),
-                            geom = "point",
-                            repel = T)
-  ggpar(pca.plate,
-        title = "PCA: DEX-Methylation data",
-        subtitle = "by Group",
-        legend.title = "Group", legend = "bottom")
-  
-  #-- by sex (dex, veh)
-  pca.plate <- fviz_pca_ind(PCobj,
-                            col.ind = as.factor(Prin.comp$sex),
-                            geom = "point",
-                            repel = T)
-  ggpar(pca.plate,
-        title = "PCA: DEX-Methylation data",
-        subtitle = "by Gender",
-        legend.title = "Gender", legend = "bottom")
-  
- # dev.off()
-}
+pdf(paste0(report.dir, "PC_Variation_by_batch_before_correction.pdf"))
+PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Sample_Plate), batch.legend.title = "Plate", title = "PCA before correction by Plate")
+PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Slide), batch.legend.title = "Slide", legend.pos = 'right', title = "PCA before correction by Slide")
+PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Array), batch.legend.title = "Array", title = "PCA before correction by Array")
+dev.off()
 
-PlotPCAIndMap(PCobj, Princ.comp, "PC_Variation_by_batch.pdf")
 ##--- Find extreme outliers
 
 o1 <- 3 * sd(Prin.comp$PC1)
@@ -174,11 +102,13 @@ which(abs(Prin.comp$PC1) > o1 && abs(Prin.comp$PC2) > o2) # 0
 #-- for Plate 
 
 models.plate <- apply(PCs, 2, function(pc){
- lm(pc ~ Prin.comp$Sample_Plate) 
+  lm(pc ~ Prin.comp$Sample_Plate) 
 })
 
 anova.plate.tbl <- sapply(models.plate, anova, simplify = F)
 anova.plate.tbl # PC1, PC4
+# grid.table(as.data.frame(anova.plate.tbl))
+
 # $PC1
 # Analysis of Variance Table
 # 
@@ -337,7 +267,9 @@ PCs       <- PCobj$x[, 1:R]
 Prin.comp <- merge(PCs, pd_clean, by = "row.names", all = T) 
 
 pdf(paste0(report.dir, "PC_Variation_by_batch_after_combated_plate.pdf"))
-PlotPCAIndMap(PCobj, Princ.comp, "PC_Variation_by_batch_after_combated_plate.pdf")
+PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Sample_Plate), batch.legend.title = "Plate", title = "PCA after Combat correction on plate")
+PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Slide), batch.legend.title = "Slide", legend.pos = 'right', title = "PCA after Combat correction on plate")
+PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Array), batch.legend.title = "Array", title = "PCA after Combat correction on plate")
 dev.off()
 
 ##--- ANOVA for detection of variation between PCs and batch
@@ -548,32 +480,6 @@ anova.array.tbl # PC1, PC5
 #   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 
-#### Check whether batches are still distinguished by first and second PC:
-pdf(paste0(report.dir, "PC_Variation_by_batch_afterCombat1.pdf"))
-par(mfrow=c(3,1))
-plot(Prin.comp$PC1,Prin.comp$PC2,pch=16, col=as.factor(Prin.comp$Sample_Plate), xlab = "PC1", ylab = "PC2", main="Plate")
-plot(Prin.comp$PC1,Prin.comp$PC2,pch=16, col=as.factor(Prin.comp$Slide), xlab = "PC1", ylab = "PC2", main="Slide")
-plot(Prin.comp$PC1,Prin.comp$PC2,pch=16, col=as.factor(Prin.comp$Array), xlab = "PC1", ylab = "PC2", main="Array")
-dev.off()
-
-## Can further test via ANOVA, to look for strong variations in PCs by Batch:
-anova(lm(Prin.comp$PC1~Prin.comp$Sample_Plate)) 
-anova(lm(Prin.comp$PC2~Prin.comp$Sample_Plate)) 
-anova(lm(Prin.comp$PC3~Prin.comp$Sample_Plate)) 
-anova(lm(Prin.comp$PC4~Prin.comp$Sample_Plate)) 
-
-#for slide
-anova(lm(Prin.comp$PC1~Prin.comp$Slide)) 
-anova(lm(Prin.comp$PC2~Prin.comp$Slide)) 
-anova(lm(Prin.comp$PC3~Prin.comp$Slide)) 
-anova(lm(Prin.comp$PC4~Prin.comp$Slide)) 
-
-#for array
-anova(lm(Prin.comp$PC1~Prin.comp$Array))
-anova(lm(Prin.comp$PC2~Prin.comp$Array)) 
-anova(lm(Prin.comp$PC3~Prin.comp$Array)) 
-anova(lm(Prin.comp$PC4~Prin.comp$Array)) 
-
 #################################################################################
 #-- 2. Combat Correction for Slide
 #################################################################################
@@ -586,8 +492,11 @@ M_combat_2slide <- ComBat(M_combat_1plate,batch = pd_clean$Slide, mod = mod)
 PCobj     <- prcomp(t(M_combat_2slide), retx = T, center = T, scale. = T)
 PCs       <- PCobj$x[, 1:R]
 Prin.comp <- merge(PCs, pd_clean, by = "row.names", all = T) 
+
 pdf(paste0(report.dir, "PC_Variation_by_batch_after_combated_plate_slide.pdf"))
-PlotPCAIndMap(PCobj, Princ.comp, "PC_Variation_by_batch_after_combated_plate_slide.pdf")
+PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Sample_Plate), batch.legend.title = "Plate", title = "PCA after Combat correction on both Plate and Slide")
+PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Slide), batch.legend.title = "Slide", legend.pos = 'right', title = "PCA after Combat correction on both Plate and Slide")
+PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Array), batch.legend.title = "Array", title = "PCA after Combat correction on both Plate and Slide")
 dev.off()
 
 o1 <- 1.5 * sd(Prin.comp$PC1)
@@ -784,7 +693,9 @@ PCs       <- PCobj$x[, 1:R]
 Prin.comp <- merge(PCs, pd_clean, by = "row.names", all = T) 
 
 pdf(paste0(report.dir, "PC_Variation_by_batch_after_combated_plate_slide_array.pdf"))
-PlotPCAIndMap(PCobj, Princ.comp, "PC_Variation_by_batch_after_combated_plate_slide_array.pdf")
+PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Sample_Plate), batch.legend.title = "Plate", title = "PCA after final Combat correction")
+PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Slide), batch.legend.title = "Slide", legend.pos = 'right', title = "PCA after final Combat correction")
+PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Array), batch.legend.title = "Array", title = "PCA after final Combat correction")
 dev.off()
 
 o1 <- sd(Prin.comp$PC1)

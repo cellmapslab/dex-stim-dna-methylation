@@ -14,7 +14,7 @@ LoadPackagesBio <- function(pkg.list){
 
 pkg.list <- c("BiocManager", "future", "RColorBrewer", "RPMM", "ggplot2", "matrixStats", "reshape", "Hmisc", "factoextra", "ggpubr")
 
-biocmanager.pkg.list <- c("minfi", "missMethyl", "wateRmelon", "sva")
+biocmanager.pkg.list <- c("minfi", "missMethyl", "wateRmelon", "sva", "mixOmics")
 
 LoadPackages(pkg.list)
 LoadPackagesBio(biocmanager.pkg.list)

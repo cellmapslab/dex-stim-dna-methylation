@@ -67,7 +67,8 @@ dev.off()
 ##---  Remove poor quality samples with a mean detection p-value _> 0.01_
 
 # remove poor quality samples with a mean detection p-value >.05
-keep     <- colMeans(detP) < 0.01 
+keep     <- colMeans(detP) < 0.01
+# 200705940062_R06C01 to remove
 rgSet_qc <- rgSet[, keep] # dim: 403 out of 404
 save(rgSet_qc, file = paste0(src.data.dir, "rgSet_qc.Rdata")) 
 
