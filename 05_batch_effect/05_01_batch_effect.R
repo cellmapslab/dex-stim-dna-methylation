@@ -906,8 +906,6 @@ all.equal(colnames(Betas_combated), rownames(pd_clean)) #TRUE
 annotated_pd_clean     <- new("AnnotatedDataFrame", data= as.data.frame(pd_clean)) #extend to AnnotatedDataFrame (required for ESet)
 Betas_combated_ExprSet <- new("ExpressionSet", exprs = as.matrix(Betas_combated), phenoData = annotated_pd_clean)
 save(Betas_combated_ExprSet, file = beta.combat.expr.set.fn)
+
 ## Save normalized and batch-adjusted beta values
 save(Betas_combated, file = beta.combat.fn)
-
-save(M_combat_2slide, file = m.combat.2slide.fn) 
-save(M_combat_3array, file = m.combat.3array.fn)
