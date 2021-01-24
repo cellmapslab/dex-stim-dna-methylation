@@ -12,7 +12,7 @@ detP_clean.fn;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/de
 rawBetas_clean.fn;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/RawBetas_clean.Rdata
 pd_clean.fn;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/pd_clean.Rdata
 annotated_data_clean.fn;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/annotated_data_clean.Rdata
-bmiq.script.fn;~/github/dex-stim-dna-methylation/BMIQ_1.6_Teschendorff.R
+bmiq.script.fn;~/github/dex-stim-dna-methylation/03_normalization/01_help_files/BMIQ_1.6_Teschendorff.R
 quantileN.fn;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/quantileN.Rdata
 quantileNBetas.fn;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/quantileNBetas.Rdata
 quantileNMs.fn;/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/quantileNMs.Rdata

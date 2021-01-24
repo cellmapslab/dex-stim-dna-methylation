@@ -11,7 +11,8 @@ for (row in 1:nrow(input.parameters))
 
 source(packages.fn)
 
-report.dir <- paste0(src.dir, "04_filtering/reports/")
+report.dir     <- paste0(src.dir, "04_filtering/02_reports/")
+help.files.dir <- paste0(src.dir, "04_filtering/01_help_files/") 
 
 load(detP_clean.fn)
 load(quantileN.bmiq.fn)
@@ -81,7 +82,8 @@ dim(BMIQ.quantileN_filtered)
 
 #--- Cross Hybridizing probes
 
-exclude_crosshyb <-read.table("000_help_files_filtering/CpGs_crosshybridizing_EPIC.txt", sep = "", header = F)
+cg.croshyb.epic.fn <- paste0(help.files.dir, CpGs_crosshybridizing_EPIC.txt")
+exclude_crosshyb   <-read.table(cg.croshyb.epic.fn, sep = "", header = F)
 
 #--- BMIQ quantileN
 keep <- !(rownames(BMIQ.quantileN_filtered) %in% exclude_crosshyb$V1) 
@@ -100,9 +102,10 @@ quantileN_filtered # dim: 751091 403
 
 #--- Polymorphic probes
 
-exclude_poly     <- read.table("000_help_files_filtering/CpGs_polymorphic_EPIC.txt", sep = "", header = T)
-index            <- which(exclude_poly$EUR_AF > 0.05) #n = 10971
-exclude_poly.ids <- exclude_poly[index,]
+cg.polymorphic.epic.fn <- paste0(help.files.dir, CpGs_polymorphic_EPIC.txt")
+exclude_poly           <- read.table(cg.polymorphic.epic.fn, sep = "", header = T)
+index                  <- which(exclude_poly$EUR_AF > 0.05) #n = 10971
+exclude_poly.ids       <- exclude_poly[index,]
 
 #--- BMIQ quantileN
 keep <- !(rownames(BMIQ.quantileN_filtered) %in% exclude_poly.ids$IlmnID) 
@@ -119,7 +122,9 @@ quantileN_filtered <- quantileN_filtered[keep_ff,]
 
 #--- Chen Probe annotation
 
-load("000_help_files_filtering/ChenProbeIDs.rdata") #### Data from Chen et al (2013) PMID: 23314698
+chen.probe.id.fn <- paste0(help.files.dir, "ChenProbeIDs.rdata")
+load(chen.probe.id.fn) #### Data from Chen et al (2013) PMID: 23314698
+
 # loaded as annot2
 annot2$SNPs  <- annot2[, "EUR"] #### Can change Global to "AFR", "AMR", "ASN", or "EUR" to match content specific allelic frequency; Use "Global" if population is very diverse
 index        <- which(annot2$sex == "Exclude" | annot2$CRSH == "Exclude" | annot2$EUR == "Exclude")
