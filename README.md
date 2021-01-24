@@ -180,3 +180,31 @@ Folder: `/home/ahryhorzhevska/mpip/datasets/methyl/rData`
 **Reports**
 
 > `BetaValue_Distributions_Norm_quantile_Filter.png`
+
+## **MixupMapper:**
+
+**Data**
+
+_Iniial step:_
+
+> `imputed genotypes: /home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/Dex_genoData_SNPs.bed`
+
+_Intermediate step:_
+
+_Results:_
+
+**Run:**
+
+1. Convert genotypes _.bed_ to _TriTyper_ format:
+
+```sh
+DIR_GENOTYPES_BED="/home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/"
+DIR_GENOTYPES_TRITYPER ="/home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/mixupmapper"
+
+java -jar MixedUpMapper/GenotypeHarmonizer-1.4.20-SNAPSHOT/GenotypeHarmonizer.jar -i file/path/to/genotypes -I PLINK_BED -o /file/path/to/folder/harmonizer/in/your/folder -O TRITYPER  --update-id
+
+java -jar MixedUpMapper/GenotypeHarmonizer-1.4.20-SNAPSHOT/GenotypeHarmonizer.jar -i $DIR_GENOTYPES_BED -I PLINK_BED -o "DIR_GENOTYPES_TRITYPER" -O TRITYPER  --update-id
+```
+
+
+
