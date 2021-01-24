@@ -198,12 +198,14 @@ _Results:_
 1. Convert genotypes _.bed_ to _TriTyper_ format:
 
 ```sh
-DIR_GENOTYPES_BED="/home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/"
-DIR_GENOTYPES_TRITYPER ="/home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/mixupmapper"
+DIR_GENOTYPES_BED="/home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/Dex_genoData_SNPs"
+DIR_GENOTYPES_TRITYPER="/home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/mixupmapper"
 
-java -jar MixedUpMapper/GenotypeHarmonizer-1.4.20-SNAPSHOT/GenotypeHarmonizer.jar -i file/path/to/genotypes -I PLINK_BED -o /file/path/to/folder/harmonizer/in/your/folder -O TRITYPER  --update-id
+wget https://github.com/molgenis/systemsgenetics/releases/download/1.4.0_20-8.1/GenotypeHarmonizer-1.4.23-dist.tar.gz
+tar -xvf GenotypeHarmonizer-1.4.23-dist.tar.gz
+cd GenotypeHarmonizer-1.4.23
 
-java -jar MixedUpMapper/GenotypeHarmonizer-1.4.20-SNAPSHOT/GenotypeHarmonizer.jar -i $DIR_GENOTYPES_BED -I PLINK_BED -o "DIR_GENOTYPES_TRITYPER" -O TRITYPER  --update-id
+java -jar GenotypeHarmonizer.jar -i $DIR_GENOTYPES_BED -I PLINK_BED -o "DIR_GENOTYPES_TRITYPER" -O TRITYPER  --update-id
 ```
 
 
