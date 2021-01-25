@@ -181,6 +181,10 @@ Folder: `/home/ahryhorzhevska/mpip/datasets/methyl/rData`
 
 > `BetaValue_Distributions_Norm_quantile_Filter.png`
 
+## **Batch effects correction:**
+
+Description will come soon
+
 ## **MixupMapper:**
 
 **Data**
