@@ -193,6 +193,14 @@ https://github.com/molgenis/systemsgenetics/wiki/File-descriptions
 
 **Data**
 
+Methylation data :
+
+> `/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper`
+
+SNPs:
+
+> `/home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/mixupmapper/`
+
 _Initial step:_
 
 > `imputed genotypes: /home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/Dex_genoData_SNPs.bed`
