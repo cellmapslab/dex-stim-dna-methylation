@@ -26,7 +26,7 @@ colnames(genomeID) <- c("IndividualID", "ArrayID")
 genotypemethylationcoupling <- genomeID
 write.table(genotypemethylationcoupling, 
             file = paste0(dnam.mixupmapper.dir, "genotypemethylationcoupling.txt"), 
-            row.names = F, col.names = T, quote = F, sep = "\t")
+            row.names = F, col.names = F, quote = F, sep = "\t")
 
 ##--- batch-adjusted beta values to txt format 
 
@@ -45,7 +45,7 @@ write.table(betas.combated.veh,
             sep = "\t", quote = F, row.names = T, col.names = T)
 
 sh.script <- sprintf("BETAS_FILENAME='betas_combat_veh_mixupmapper.txt'; \
-                      cat $BETAS_FILENAME | head -n1 | awk '{print $1;}' ; \
+                      sce' ; \
                       FIRST_SAMPLE=$(cat $BETAS_FILENAME | head -n1 | awk '{print $1;}') ;\
-                      sed 's/$FIRST_SAMPLE/\t$FIRST_SAMPLE' $BETAS_FILENAME > $BETAS_FILENAME_final.txt")
+                      sed 's/$FIRST_SAMPLE/\t$FIRST_SAMPLE/' $BETAS_FILENAME > $BETAS_FILENAME_final.txt")
 system(sh.script)

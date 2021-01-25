@@ -224,7 +224,15 @@ java -jar GenotypeHarmonizer.jar -i $DIR_GENOTYPES_BED -I PLINK_BED -o $DIR_GENO
 2. Beta values normalization
 
 ```sh
-cd 
+screen -S mixupmapper
+
+BETA_VALUES_FILENAME="/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/betas_combat_veh_mixupmapper_final.txt"
+MIXUPMAPPER_DATA_DIR="/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/"
+
+MIXUPMAPPER_DIR="/home/ahryhorzhevska/github/dex-stim-dna-methylation/06_mixupmapper/eqtl-mapping-pipeline-1.2.4E-SNAPSHOT"
+java -jar $MIXUPMAPPER_DIR/eqtl-mapping-pipeline.jar --mode normalize --in $BETAS_VALUE_FILENAME  --out $MIXUPMAPPER_DATA_DIR --centerscale
 ```
+
+Result : Exception in thread "main" java.lang.NoClassDefFoundError: umcg/genetica/io/Gpio
 
 
