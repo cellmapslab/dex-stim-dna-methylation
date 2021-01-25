@@ -187,13 +187,22 @@ Description will come soon
 
 ## **MixupMapper:**
 
+Required files description can be found here:
+
+https://github.com/molgenis/systemsgenetics/wiki/File-descriptions
+
 **Data**
 
-_Iniial step:_
+_Initial step:_
 
 > `imputed genotypes: /home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/Dex_genoData_SNPs.bed`
+>` batch-adjusted beta values: /binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/Betas_combated.Rdata`
 
 _Intermediate step:_
+
+> `TRITYPER genotypes: /home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/mixupmapper/`
+> `Trait file: batch-adjusted beta values: /home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/beta_combated_for_mixupmapper.txt`
+> `Genotype - phenotype coupling: /home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/genotypemethylationcoupling.txt`
 
 _Results:_
 
@@ -209,8 +218,13 @@ wget https://github.com/molgenis/systemsgenetics/releases/download/1.4.0_20-8.1/
 tar -xvf GenotypeHarmonizer-1.4.23-dist.tar.gz
 cd GenotypeHarmonizer-1.4.23
 
-java -jar GenotypeHarmonizer.jar -i $DIR_GENOTYPES_BED -I PLINK_BED -o "DIR_GENOTYPES_TRITYPER" -O TRITYPER  --update-id
+java -jar GenotypeHarmonizer.jar -i $DIR_GENOTYPES_BED -I PLINK_BED -o $DIR_GENOTYPES_TRITYPER -O TRITYPER  --update-id
 ```
 
+2. Beta values normalization
+
+```sh
+cd 
+```
 
 
