@@ -234,11 +234,14 @@ java -jar GenotypeHarmonizer.jar -i $DIR_GENOTYPES_BED -I PLINK_BED -o $DIR_GENO
 ```sh
 screen -S mixupmapper
 
-BETA_VALUES_FILENAME="/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/betas_combat_veh_mixupmapper_final.txt"
-MIXUPMAPPER_DATA_DIR="/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/"
+srun --pty bash
 
-MIXUPMAPPER_DIR="/home/ahryhorzhevska/github/dex-stim-dna-methylation/06_mixupmapper/eqtl-mapping-pipeline-1.2.4E-SNAPSHOT"
-java -jar $MIXUPMAPPER_DIR/eqtl-mapping-pipeline.jar --mode normalize --in $BETAS_VALUE_FILENAME  --out $MIXUPMAPPER_DATA_DIR --centerscale
+BETA_VALUES_FILENAME="/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/out/betas_combat_veh_mixupmapper_final.txt"
+MIXUPMAPPER_DATA_DIR=/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/
+MIXUPMAPPER_DIR="/home/ahryhorzhevska/mpip/tools/MixupMapper/eqtl-mapping-pipeline-1.2.4E-SNAPSHOT"
+
+# java -jar $MIXUPMAPPER_DIR/eqtl-mapping-pipeline.jar --mode normalize --in $BETAS_VALUE_FILENAME  --out $MIXUPMAPPER_DATA_DIR --centerscale
+srun java -jar $MIXUPMAPPER_DIR/eqtl-mapping-pipeline.jar --mode normalize --in $BETAS_VALUE_FILENAME  --centerscale
 ```
 
 Result : Exception in thread "main" java.lang.NoClassDefFoundError: umcg/genetica/io/Gpio
