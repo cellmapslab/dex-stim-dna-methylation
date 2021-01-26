@@ -147,10 +147,10 @@ models.array <- apply(PCs, 2, function(pc){
 anova.dex.tbl <- sapply(models.array, anova, simplify = F)
 anova.dex.tbl # PC1, PC5, PC6
 
-pdf(paste0(report.dir, "anova_results.pdf"))
+page <- pdf(paste0(report.dir, "anova_results.pdf"))
 plot.new()
-text(-.15, .1, "Sample Group (dex, veh):")
-text(.1, .1, anova.dex.tbl)
+print(page, "Sample Group (dex, veh):")
+print(page, anova.dex.tbl)
 
 plot.new()
 text(-.15, .1, "Sex:")
