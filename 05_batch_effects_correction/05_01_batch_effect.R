@@ -150,24 +150,24 @@ pdf(paste0(report.dir, "01_PCA-map_ANOVA-res_before_correction.pdf"))
 
 PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Sample_Plate), 
                batch.legend.title = "Plate",
-               title = "PCA Individual map and density plot before correction by Plate")
+               title = "PCA Ind map and density plots before correction by Plate")
 
 PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Slide), 
                batch.legend.title = "Slide", 
-               title = "PCA Individual map and density plot before correction by Slide")
+               title = "PCA Ind map and density plots before correction by Slide")
 
 PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Array), 
                batch.legend.title = "Array", 
-               title = "PCA Individual map and density plot before correction by Array")
+               title = "PCA Ind map and density plots before correction by Array")
 
 PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Sample_Group), 
-               batch.legend.title = "Group", 
-               title = "PCA Individual map and density plots before correction by Group (dex/veh)")
+               batch.legend.title = "Group", legend.pos = 'right',
+               title = "PCA Ind map and density plots before correction by Group (dex/veh)")
 
 
 PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$sex), 
                batch.legend.title = "Sex",  legend.pos = 'right',
-               title = "PCA Individual map and density plot before correction by Sex")
+               title = "PCA Ind map and density plots before correction by Sex")
 
 textplot(capture.output(anova.pvalues.df), valign = "top", cex = 0.9)
 title("Summary table of P-values for PCs before batch correction")
@@ -189,13 +189,9 @@ title("ANOVA results for Sex before batch correction")
 dev.off()
 
 
-#################################################################################
 ##--- Batch correction
-#################################################################################
 
-#################################################################################
 #-- 1. Combat Correction for plate
-#################################################################################
 
 # Model matrix for batch-corrections (May need to adjust model matrix to 'protect' coefficients (study specific)):
 model.mtrx <- model.matrix(~1, data = pd_clean)
@@ -423,9 +419,7 @@ anova.array.tbl # PC1, PC5
 #   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 
-#################################################################################
 #-- 2. Combat Correction for Slide
-#################################################################################
 
 mod             <- model.matrix(~1, data=pd_clean)
 M_combat_2slide <- ComBat(M_combat_1plate,batch = pd_clean$Slide, mod = mod)
@@ -622,9 +616,7 @@ anova.array.tbl # PC1, PC6
 # Prin.comp$Array   7   43910  6272.9  1.1074 0.3575
 # Residuals       395 2237492  5664.5
 
-#################################################################################
 #-- 3. Combat Correction for Array
-#################################################################################
 
 mod             <- model.matrix(~1, data = pd_clean)
 M_combat_3array <- ComBat(M_combat_2slide, batch = pd_clean$Array, mod = mod)
@@ -827,9 +819,7 @@ anova.array.tbl # PC1-PC5
 #-> if nothing significant ok, leave it like that.
 
 
-#################################################################################
 ##--- Convert the batch-adjusted M-values back into betas:
-#################################################################################
 
 expit2         <- function(x) 2 ^ x / (1 + 2 ^ x)
 Betas_combated <- expit2(M_combat_3array)

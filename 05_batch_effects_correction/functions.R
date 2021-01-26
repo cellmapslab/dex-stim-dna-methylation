@@ -12,7 +12,7 @@ rowVars <- function(x, na.rm = FALSE, dims = 1, unbiased = TRUE, SumSquares = FA
 ##--- Function for plotting PCA individual map with density plot
 
 PlotPCADensity <- function(data = PCobj, data.pd = Princ.comp, batch = batch, batch.legend.title = 'Batch', 
-                           density.lwd = 0.2, legend.pos = 'right',  legend.cex = 0.7, legend.title.cex = 0.75,
+                           density.lwd = 0.2, legend.pos = 'none',  legend.cex = 0.7, legend.title.cex = 0.75,
                            title = NULL, title.cex = 1.5){
   
   batch <- as.factor(batch)
@@ -41,7 +41,7 @@ PlotPCADensity <- function(data = PCobj, data.pd = Princ.comp, batch = batch, ba
                          panel.background = element_blank()) + scale_fill_manual(values = color.mixo(1:51)) #+
                    #xlim(ylim[1], ylim[2])
                  
-  g <- ggplotGrob(pMain + theme(legend.position = legend.pos, legend.box = 'horizontal',
+  g <- ggplotGrob(pMain + theme(legend.position = 'right', legend.box = 'horizontal',
                                   legend.direction = 'vertical', 
                                   legend.key.height = unit(0.2, 'cm'),
                                   legend.key.width = unit(0.1, 'cm'),

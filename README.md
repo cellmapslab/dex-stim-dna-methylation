@@ -22,7 +22,7 @@ or
 export LC_CTYPE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 ```
-m
+
 ```sh
 srun -u --pty --part=pe -c 12 --mem=50G R --vanilla
 ```
