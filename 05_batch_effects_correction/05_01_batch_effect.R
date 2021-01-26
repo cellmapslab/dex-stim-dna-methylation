@@ -19,9 +19,9 @@ for (row in 1:nrow(input.parameters))
   assign(input.parameters[row, 1], input.parameters[row, 2])
 
 source(packages.fn)
-source("functions.R")
+source("05_batch_effects_correction/functions.R")
 
-report.dir <- paste0(src.dir, "05_batch_effect/reports/")
+report.dir <- paste0(src.dir, "05_batch_effects_correction/reports/")
 
 load(pd_clean.fn)
 load(bmiq.quantileN.filtered.fn)
@@ -87,10 +87,12 @@ PCs <- PCobj$x
 PCs <- PCs[, 1:R]
 Prin.comp <- merge(PCs, pd_clean, by = "row.names", all = T) 
 
-pdf(paste0(report.dir, "PC_Variation_by_batch_before_correction.pdf"))
+pdf(paste0(report.dir, "01_PCA_before_correction.pdf"))
 PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Sample_Plate), batch.legend.title = "Plate", title = "PCA before correction by Plate")
 PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Slide), batch.legend.title = "Slide", legend.pos = 'right', title = "PCA before correction by Slide")
 PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Array), batch.legend.title = "Array", title = "PCA before correction by Array")
+PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Sample_Group), batch.legend.title = "Group", title = "PCA before correction")
+PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$sex), batch.legend.title = "Sex", title = "PCA before correction")
 dev.off()
 
 ##--- Find extreme outliers
@@ -100,6 +102,64 @@ o2 <- 3 * sd(Prin.comp$PC2)
 which(abs(Prin.comp$PC1) > o1 && abs(Prin.comp$PC2) > o2) # 0
 
 ##--- ANOVA for detection of variation between PCs and batch
+
+#-- for Plate 
+
+models.plate <- apply(PCs, 2, function(pc){
+  lm(pc ~ Prin.comp$Sample_Plate) 
+})
+
+anova.plate.tbl <- sapply(models.plate, anova, simplify = F)
+anova.plate.tbl # PC1, PC4
+
+#-- for Slide
+
+models.slide <- apply(PCs, 2, function(pc){
+  lm(pc ~ as.factor(as.character(Prin.comp$Slide)))
+})
+
+anova.slide.tbl <- sapply(models.slide, anova, simplify = F)
+
+#-- for Array
+
+models.array <- apply(PCs, 2, function(pc){
+  lm(pc ~ Prin.comp$Array) 
+})
+
+anova.array.tbl <- sapply(models.array, anova, simplify = F)
+anova.array.tbl # PC1, PC5, PC6
+
+#-- for Sex
+
+models.array <- apply(PCs, 2, function(pc){
+  lm(pc ~ Prin.comp$sex) 
+})
+
+anova.sex.tbl <- sapply(models.array, anova, simplify = F)
+anova.sex.tbl # PC1, PC5, PC6
+
+#-- for DEX
+
+models.array <- apply(PCs, 2, function(pc){
+  lm(pc ~ Prin.comp$Sample_Group) 
+})
+
+anova.dex.tbl <- sapply(models.array, anova, simplify = F)
+anova.dex.tbl # PC1, PC5, PC6
+
+pdf(paste0(report.dir, "anova_results.pdf"))
+plot.new()
+text(-.15, .1, "Sample Group (dex, veh):")
+text(.1, .1, anova.dex.tbl)
+
+plot.new()
+text(-.15, .1, "Sex:")
+text(.1, .1, anova.sex.tbl)
+dev.off()
+
+
+
+
 
 #-- for Plate 
 
