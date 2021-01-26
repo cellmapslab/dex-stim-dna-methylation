@@ -22,13 +22,13 @@ PlotPCADensity <- function(data = PCobj, data.pd = Princ.comp, batch = batch, ba
                             geom = "point",
                             repel = T)
   pMain <-   ggpar(pca.plate,
-                   title = title,
+                   # title = title,
                    legend.title = batch.legend.title)
   
   pTop <- ggplot(data.pd, aes(x = PC1, fill = batch)) + 
                    geom_density(size = density.lwd, alpha = 0.5) + ylab('Density') +
                    theme(axis.title.x = element_blank(), axis.title.y = element_text(size = rel(0.8)), 
-                         plot.title = element_text(hjust = 0.5, size = rel(title.cex)), 
+                         plot.title = element_text(hjust = 0.5, size = rel(title.cex)), legend.position = legend.pos,
                          axis.line = element_blank(), axis.text = element_blank(), axis.ticks = element_blank(),
                          panel.background = element_blank()) + scale_fill_manual(values = color.mixo(1:51))# +
                 #   xlim(xlim[1], xlim[2]) + labs(title = title)
@@ -52,9 +52,13 @@ PlotPCADensity <- function(data = PCobj, data.pd = Princ.comp, batch = batch, ba
     
   legend <- g[[which(sapply(g, function(x) x$name) == "guide-box")]]
     
-  grid.arrange(pTop + theme(legend.position = 'none'), legend, pMain + 
-                   theme(legend.position = 'none'), pRight + theme(legend.position = 'none'), 
-                 ncol = 2, nrow = 2, widths = c(3, 1), heights = c(1, 3))
+  grid.arrange(pTop + ggtitle(title) + theme(legend.position = legend.pos, 
+                                             legend.title = element_blank(), 
+                                             plot.title = element_text(size = 10, face = "bold")) , 
+               legend, 
+               pMain + theme(legend.position = 'none'), 
+               pRight + theme(legend.position = 'none'), 
+               ncol = 2, nrow = 2, widths = c(3, 1), heights = c(1, 3))
 }
 
 ##--- Function for plotting PCA individual map

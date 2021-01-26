@@ -87,14 +87,6 @@ PCs <- PCobj$x
 PCs <- PCs[, 1:R]
 Prin.comp <- merge(PCs, pd_clean, by = "row.names", all = T) 
 
-pdf(paste0(report.dir, "01_PCA_before_correction.pdf"))
-PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Sample_Plate), batch.legend.title = "Plate", title = "PCA before correction by Plate")
-PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Slide), batch.legend.title = "Slide", legend.pos = 'right', title = "PCA before correction by Slide")
-PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Array), batch.legend.title = "Array", title = "PCA before correction by Array")
-PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Sample_Group), batch.legend.title = "Group", title = "PCA before correction")
-PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$sex), batch.legend.title = "Sex", title = "PCA before correction")
-dev.off()
-
 ##--- Find extreme outliers
 
 o1 <- 3 * sd(Prin.comp$PC1)
@@ -108,7 +100,6 @@ which(abs(Prin.comp$PC1) > o1 && abs(Prin.comp$PC2) > o2) # 0
 models.plate <- apply(PCs, 2, function(pc){
   lm(pc ~ Prin.comp$Sample_Plate) 
 })
-
 anova.plate.tbl <- sapply(models.plate, anova, simplify = F)
 anova.plate.tbl # PC1, PC4
 
@@ -117,7 +108,6 @@ anova.plate.tbl # PC1, PC4
 models.slide <- apply(PCs, 2, function(pc){
   lm(pc ~ as.factor(as.character(Prin.comp$Slide)))
 })
-
 anova.slide.tbl <- sapply(models.slide, anova, simplify = F)
 
 #-- for Array
@@ -125,7 +115,6 @@ anova.slide.tbl <- sapply(models.slide, anova, simplify = F)
 models.array <- apply(PCs, 2, function(pc){
   lm(pc ~ Prin.comp$Array) 
 })
-
 anova.array.tbl <- sapply(models.array, anova, simplify = F)
 anova.array.tbl # PC1, PC5, PC6
 
@@ -137,176 +126,68 @@ models.array <- apply(PCs, 2, function(pc){
 
 anova.sex.tbl <- sapply(models.array, anova, simplify = F)
 anova.sex.tbl # PC1, PC5, PC6
-
 #-- for DEX
 
 models.array <- apply(PCs, 2, function(pc){
   lm(pc ~ Prin.comp$Sample_Group) 
 })
-
 anova.dex.tbl <- sapply(models.array, anova, simplify = F)
 anova.dex.tbl # PC1, PC5, PC6
 
-page <- pdf(paste0(report.dir, "anova_results.pdf"))
-plot.new()
-print(page, "Sample Group (dex, veh):")
-print(page, anova.dex.tbl)
+#-- Combine p-values into single df to write out to pdf file
+anova.pvalues.df <- t(data.frame(rbind(
+  data.frame(anova.plate.tbl)[1, c(5, 10, 15, 20, 25, 30)],
+  data.frame(anova.slide.tbl)[1, c(5, 10, 15, 20, 25, 30)],
+  data.frame(anova.array.tbl)[1, c(5, 10, 15, 20, 25, 30)],
+  data.frame(anova.dex.tbl)[1, c(5, 10, 15, 20, 25, 30)], 
+  data.frame(anova.sex.tbl)[1, c(5, 10, 15, 20, 25, 30)])))
+anova.pvalues.df <- round(anova.pvalues.df, 5)
+colnames(anova.pvalues.df) <- c("P_Plate", "P_Slide", "P_Array", "P_DEX", "P_Sex")
 
-plot.new()
-text(-.15, .1, "Sex:")
-text(.1, .1, anova.sex.tbl)
+
+#-- Print out plots and table into pdf file
+pdf(paste0(report.dir, "01_PCA-map_ANOVA-res_before_correction.pdf"))
+
+PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Sample_Plate), 
+               batch.legend.title = "Plate",
+               title = "PCA Individual map and density plot before correction by Plate")
+
+PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Slide), 
+               batch.legend.title = "Slide", 
+               title = "PCA Individual map and density plot before correction by Slide")
+
+PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Array), 
+               batch.legend.title = "Array", 
+               title = "PCA Individual map and density plot before correction by Array")
+
+PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Sample_Group), 
+               batch.legend.title = "Group", 
+               title = "PCA Individual map and density plots before correction by Group (dex/veh)")
+
+
+PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$sex), 
+               batch.legend.title = "Sex",  legend.pos = 'right',
+               title = "PCA Individual map and density plot before correction by Sex")
+
+textplot(capture.output(anova.pvalues.df), valign = "top", cex = 0.9)
+title("Summary table of P-values for PCs before batch correction")
+
+textplot(capture.output(anova.plate.tbl), valign = "top", cex = 0.5)
+title("ANOVA results for Plate before batch correction")
+
+textplot(capture.output(anova.slide.tbl), valign = "top", cex = 0.5)
+title("ANOVA results for Slide before batch correction")
+
+textplot(capture.output(anova.array.tbl), valign = "top", cex = 0.5)
+title("ANOVA results for Array before batch correction")
+
+textplot(capture.output(anova.dex.tbl), valign = "top", cex = 0.5)
+title("ANOVA results for Sample Group before batch correction")
+
+textplot(capture.output(anova.sex.tbl), valign = "top", cex = 0.5)
+title("ANOVA results for Sex before batch correction")
 dev.off()
 
-
-
-
-
-#-- for Plate 
-
-models.plate <- apply(PCs, 2, function(pc){
- lm(pc ~ Prin.comp$Sample_Plate) 
-})
-
-anova.plate.tbl <- sapply(models.plate, anova, simplify = F)
-anova.plate.tbl # PC1, PC4
-# grid.table(as.data.frame(anova.plate.tbl))
-
-# $PC1
-# Analysis of Variance Table
-# 
-# Response: pc
-# Df   Sum Sq Mean Sq F value Pr(>F)
-# Prin.comp$Sample_Plate   4   203341   50835  0.7748 0.5421
-# Residuals              398 26113161   65611
-# 
-# $PC2
-# Analysis of Variance Table
-# 
-# Response: pc
-# Df   Sum Sq Mean Sq F value    Pr(>F)
-# Prin.comp$Sample_Plate   4  1844092  461023  12.954 6.327e-10 ***
-#   Residuals              398 14163944   35588
-# ---
-#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-# 
-# $PC3
-# Analysis of Variance Table
-# 
-# Response: pc
-# Df  Sum Sq Mean Sq F value    Pr(>F)
-# Prin.comp$Sample_Plate   4  770089  192522  11.444 8.398e-09 ***
-#   Residuals              398 6695598   16823
-# ---
-#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-# 
-# $PC4
-# Analysis of Variance Table
-# 
-# Response: pc
-# Df  Sum Sq Mean Sq F value Pr(>F)
-# Prin.comp$Sample_Plate   4    7546  1886.6  0.1095 0.9792
-# Residuals              398 6856884 17228.4
-# 
-# $PC5
-# Analysis of Variance Table
-# 
-# Response: pc
-# Df  Sum Sq Mean Sq F value    Pr(>F)
-# Prin.comp$Sample_Plate   4  452102  113026  13.021 5.647e-10 ***
-#   Residuals              398 3454663    8680
-# ---
-#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-# 
-# $PC6
-# Analysis of Variance Table
-# 
-# Response: pc
-# Df  Sum Sq Mean Sq F value    Pr(>F)
-# Prin.comp$Sample_Plate   4  197778   49445  5.8353 0.0001428 ***
-#   Residuals              398 3372405    8473
-# ---
-#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-
-#-- for Slide
-
-models.slide <- apply(PCs, 2, function(pc){
-  lm(pc ~ as.factor(as.character(Prin.comp$Slide)))
-})
-
-anova.slide.tbl <- sapply(models.slide, anova, simplify = F)
-
-# $PC1
-# Analysis of Variance Table
-# 
-# Response: pc
-# Df   Sum Sq Mean Sq F value Pr(>F)
-# as.factor(as.character(Prin.comp$Slide))  50  2366031   47321  0.6955 0.9414
-# Residuals                                352 23950471   68041
-
-
-#-- for Array
-
-models.array <- apply(PCs, 2, function(pc){
-  lm(pc ~ Prin.comp$Array) 
-})
-
-anova.array.tbl <- sapply(models.array, anova, simplify = F)
-anova.array.tbl # PC1, PC5, PC6
-# 
-# $PC1
-# Analysis of Variance Table
-# 
-# Response: pc
-# Df   Sum Sq Mean Sq F value Pr(>F)
-# Prin.comp$Array   7   286711   40959  0.6215 0.7382
-# Residuals       395 26029791   65898
-# 
-# $PC2
-# Analysis of Variance Table
-# 
-# Response: pc
-# Df   Sum Sq Mean Sq F value    Pr(>F)
-# Prin.comp$Array   7  2393835  341976   9.922 2.004e-11 ***
-#   Residuals       395 13614200   34466
-# ---
-#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-# 
-# $PC3
-# Analysis of Variance Table
-# 
-# Response: pc
-# Df  Sum Sq Mean Sq F value    Pr(>F)
-# Prin.comp$Array   7  631113   90159  5.2107 1.068e-05 ***
-#   Residuals       395 6834573   17303
-# ---
-#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-# 
-# $PC4
-# Analysis of Variance Table
-# 
-# Response: pc
-# Df  Sum Sq Mean Sq F value   Pr(>F)
-# Prin.comp$Array   7  391861   55980  3.4163 0.001473 **
-#   Residuals       395 6472569   16386
-# ---
-#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-# 
-# $PC5
-# Analysis of Variance Table
-# 
-# Response: pc
-# Df  Sum Sq Mean Sq F value Pr(>F)
-# Prin.comp$Array   7  102178 14596.8  1.5155 0.1603
-# Residuals       395 3804588  9631.9
-# 
-# $PC6
-# Analysis of Variance Table
-# 
-# Response: pc
-# Df  Sum Sq Mean Sq F value Pr(>F)
-# Prin.comp$Array   7  113967 16281.0  1.8607 0.0747 .
-# Residuals       395 3456217  8749.9
 
 #################################################################################
 ##--- Batch correction

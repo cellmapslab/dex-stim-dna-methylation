@@ -12,7 +12,7 @@ LoadPackagesBio <- function(pkg.list){
     suppressMessages(sapply(pkg.list, library, character.only = TRUE))
 }
 
-pkg.list <- c("BiocManager", "future", "RColorBrewer", "RPMM", "ggplot2", "matrixStats", "reshape", "Hmisc", "factoextra", "ggpubr", "gridExtra")
+pkg.list <- c("BiocManager", "future", "RColorBrewer", "RPMM", "ggplot2", "matrixStats", "reshape", "Hmisc", "factoextra", "ggpubr", "gridExtra", "gplots")
 
 biocmanager.pkg.list <- c("minfi", "missMethyl", "wateRmelon", "sva", "mixOmics")
 
