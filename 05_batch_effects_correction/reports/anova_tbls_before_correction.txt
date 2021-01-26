@@ -1,0 +1,6 @@
+                PC1    PC2    PC3    PC4    PC5    PC6   
+anova.plate.tbl List,5 List,5 List,5 List,5 List,5 List,5
+anova.slide.tbl List,5 List,5 List,5 List,5 List,5 List,5
+anova.array.tbl List,5 List,5 List,5 List,5 List,5 List,5
+anova.dex.tbl   List,5 List,5 List,5 List,5 List,5 List,5
+anova.sex.tbl   List,5 List,5 List,5 List,5 List,5 List,5
