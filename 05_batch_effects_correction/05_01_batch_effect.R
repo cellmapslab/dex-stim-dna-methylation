@@ -124,7 +124,7 @@ dim(Betas_combated) # for now final betas!
 # 740357    403
 
 #plot final densities
-pdf(file = paste0(report.dir, "BetaValue_Distributions_afterNormCombat.pdf"))
+pdf(file = paste0(report.dir, "04_BetaComBated_Distributions_Plot.pdf"))
 densityPlot(Betas_combated, sampGroups = pd_clean$Plate, legend = FALSE, main = "PostQC - Normalized and Batch Corrected Beta by Plate", xlab = "Beta")
 densityPlot(Betas_combated, sampGroups = pd_clean$Array, legend = FALSE, main = "PostQC - Normalized and Batch Corrected Beta by Array", xlab = "Beta")
 densityPlot(Betas_combated, sampGroups = pd_clean$Slide, legend = FALSE, main = "PostQC - Normalized and Batch Corrected Beta by Slide", xlab = "Beta")
