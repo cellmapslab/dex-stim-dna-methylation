@@ -39,7 +39,7 @@ _from https://bioconductor.org/packages/devel/workflows/vignettes/methylationArr
 
 - **Beta values** are generally preferable for describing the level of methylation at a locus or for graphical presentation because percentage methylation is easily interpretable. However, due to their distributional properties, **M-values** are more appropriate for statistical testing 
 
-## **Input data:**
+## **1. Input data:**
 
 - iData data : `/binder/mgp/workspace/2020_DexStim_Array_Human/methylation/`
 - RData: 
@@ -66,7 +66,7 @@ chmod +x ./getRgSetFormats.sh
 sbatch ./getRgSetFormats.sh
 ```
 
-## **QC:**
+## **2. QC:**
 
 1.  Calculate detection p-values. We can generate a detection p-value for every CpG in every sample, which is indicative of the quality of the signal. The method used by minfi to calculate detection p-values compares the total signal (_M_ + _U_) for each probe to the background signal level, which is estimated from the negative control probes. Very small p-values are indicative of a reliable signal whilst large p-values, for example _> 0.01_, generally indicate a poor quality signal.
 
@@ -137,7 +137,7 @@ _Result:_
 
 > `annotated_data_clean.Rdata`
 
-## **Normalization:**
+## **3. Normalization:**
 
 _Result:_
 
@@ -161,7 +161,7 @@ Folder: `/home/ahryhorzhevska/mpip/datasets/methyl/rData`
 
 > `BetaValue_Distributions_Norm_Quantile.pdf`
 
-## **Filtering:**
+## **4. Filtering:**
 
 _Result:_
 
@@ -181,11 +181,15 @@ Folder: `/home/ahryhorzhevska/mpip/datasets/methyl/rData`
 
 > `BetaValue_Distributions_Norm_quantile_Filter.png`
 
-## **Batch effects correction:**
+## **5. Batch effects correction:**
 
 Description will come soon
 
-## **MixupMapper:**
+## **6. Surrogate Variable Analysis (SVA):**
+
+Returning zero surrogate variables
+
+## **7. MixupMapper:**
 
 Required files description can be found here:
 
@@ -236,14 +240,12 @@ screen -S mixupmapper
 
 srun --pty bash
 
-BETA_VALUES_FILENAME="/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/out/betas_combat_veh_mixupmapper_final.txt"
-MIXUPMAPPER_DATA_DIR=/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/
+BETA_VALUES_FILENAME=/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/out/betas_combat_veh_mixupmapper.txt
+MIXUPMAPPER_DATA_DIR=/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/out
 MIXUPMAPPER_DIR="/home/ahryhorzhevska/mpip/tools/MixupMapper/eqtl-mapping-pipeline-1.2.4E-SNAPSHOT"
 
 # java -jar $MIXUPMAPPER_DIR/eqtl-mapping-pipeline.jar --mode normalize --in $BETAS_VALUE_FILENAME  --out $MIXUPMAPPER_DATA_DIR --centerscale
-srun java -jar $MIXUPMAPPER_DIR/eqtl-mapping-pipeline.jar --mode normalize --in $BETAS_VALUE_FILENAME  --centerscale
+srun --part=pe -c 12 --mem=200G java -jar $MIXUPMAPPER_DIR/eqtl-mapping-pipeline.jar --mode normalize --in $BETA_VALUES_FILENAME  --centerscale
 ```
-
-Result : Exception in thread "main" java.lang.NoClassDefFoundError: umcg/genetica/io/Gpio
 
 
