@@ -60,6 +60,101 @@ PlotPCADensity <- function(data = PCobj, data.pd = Princ.comp, batch = batch, ba
                ncol = 2, nrow = 2, widths = c(3, 1), heights = c(1, 3))
 }
 
+##--- Function that creates report of PCA and ANOVA results 
+
+GetPCAnovaReport <- function(pc.obj, prin.comp, R, pdf.fn){
+  
+  R <- R + 1
+
+  ##--- ANOVA for detection of variation between PCs and batch
+  
+  #-- Plate 
+  models.plate <- apply(prin.comp[, 2:R], 2, function(pc){
+    lm(pc ~ prin.comp$Sample_Plate) })
+  anova.plate.tbl <- sapply(models.plate, anova, simplify = F)
+  
+  #-- ANOVA for Slide
+  
+  models.slide <- apply(prin.comp[, 2:R], 2, function(pc){
+    lm(pc ~ as.factor(as.character(prin.comp$Slide)))})
+  anova.slide.tbl <- sapply(models.slide, anova, simplify = F)
+  
+  #-- for Array
+  
+  models.array <- apply(prin.comp[, 2:R], 2, function(pc){
+    lm(pc ~ prin.comp$Array) })
+  anova.array.tbl <- sapply(models.array, anova, simplify = F)
+  
+  #-- for Sex
+  
+  models.sex <- apply(prin.comp[, 2:R], 2, function(pc){
+    lm(pc ~ prin.comp$sex) })
+  anova.sex.tbl <- sapply(models.sex, anova, simplify = F)
+  
+  #-- for DEX
+  
+  models.dex <- apply(prin.comp[, 2:R], 2, function(pc){
+    lm(pc ~ prin.comp$Sample_Group) })
+  anova.dex.tbl <- sapply(models.dex, anova, simplify = F)
+  
+  
+  #-- Combine p-values into single df to write out to pdf file
+  anova.pvalues.df <- t(data.frame(rbind(
+    data.frame(anova.plate.tbl)[1, c(5, 10, 15, 20, 25, 30)],
+    data.frame(anova.slide.tbl)[1, c(5, 10, 15, 20, 25, 30)],
+    data.frame(anova.array.tbl)[1, c(5, 10, 15, 20, 25, 30)],
+    data.frame(anova.dex.tbl)[1, c(5, 10, 15, 20, 25, 30)], 
+    data.frame(anova.sex.tbl)[1, c(5, 10, 15, 20, 25, 30)])))
+  # anova.pvalues.df <- round(anova.pvalues.df, 5)
+  colnames(anova.pvalues.df) <- c("P_Plate", "P_Slide", "P_Array", "P_DEX", "P_Sex")
+  
+  
+  #-- Print out plots and table into pdf file
+  pdf(pdf.fn)
+  
+  PlotPCADensity(pc.obj, prin.comp, batch = as.character(prin.comp$Sample_Plate), 
+                 batch.legend.title = "Plate",
+                 title = "PCA Ind map and density plots by Plate")
+  
+  PlotPCADensity(pc.obj, prin.comp, batch = as.character(prin.comp$Slide), 
+                 batch.legend.title = "Slide", 
+                 title = "PCA Ind map and density plots by Slide")
+  
+  PlotPCADensity(pc.obj, prin.comp, batch = as.character(prin.comp$Array), 
+                 batch.legend.title = "Array", 
+                 title = "PCA Ind map and density plots by Array")
+  
+  PlotPCADensity(pc.obj, prin.comp, batch = as.character(prin.comp$Sample_Group), 
+                 batch.legend.title = "Group", legend.pos = 'right',
+                 title = "PCA Ind map and density plots by Group (dex/veh)")
+  
+  
+  PlotPCADensity(pc.obj, prin.comp, batch = as.character(prin.comp$sex), 
+                 batch.legend.title = "Sex",  legend.pos = 'right',
+                 title = "PCA Ind map and density plots by Sex")
+  
+  textplot(capture.output(anova.pvalues.df), valign = "top", cex = 0.9)
+  title("Summary table of P-values for PCs")
+  
+  textplot(capture.output(anova.plate.tbl), valign = "top", cex = 0.5)
+  title("ANOVA results for Plate")
+  
+  textplot(capture.output(anova.slide.tbl), valign = "top", cex = 0.5)
+  title("ANOVA results for Slide")
+  
+  textplot(capture.output(anova.array.tbl), valign = "top", cex = 0.5)
+  title("ANOVA results for Array")
+  
+  textplot(capture.output(anova.dex.tbl), valign = "top", cex = 0.5)
+  title("ANOVA results for Sample Group")
+  
+  textplot(capture.output(anova.sex.tbl), valign = "top", cex = 0.5)
+  title("ANOVA results for Sex")
+  dev.off()
+}
+
+
+
 ##--- Function for plotting PCA individual map
 PlotPCAIndMap <- function(PCobj, Princ.comp, pdf.fn){
   #-- by Plate
