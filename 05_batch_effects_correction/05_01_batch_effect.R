@@ -29,9 +29,7 @@ load(bmiq.quantileN.filtered.fn)
 # load(quantileN.fn)
 # load(annotated_data_clean.fn)
 
-#################################################################################
-##--- Combat to remove batch effects
-#################################################################################
+##--- PCA 
 
 mval <- apply(BMIQ.quantileN_filtered, 2, function(x) log2((x)/(1-x))) # M values
 
@@ -54,11 +52,14 @@ table(ifelse(rownames(pd_clean) == colnames(mval),"Match","Off")) # All should m
 ## Check variation in array data associated with batch (ie. Slide/plate/box)
 ## Run a principle component analysis to determine if there are any remaining batch effects following data normalization.
 
-PCobj <- prcomp(t(mval), retx = T, center = T, scale. = T)
-save(PCobj, file = pcobj.fn)
+pc.obj <- prcomp(t(mval), retx = T, center = T, scale. = T)
+save(pc.obj, file = pcobj.fn)
 
 load(pd_clean.fn)
-load(pcobj.fn)
+
+x      <- load(pcobj.fn)
+pc.obj <- get(x)
+rm(x)
 # pdf(paste0(report.dir, "boxplot_PCA.pdf"))
 # boxplot(PCobj$x, col = "grey",frame=F)
 # dev.off()
@@ -66,130 +67,134 @@ load(pcobj.fn)
 # Can use Scree plot to determine number of PCs to keep
 pdf(paste0(report.dir, "screeplot_PCA.pdf"))
 # plot(PCobj, type="line",cex.lab = 1.5, cex.main = 1.5) 
-fviz_eig(PCobj, ncp = 20)
+fviz_eig(pc.obj, ncp = 20)
 dev.off()
-
-# Extract the PCs from the PCobj object
-pcs.mtrx <- PCobj$x
 
 # Extract the proportion of variability and cumulative proportion of 
 # varibility explained by the top R PCs.
 R <- 15
-propvar <- round(summary(PCobj)$importance["Proportion of Variance", 1:R] * 100, 2 ) # -> write in xlsx
-cummvar <- round(summary(PCobj)$importance["Cumulative Proportion", 1:R] * 100, 2) # -> write in xlsx
+propvar <- round(summary(pc.obj)$importance["Proportion of Variance", 1:R] * 100, 2 ) # -> write in xlsx
+cummvar <- round(summary(pc.obj)$importance["Cumulative Proportion", 1:R] * 100, 2) # -> write in xlsx
 t(propvar); t(cumvar)
 
 R <- 6 # choose eg 6 PCs
 
 ##---  Plot of pca individal map by Batch, group (dex, veh) and sex 
 
-PCs <- PCobj$x
-PCs <- PCs[, 1:R]
-Prin.comp <- merge(PCs, pd_clean, by = "row.names", all = T) 
+prin.comp <- merge(pc.obj$x[, 1:R], pd_clean, by = "row.names", all = T) 
 
 ##--- Find extreme outliers
 
-o1 <- 3 * sd(Prin.comp$PC1)
-o2 <- 3 * sd(Prin.comp$PC2)
-which(abs(Prin.comp$PC1) > o1 && abs(Prin.comp$PC2) > o2) # 0
+o1 <- 1.5 * sd(prin.comp$PC1)
+o2 <- 1.5 * sd(prin.comp$PC2)
+which(abs(prin.comp$PC1) > o1 && abs(prin.comp$PC2) > o2) # 0
 
 ##--- ANOVA for detection of variation between PCs and batch
 
-#-- for Plate 
 
-models.plate <- apply(PCs, 2, function(pc){
-  lm(pc ~ Prin.comp$Sample_Plate) 
-})
-anova.plate.tbl <- sapply(models.plate, anova, simplify = F)
-anova.plate.tbl # PC1, PC4
-
-#-- for Slide
-
-models.slide <- apply(PCs, 2, function(pc){
-  lm(pc ~ as.factor(as.character(Prin.comp$Slide)))
-})
-anova.slide.tbl <- sapply(models.slide, anova, simplify = F)
-
-#-- for Array
-
-models.array <- apply(PCs, 2, function(pc){
-  lm(pc ~ Prin.comp$Array) 
-})
-anova.array.tbl <- sapply(models.array, anova, simplify = F)
-anova.array.tbl # PC1, PC5, PC6
-
-#-- for Sex
-
-models.array <- apply(PCs, 2, function(pc){
-  lm(pc ~ Prin.comp$sex) 
-})
-
-anova.sex.tbl <- sapply(models.array, anova, simplify = F)
-anova.sex.tbl # PC1, PC5, PC6
-#-- for DEX
-
-models.array <- apply(PCs, 2, function(pc){
-  lm(pc ~ Prin.comp$Sample_Group) 
-})
-anova.dex.tbl <- sapply(models.array, anova, simplify = F)
-anova.dex.tbl # PC1, PC5, PC6
-
-#-- Combine p-values into single df to write out to pdf file
-anova.pvalues.df <- t(data.frame(rbind(
-  data.frame(anova.plate.tbl)[1, c(5, 10, 15, 20, 25, 30)],
-  data.frame(anova.slide.tbl)[1, c(5, 10, 15, 20, 25, 30)],
-  data.frame(anova.array.tbl)[1, c(5, 10, 15, 20, 25, 30)],
-  data.frame(anova.dex.tbl)[1, c(5, 10, 15, 20, 25, 30)], 
-  data.frame(anova.sex.tbl)[1, c(5, 10, 15, 20, 25, 30)])))
-anova.pvalues.df <- round(anova.pvalues.df, 5)
-colnames(anova.pvalues.df) <- c("P_Plate", "P_Slide", "P_Array", "P_DEX", "P_Sex")
-
-
-#-- Print out plots and table into pdf file
-pdf(paste0(report.dir, "01_PCA-map_ANOVA-res_before_correction.pdf"))
-
-PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Sample_Plate), 
-               batch.legend.title = "Plate",
-               title = "PCA Ind map and density plots before correction by Plate")
-
-PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Slide), 
-               batch.legend.title = "Slide", 
-               title = "PCA Ind map and density plots before correction by Slide")
-
-PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Array), 
-               batch.legend.title = "Array", 
-               title = "PCA Ind map and density plots before correction by Array")
-
-PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$Sample_Group), 
-               batch.legend.title = "Group", legend.pos = 'right',
-               title = "PCA Ind map and density plots before correction by Group (dex/veh)")
-
-
-PlotPCADensity(PCobj, Prin.comp, batch = as.character(Prin.comp$sex), 
-               batch.legend.title = "Sex",  legend.pos = 'right',
-               title = "PCA Ind map and density plots before correction by Sex")
-
-textplot(capture.output(anova.pvalues.df), valign = "top", cex = 0.9)
-title("Summary table of P-values for PCs before batch correction")
-
-textplot(capture.output(anova.plate.tbl), valign = "top", cex = 0.5)
-title("ANOVA results for Plate before batch correction")
-
-textplot(capture.output(anova.slide.tbl), valign = "top", cex = 0.5)
-title("ANOVA results for Slide before batch correction")
-
-textplot(capture.output(anova.array.tbl), valign = "top", cex = 0.5)
-title("ANOVA results for Array before batch correction")
-
-textplot(capture.output(anova.dex.tbl), valign = "top", cex = 0.5)
-title("ANOVA results for Sample Group before batch correction")
-
-textplot(capture.output(anova.sex.tbl), valign = "top", cex = 0.5)
-title("ANOVA results for Sex before batch correction")
-dev.off()
+GetPCAnovaReport <- function(pc.obj, prin.comp, R){
+  
+  #-- Plate 
+  models.plate <- apply(prin.comp[, 2:R], 2, function(pc){
+    lm(pc ~ prin.comp$Sample_Plate) })
+  anova.plate.tbl <- sapply(models.plate, anova, simplify = F)
+  
+  #-- ANOVA for Slide
+  
+  models.slide <- apply(prin.comp[, 2:R], 2, function(pc){
+    lm(pc ~ as.factor(as.character(prin.comp$Slide)))})
+  anova.slide.tbl <- sapply(models.slide, anova, simplify = F)
+  
+  #-- for Array
+  
+  models.array <- apply(prin.comp[, 2:R], 2, function(pc){
+    lm(pc ~ prin.comp$Array) })
+  anova.array.tbl <- sapply(models.array, anova, simplify = F)
+  
+  #-- for Sex
+  
+  models.sex <- apply(prin.comp[, 2:R], 2, function(pc){
+    lm(pc ~ prin.comp$sex) })
+  anova.sex.tbl <- sapply(models.sex, anova, simplify = F)
+  
+  #-- for DEX
+  
+  models.dex <- apply(prin.comp[, 2:R], 2, function(pc){
+    lm(pc ~ prin.comp$Sample_Group) })
+  anova.dex.tbl <- sapply(models.dex, anova, simplify = F)
+  
+  
+  #-- Combine p-values into single df to write out to pdf file
+  anova.pvalues.df <- t(data.frame(rbind(
+    data.frame(anova.plate.tbl)[1, c(5, 10, 15, 20, 25, 30)],
+    data.frame(anova.slide.tbl)[1, c(5, 10, 15, 20, 25, 30)],
+    data.frame(anova.array.tbl)[1, c(5, 10, 15, 20, 25, 30)],
+    data.frame(anova.dex.tbl)[1, c(5, 10, 15, 20, 25, 30)], 
+    data.frame(anova.sex.tbl)[1, c(5, 10, 15, 20, 25, 30)])))
+  # anova.pvalues.df <- round(anova.pvalues.df, 5)
+  colnames(anova.pvalues.df) <- c("P_Plate", "P_Slide", "P_Array", "P_DEX", "P_Sex")
+  
+  
+  #-- Print out plots and table into pdf file
+  pdf(paste0(report.dir, "01_PCA-map_ANOVA-res_before_correction.pdf"))
+  
+  PlotPCADensity(pc.obj, prin.comp, batch = as.character(prin.comp$Sample_Plate), 
+                 batch.legend.title = "Plate",
+                 title = "PCA Ind map and density plots before correction by Plate")
+  
+  PlotPCADensity(pc.obj, prin.comp, batch = as.character(prin.comp$Slide), 
+                 batch.legend.title = "Slide", 
+                 title = "PCA Ind map and density plots before correction by Slide")
+  
+  PlotPCADensity(pc.obj, prin.comp, batch = as.character(prin.comp$Array), 
+                 batch.legend.title = "Array", 
+                 title = "PCA Ind map and density plots before correction by Array")
+  
+  PlotPCADensity(pc.obj, prin.comp, batch = as.character(prin.comp$Sample_Group), 
+                 batch.legend.title = "Group", legend.pos = 'right',
+                 title = "PCA Ind map and density plots before correction by Group (dex/veh)")
+  
+  
+  PlotPCADensity(pc.obj, prin.comp, batch = as.character(prin.comp$sex), 
+                 batch.legend.title = "Sex",  legend.pos = 'right',
+                 title = "PCA Ind map and density plots before correction by Sex")
+  
+  textplot(capture.output(anova.pvalues.df), valign = "top", cex = 0.9)
+  title("Summary table of P-values for PCs before batch correction")
+  
+  textplot(capture.output(anova.plate.tbl), valign = "top", cex = 0.5)
+  title("ANOVA results for Plate before batch correction")
+  
+  textplot(capture.output(anova.slide.tbl), valign = "top", cex = 0.5)
+  title("ANOVA results for Slide before batch correction")
+  
+  textplot(capture.output(anova.array.tbl), valign = "top", cex = 0.5)
+  title("ANOVA results for Array before batch correction")
+  
+  textplot(capture.output(anova.dex.tbl), valign = "top", cex = 0.5)
+  title("ANOVA results for Sample Group before batch correction")
+  
+  textplot(capture.output(anova.sex.tbl), valign = "top", cex = 0.5)
+  title("ANOVA results for Sex before batch correction")
+  dev.off()
+}
 
 
-##--- Batch correction
+
+##--- Batch correction for Plate
+
+model.mtrx     <- model.matrix(~1, data = pd_clean)
+m.combat.slide <- ComBat(mval, batch = pd_clean$Slide, mod = model.mtrx)
+pc.obj         <- prcomp(t(m.combat.slide), retx = T, center = T, scale. = T)
+prin.comp      <- merge(pc.obj$x[, 1:R], pd_clean, by = "row.names", all = T) 
+
+
+
+
+
+
+
+
 
 #-- 1. Combat Correction for plate
 

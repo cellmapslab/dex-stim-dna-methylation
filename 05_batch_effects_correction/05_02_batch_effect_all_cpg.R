@@ -70,8 +70,7 @@ R <- 4
 
 ##---  Plot of PCA individal map by Batch, group (dex, veh) and sex 
 
-PCs <- PCobj$x
-PCs <- PCs[, 1:R]
+PCs <- PCobj$x[, 1:R]
 Prin.comp <- merge(PCs, pd_clean, by = "row.names", all = T) 
 
 pdf(paste0(report.dir, "PC_Variation_by_batch_before_correction.pdf"))

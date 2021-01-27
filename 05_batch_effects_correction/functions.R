@@ -17,13 +17,12 @@ PlotPCADensity <- function(data = PCobj, data.pd = Princ.comp, batch = batch, ba
   
   batch <- as.factor(batch)
   
-  pca.plate <- fviz_pca_ind(PCobj,
+  pca.plate <- fviz_pca_ind(data,
                             col.ind = batch,
                             geom = "point",
                             repel = T)
   pMain <-   ggpar(pca.plate,
-                   # title = title,
-                   legend.title = batch.legend.title)
+                   title = "")
   
   pTop <- ggplot(data.pd, aes(x = PC1, fill = batch)) + 
                    geom_density(size = density.lwd, alpha = 0.5) + ylab('Density') +
