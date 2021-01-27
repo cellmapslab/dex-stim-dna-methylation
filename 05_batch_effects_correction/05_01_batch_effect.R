@@ -19,7 +19,7 @@ for (row in 1:nrow(input.parameters))
   assign(input.parameters[row, 1], input.parameters[row, 2])
 
 source(packages.fn)
-source("05_batch_effects_correction/functions.R")
+source("05_batch_effects_correction/05_00_functions.R")
 
 report.dir <- paste0(src.dir, "05_batch_effects_correction/reports/")
 
@@ -55,9 +55,6 @@ save(pc.obj, file = pcobj.fn)
 x      <- load(pcobj.fn)
 pc.obj <- get(x)
 rm(x)
-# pdf(paste0(report.dir, "boxplot_PCA.pdf"))
-# boxplot(PCobj$x, col = "grey",frame=F)
-# dev.off()
 
 # Scree plot to determine number of PCs to keep
 pdf(paste0(report.dir, "screeplot_PCA.pdf"))
@@ -128,7 +125,7 @@ dim(Betas_combated) # for now final betas!
 
 #plot final densities
 pdf(file = paste0(report.dir, "BetaValue_Distributions_afterNormCombat.pdf"))
-densityPlot(Betas_combated, sampGroups = pd_clean$Plate, legend = FALSE, main = "PostQC - Normalized and Batch Corrected Beta by Slide", xlab = "Beta")
+densityPlot(Betas_combated, sampGroups = pd_clean$Plate, legend = FALSE, main = "PostQC - Normalized and Batch Corrected Beta by Plate", xlab = "Beta")
 densityPlot(Betas_combated, sampGroups = pd_clean$Array, legend = FALSE, main = "PostQC - Normalized and Batch Corrected Beta by Array", xlab = "Beta")
 densityPlot(Betas_combated, sampGroups = pd_clean$Slide, legend = FALSE, main = "PostQC - Normalized and Batch Corrected Beta by Slide", xlab = "Beta")
 dev.off() 

@@ -8,7 +8,6 @@ rowVars <- function(x, na.rm = FALSE, dims = 1, unbiased = TRUE, SumSquares = FA
   (rowSums(x^2, na.rm, dims) - rowSums(x, na.rm, dims)^2/N) / Nm1
 }
 
-
 ##--- Function for plotting PCA individual map with density plot
 
 PlotPCADensity <- function(data = PCobj, data.pd = Princ.comp, batch = batch, batch.legend.title = 'Batch', 
@@ -29,16 +28,14 @@ PlotPCADensity <- function(data = PCobj, data.pd = Princ.comp, batch = batch, ba
                    theme(axis.title.x = element_blank(), axis.title.y = element_text(size = rel(0.8)), 
                          plot.title = element_text(hjust = 0.5, size = rel(title.cex)), legend.position = legend.pos,
                          axis.line = element_blank(), axis.text = element_blank(), axis.ticks = element_blank(),
-                         panel.background = element_blank()) + scale_fill_manual(values = color.mixo(1:51))# +
-                #   xlim(xlim[1], xlim[2]) + labs(title = title)
+                         panel.background = element_blank()) + scale_fill_manual(values = color.mixo(1:51))
                  
   pRight <- ggplot(data.pd, aes(x = PC2, fill = batch)) + 
                    geom_density(size = density.lwd,alpha = 0.5) +  coord_flip() + ylab('Density') +
                    theme(axis.title.x = element_text(size = rel(0.8)), 
                          axis.title.y = element_blank(), axis.line = element_blank(),
                          axis.text = element_blank(), axis.ticks = element_blank(),
-                         panel.background = element_blank()) + scale_fill_manual(values = color.mixo(1:51)) #+
-                   #xlim(ylim[1], ylim[2])
+                         panel.background = element_blank()) + scale_fill_manual(values = color.mixo(1:51)) 
                  
   g <- ggplotGrob(pMain + theme(legend.position = 'right', legend.box = 'horizontal',
                                   legend.direction = 'vertical', 
