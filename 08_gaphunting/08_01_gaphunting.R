@@ -105,7 +105,7 @@ samples.na.before.gap <- data.frame(Samples = colnames(betas.mtrx),
 
 samples.na.after.gap <- data.frame(Samples = colnames(betas.mtrx.gapped.outliers.na),
                                    Nr_NA_after_gap = apply(betas.mtrx.gapped.outliers.na, 2, function(x) sum(is.na(x))))
-samples.na.before.after <- merge(samples.na.before.gap, samples.na.after.gap, by.x = "Samples", by.y = "Aamples", all.x = TRUE, all.y = TRUE)
+samples.na.before.after <- merge(samples.na.before.gap, samples.na.after.gap, by.x = "Samples", by.y = "Samples", all.x = TRUE, all.y = TRUE)
 samples.na.before.after$outlier_gaphunter <- samples.na.before.after$Nr_NA_after_gap - samples.na.before.after$Nr_NA_before_gap
 samples.na.before.after$percent_outlier_gaphunter <- (samples.na.before.after$outlier_gaphunter / (nrow(betas.mtrx.gapped.outliers.na) -
                                                                                                    samples.na.before.after$Nr_NA_before_gap)) * 100
