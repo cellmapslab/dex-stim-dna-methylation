@@ -28,6 +28,6 @@ mod0 <- model.matrix(~ 1, data = pheno))
 
 # 3. Applying the 'sva' to estimate surrogate variables
 n.sv  <- num.sv(expr.set, mod, method="leek")
-svobj <- sva(expr.data, mod, mod0, n.sv = n.sv)
+svobj <- sva(expr.set, mod, mod0, n.sv = n.sv)
 
 
