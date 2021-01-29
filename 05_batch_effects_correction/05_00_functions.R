@@ -4,6 +4,7 @@
 # library(gridExtra)
 # library(grid)
 # library(tidyverse)
+# library(gplots)
 
 #--- Function that will calculate the variance of each row
 rowVars <- function(x, na.rm = FALSE, dims = 1, unbiased = TRUE, SumSquares = FALSE, twopass = FALSE) {
@@ -144,19 +145,22 @@ GetPCAnovaReport <- function(pc.obj, prin.comp, R, pdf.fn){
                  title = paste0(title.prefix, "Sex"))
   
   # ANOVA result output
-  
-  anova.pvalues.df %>% 
+  pivot.anova.tbl <- anova.pvalues.df %>% 
     as.data.frame() %>%
     rownames_to_column("PCs") %>%
-    pivot_longer(-c(PCs), names_to = "Batch", values_to = "P_value") %>%
-    ggplot(aes(x = Batch, y = PCs, fill = P_value)) + 
+    pivot_longer(-c(PCs), names_to = "Batch", values_to = "P_value") 
+  
+  pvalues.heatmap <- ggplot(pivot.anova.tbl, aes(x = Batch, y = PCs, fill = P_value)) + 
     geom_tile(aes(fill = P_value)) +
     geom_text(aes(label = round(P_value, 5))) +
     scale_fill_continuous(low = "red", high = "green") +
     theme(axis.title.x = element_blank(), 
-          axis.title.y = element_blank()) +
-    ggtitle("Graphical representation of ANOVA p-values") + theme(plot.title = element_text(size = 10))
+          axis.title.y = element_blank()) 
+    # ggtitle("Graphical representation of ANOVA p-values") + theme(plot.title = element_text(size = 10))
   
+  ggpar(pvalues.heatmap,
+        title = "Graphical representation of ANOVA p-values")
+   
   textplot(capture.output(anova.pvalues.df), valign = "top", cex = 0.9)
   title("Summary table of P-values for PCs")
   

@@ -111,3 +111,8 @@ samples.na.before.after$percent_outlier_gaphunter <- (samples.na.before.after$ou
                                                                                                    samples.na.before.after$Nr_NA_before_gap)) * 100
 write.csv(samples.na.before.after, paste0(report.dir, "02_Gaphunter_Samples_Summary_threshold_", threshold, ".csv"))  
 
+
+
+# Additional analysis
+
+cpg.outliers <- read.table(paste0(report.dir, "01_CpG_outliers_threshold_01.txt"))
