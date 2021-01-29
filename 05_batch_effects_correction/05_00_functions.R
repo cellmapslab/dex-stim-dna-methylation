@@ -3,6 +3,7 @@
 # library(mixOmics)
 # library(gridExtra)
 # library(grid)
+# library(tidyverse)
 
 #--- Function that will calculate the variance of each row
 rowVars <- function(x, na.rm = FALSE, dims = 1, unbiased = TRUE, SumSquares = FALSE, twopass = FALSE) {
@@ -44,7 +45,7 @@ PlotPCADensity <- function(data = PCobj, data.pd = Princ.comp, batch = batch, ba
                          panel.background = element_blank()) + scale_fill_manual(values = color.mixo(1:51)) + labs(colour = batch)
                  
   if (batch.legend.title == "Slide"){
-    legend <- rectGrob(gp = gpar(fill="transparent", col = NA))
+    legend <- rectGrob(gp = gpar(fill = NA, col = NA))
     } else{
       g <- ggplotGrob(pTop + theme(legend.position = 'right', legend.box = 'horizontal',
                                   legend.direction = 'vertical', 
@@ -104,7 +105,6 @@ GetPCAnovaReport <- function(pc.obj, prin.comp, R, pdf.fn){
     lm(pc ~ prin.comp$Sample_Group) })
   anova.dex.tbl <- sapply(models.dex, anova, simplify = F)
   
-  
   #-- Combine p-values into single df to write out to pdf file
   anova.pvalues.df <- t(data.frame(rbind(
     data.frame(anova.plate.tbl)[1, c(5, 10, 15, 20, 25, 30)],
@@ -113,32 +113,49 @@ GetPCAnovaReport <- function(pc.obj, prin.comp, R, pdf.fn){
     data.frame(anova.dex.tbl)[1, c(5, 10, 15, 20, 25, 30)], 
     data.frame(anova.sex.tbl)[1, c(5, 10, 15, 20, 25, 30)])))
   # anova.pvalues.df <- round(anova.pvalues.df, 5)
-  colnames(anova.pvalues.df) <- c("P_Plate", "P_Slide", "P_Array", "P_DEX", "P_Sex")
-  
+  colnames(anova.pvalues.df) <- c("Plate", "Slide", "Array", "DEX", "Sex")
+  rownames(anova.pvalues.df) <- paste0(rep("PC", R - 1), 1:(R- 1))
   
   #-- Print out plots and table into pdf file
   pdf(pdf.fn)
   
+  # PCA and densities plots
+  
+  title.prefix <- "PCA Individual Map and Density Plots by"
+  
   PlotPCADensity(pc.obj, prin.comp, batch = as.character(prin.comp$Sample_Plate), 
                  batch.legend.title = "Plate",
-                 title = "PCA Ind map and density plots by Plate")
+                 title = paste0(title.prefix, "Plate"))
   
   PlotPCADensity(pc.obj, prin.comp, batch = as.character(prin.comp$Slide), 
                  batch.legend.title = "Slide", 
-                 title = "PCA Ind map and density plots by Slide")
+                 title = paste0(title.prefix, "Slide"))
   
   PlotPCADensity(pc.obj, prin.comp, batch = as.character(prin.comp$Array), 
                  batch.legend.title = "Array", 
-                 title = "PCA Ind map and density plots by Array")
+                 title = paste0(title.prefix, "Array"))
   
   PlotPCADensity(pc.obj, prin.comp, batch = as.character(prin.comp$Sample_Group), 
                  batch.legend.title = "Group", legend.pos = 'right',
-                 title = "PCA Ind map and density plots by Group (dex/veh)")
-  
+                 title = paste0(title.prefix, "Group (dex/veh)"))
   
   PlotPCADensity(pc.obj, prin.comp, batch = as.character(prin.comp$sex), 
                  batch.legend.title = "Sex",  legend.pos = 'none',
-                 title = "PCA Ind map and density plots by Sex")
+                 title = paste0(title.prefix, "Sex"))
+  
+  # ANOVA result output
+  
+  anova.pvalues.df %>% 
+    as.data.frame() %>%
+    rownames_to_column("PCs") %>%
+    pivot_longer(-c(PCs), names_to = "Batch", values_to = "P_value") %>%
+    ggplot(aes(x = Batch, y = PCs, fill = P_value)) + 
+    geom_tile(aes(fill = P_value)) +
+    geom_text(aes(label = round(P_value, 5))) +
+    scale_fill_continuous(low = "red", high = "green") +
+    theme(axis.title.x = element_blank(), 
+          axis.title.y = element_blank()) +
+    ggtitle("Graphical representation of ANOVA p-values") + theme(plot.title = element_text(size = 10))
   
   textplot(capture.output(anova.pvalues.df), valign = "top", cex = 0.9)
   title("Summary table of P-values for PCs")

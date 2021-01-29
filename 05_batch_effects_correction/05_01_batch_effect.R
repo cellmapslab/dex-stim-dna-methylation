@@ -100,7 +100,7 @@ prin.comp      <- merge(pc.obj$x[, 1:R], pd_clean, by = "row.names", all = T)
 pdf.fn <- paste0(report.dir, "02_PCA-map_ANOVA-res_ARRAY_correction.pdf")
 GetPCAnovaReport(pc.obj, prin.comp, R, pdf.fn) 
 
-## 5. ComBat correction for Slide
+# 5. ComBat correction for Slide
 
 model.mtrx     <- model.matrix(~1, data = pd_clean)
 m.combat.slide <- ComBat(m.combat.array, batch = pd_clean$Slide, mod = model.mtrx)
