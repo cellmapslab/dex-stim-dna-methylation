@@ -1,4 +1,10 @@
-##--- Function that will calculate the variance of each row
+# library(factoextra)
+# Library(ggpubr)
+# library(mixOmics)
+# library(gridExtra)
+# library(grid)
+
+#--- Function that will calculate the variance of each row
 rowVars <- function(x, na.rm = FALSE, dims = 1, unbiased = TRUE, SumSquares = FALSE, twopass = FALSE) {
   if (SumSquares) return(rowSums(x^2, na.rm, dims))
   N <- rowSums(!is.na(x), FALSE, dims)
@@ -28,16 +34,19 @@ PlotPCADensity <- function(data = PCobj, data.pd = Princ.comp, batch = batch, ba
                    theme(axis.title.x = element_blank(), axis.title.y = element_text(size = rel(0.8)), 
                          plot.title = element_text(hjust = 0.5, size = rel(title.cex)), legend.position = legend.pos,
                          axis.line = element_blank(), axis.text = element_blank(), axis.ticks = element_blank(),
-                         panel.background = element_blank()) + scale_fill_manual(values = color.mixo(1:51))
+                         panel.background = element_blank()) + scale_fill_manual(values = color.mixo(1:51)) + labs(colour = batch)
                  
   pRight <- ggplot(data.pd, aes(x = PC2, fill = batch)) + 
                    geom_density(size = density.lwd,alpha = 0.5) +  coord_flip() + ylab('Density') +
                    theme(axis.title.x = element_text(size = rel(0.8)), 
                          axis.title.y = element_blank(), axis.line = element_blank(),
                          axis.text = element_blank(), axis.ticks = element_blank(),
-                         panel.background = element_blank()) + scale_fill_manual(values = color.mixo(1:51)) 
+                         panel.background = element_blank()) + scale_fill_manual(values = color.mixo(1:51)) + labs(colour = batch)
                  
-  g <- ggplotGrob(pMain + theme(legend.position = 'right', legend.box = 'horizontal',
+  if (batch.legend.title == "Slide"){
+    legend <- rectGrob(gp = gpar(fill="transparent", col = NA))
+    } else{
+      g <- ggplotGrob(pTop + theme(legend.position = 'right', legend.box = 'horizontal',
                                   legend.direction = 'vertical', 
                                   legend.key.height = unit(0.2, 'cm'),
                                   legend.key.width = unit(0.1, 'cm'),
@@ -45,12 +54,13 @@ PlotPCADensity <- function(data = PCobj, data.pd = Princ.comp, batch = batch, ba
                                   legend.spacing.x = unit(0.1, 'cm'),
                                   legend.spacing.y = unit(0.1, 'cm'),
                                   legend.text = element_text(size = rel(legend.cex))))$grobs
+      
+      legend <- g[[which(sapply(g, function(x) x$name) == "guide-box")]]
+      }
     
-  legend <- g[[which(sapply(g, function(x) x$name) == "guide-box")]]
-    
-  grid.arrange(pTop + ggtitle(title) + theme(legend.position = legend.pos, 
-                                             legend.title = element_blank(), 
-                                             plot.title = element_text(size = 10, face = "bold")) , 
+  grid.arrange(pTop + ggtitle(title) + theme(legend.position = 'none', 
+                                     #       legend.title = element_blank(), 
+                                            plot.title = element_text(size = 10)) , 
                legend, 
                pMain + theme(legend.position = 'none'), 
                pRight + theme(legend.position = 'none'), 
@@ -127,7 +137,7 @@ GetPCAnovaReport <- function(pc.obj, prin.comp, R, pdf.fn){
   
   
   PlotPCADensity(pc.obj, prin.comp, batch = as.character(prin.comp$sex), 
-                 batch.legend.title = "Sex",  legend.pos = 'right',
+                 batch.legend.title = "Sex",  legend.pos = 'none',
                  title = "PCA Ind map and density plots by Sex")
   
   textplot(capture.output(anova.pvalues.df), valign = "top", cex = 0.9)
