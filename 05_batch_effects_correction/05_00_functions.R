@@ -155,11 +155,10 @@ GetPCAnovaReport <- function(pc.obj, prin.comp, R, pdf.fn){
     geom_text(aes(label = round(P_value, 5))) +
     scale_fill_continuous(low = "red", high = "green") +
     theme(axis.title.x = element_blank(), 
-          axis.title.y = element_blank()) 
-    # ggtitle("Graphical representation of ANOVA p-values") + theme(plot.title = element_text(size = 10))
+          axis.title.y = element_blank()) +
+    ggtitle("Graphical representation of ANOVA p-values") + theme(plot.title = element_text(size = 10))
   
-  ggpar(pvalues.heatmap,
-        title = "Graphical representation of ANOVA p-values")
+  print(pvalues.heatmap)
    
   textplot(capture.output(anova.pvalues.df), valign = "top", cex = 0.9)
   title("Summary table of P-values for PCs")
