@@ -9,8 +9,6 @@ for (row in 1:nrow(input.parameters))
 
 # print(rgSet_clean.fn)
 
-report.dir <- paste0(src.dir, "03_normalization/02_reports/")
-
 source(packages.fn)
 source(bmiq.script.fn)
 

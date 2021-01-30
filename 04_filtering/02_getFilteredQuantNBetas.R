@@ -9,13 +9,11 @@ for (row in 1:nrow(input.parameters))
 
 # print(rgSet_clean.fn)
 
-report.dir <- paste0(src.dir, "03_normalization/reports/")
-
 source(packages.fn)
 source(bmiq.script.fn)
 
 load(quantileN.filtered.fn)
 
-Ms_quantileN_filtered <- getM(quantileN_filtered)
-save(Ms_quantileN_filtered, file = ms.quantileN.filtered.fn)
+Betas_quantileN_filtered <- getBeta(quantileN_filtered) # beta values
+save(Betas_quantileN_filtered, file = betas.quantileN.filtered.fn)
 

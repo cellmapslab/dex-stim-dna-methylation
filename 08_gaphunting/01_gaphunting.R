@@ -17,8 +17,6 @@ for (row in 1:nrow(input.parameters))
 library(minfi)
 # source("05_batch_effects_correction/05_00_functions.R")
 
-report.dir <- paste0(src.dir, "08_gaphunting/01_reports/")
-
 x <- load(beta.combat.fn)
 betas.combated <- get(x)
 rm(x) 

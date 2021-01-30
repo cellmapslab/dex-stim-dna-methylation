@@ -6,4 +6,4 @@
 
 module load R
 
-Rscript --vanilla 02_qc.R
+Rscript --vanilla 01_qc.R

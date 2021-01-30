@@ -9,7 +9,6 @@ input.parameters    <- as.data.frame(input.parameters)
 for (row in 1:nrow(input.parameters))
   assign(input.parameters[row, 1], input.parameters[row, 2])
 
-report.dir           <- paste0(src.dir, "06_mixupmapper/01_reports/")
 dnam.mixupmapper.dir <- "/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/"
 
 #2. Genotype - phenotype coupling

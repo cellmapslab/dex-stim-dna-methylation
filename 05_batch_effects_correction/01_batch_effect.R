@@ -15,9 +15,7 @@ for (row in 1:nrow(input.parameters))
   assign(input.parameters[row, 1], input.parameters[row, 2])
 
 source(packages.fn)
-source("05_batch_effects_correction/05_00_functions.R")
-
-report.dir <- paste0(src.dir, "05_batch_effects_correction/reports/")
+source("05_batch_effects_correction/00_functions.R")
 
 load(pd_clean.fn)
 load(bmiq.quantileN.filtered.fn)

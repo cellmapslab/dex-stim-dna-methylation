@@ -21,8 +21,6 @@ for (row in 1:nrow(input.parameters))
 source(packages.fn)
 source("functions.R")
 
-report.dir <- paste0(src.dir, "05_batch_effect/reports_all_CpGs/")
-
 load(pd_clean.fn)
 load(bmiq.quantileN.fn)
 

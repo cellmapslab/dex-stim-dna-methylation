@@ -1,6 +1,13 @@
-src.data.dir <- '/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/'
-src.dir      <- '~/github/dex-stim-dna-methylation/'
-report.dir   <- paste0(src.dir, "02_qc/reports/")
+args                <- commandArgs(T)
+input.parameters.fn <- as.character(args[1])
+
+input.parameters    <- read.csv(input.parameters.fn, sep = ";", header = F )
+input.parameters    <- as.data.frame(input.parameters)
+
+for (row in 1:nrow(input.parameters))
+  assign(input.parameters[row, 1], input.parameters[row, 2])
+
+source(packages.fn)
 
 sh.script.mkdir <- sprintf("cd %s ; 
                     
@@ -15,13 +22,7 @@ sh.script.mkdir <- sprintf("cd %s ;
 
 system(sh.script.mkdir)
 
-packages.fn     <- paste0(src.dir, "packages.R")
-source(packages.fn)
-
-sample.sheet.fn <- paste0(src.dir, "00_samplesheets/samplesheet_epic_methylation_dex.csv")
 targets         <- read.csv(sample.sheet.fn, sep = ';' )
-
-rgSet.fn        <- paste0(src.data.dir, "rgSet_dex.RData")
 load(rgSet.fn)
 
 ##--- Calculate the detection p-values

@@ -11,8 +11,6 @@ input.parameters    <- as.data.frame(input.parameters)
 for (row in 1:nrow(input.parameters))
   assign(input.parameters[row, 1], input.parameters[row, 2])
 
-report.dir <- paste0(src.dir, "06_sva/01_reports/")
-
 # 1. Setting up the data from an ExpressionSet
 x     <- load(pd_clean.fn)
 pheno <- get(x)

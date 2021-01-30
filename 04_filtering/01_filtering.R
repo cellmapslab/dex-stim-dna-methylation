@@ -11,8 +11,7 @@ for (row in 1:nrow(input.parameters))
 
 source(packages.fn)
 
-report.dir     <- paste0(src.dir, "04_filtering/02_reports/")
-help.files.dir <- paste0(src.dir, "04_filtering/01_help_files/") 
+help.files.dir <- paste0(src.dir, "04_filtering/01_help_files/")
 
 load(detP_clean.fn)
 load(quantileN.bmiq.fn)

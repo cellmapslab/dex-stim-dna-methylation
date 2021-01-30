@@ -6,4 +6,6 @@
 
 module load R
 
-Rscript --vanilla 04_getFilteredQuantNBetas.R ~/github/dex-stim-dna-methylation/input_parameters.csv
+SRC_DIR=~/mpip/code/dex-stim-dna-methylation
+
+Rscript --vanilla $SRC_DIR/04_filtering/02_getFilteredQuantNBetas.R $SRC_DIR/input_parameters.csv

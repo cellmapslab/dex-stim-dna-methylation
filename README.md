@@ -24,7 +24,7 @@ export LC_ALL="en_US.UTF-8"
 ```
 
 ```sh
-srun -u --pty --part=pe -c 2 --mem=50G R --vanilla
+srun -u --pty --part=pe -c 8 --mem=200G R --vanilla
 ```
 
 ## __Note:__
@@ -217,7 +217,7 @@ Batch-adjusted beta values:
 
 _Intermediate step:_
 
-`TRITYPER genotypes: 
+TRITYPER genotypes: 
 
 > `/home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/mixupmapper/`
 
@@ -249,7 +249,6 @@ java -jar GenotypeHarmonizer.jar -i $DIR_GENOTYPES_BED -I PLINK_BED -o $DIR_GENO
 2. Beta values normalization
 
 ```sh
-
 screen -S mixupmapper
 
 BETA_VALUES_FILENAME=/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/out_eqtl_normalization/betas_combat_veh_mixupmapper.txt
@@ -261,11 +260,11 @@ srun --part=pe -c 12 --mem=200G java -jar $MIXUPMAPPER_DIR/eqtl-mapping-pipeline
 ```
 
 ```sh
-
 GENOTYPES_TRITYPER_DIR=/home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/mixupmapper
 TRAIT_NORM_FILENAME=/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/out_eqtl_normalization/betas_combat_veh_mixupmapper.ProbesCentered.SamplesZTransformed.txt.gz
 ANNOTATION_FILENAME=/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/annotation.txt
 COUPLING_FILENAME=/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/genotypemethylationcoupling.txt
+OUT_MIXUPMAPPER_DIR=/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/out_mixupmapper
 
 MIXUPMAPPER_DIR=/home/ahryhorzhevska/mpip/tools/MixupMapper/eqtl-mapping-pipeline-1.2.4E-SNAPSHOT
 

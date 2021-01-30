@@ -4,7 +4,5 @@
 #SBATCH --mem=50GB
 #SBATCH --output=methyl_normalization-qet-betas-m.out
 
-module load R
-
 sbatch --dependency=afterany:2589749 03_getquantileNBetas.sh
 sbatch --dependency=afterany:2589749 03_getquantileNMs.sh

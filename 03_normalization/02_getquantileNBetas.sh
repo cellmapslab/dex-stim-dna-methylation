@@ -6,4 +6,6 @@
 
 module load R
 
-Rscript --vanilla 03_getquantileNBetas.R ~/github/dex-stim-dna-methylation/input_parameters.csv
+SRC_DIR=~/mpip/code/dex-stim-dna-methylation
+
+Rscript --vanilla 02_getquantileNBetas.R $SRC_DIR/input_parameters.csv
