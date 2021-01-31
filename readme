@@ -1,0 +1,5 @@
+pre-processing was performed by Jade Martins, jade@psych.mpg.de
+full QC is at /binder/jade/KSP-LMU/methylation/
+the final qc-ed, normalized and batch-corrected beta-values are in BMIQ.quantileN_combated_ExprSet.Rdata
+LMU_houseman_cellcounts.csv contains estimated Houseman celltype-proportions
+ all QC-steps are given in samples_steps_lmu.xlsx
