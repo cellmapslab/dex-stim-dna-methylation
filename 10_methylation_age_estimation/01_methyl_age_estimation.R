@@ -4,7 +4,7 @@
 
 library(minfi)
 library(ENmix)
-
+library(SummarizedExperiment)
 
 input.parameters.fn <- "input_parameters.csv"
 
@@ -22,9 +22,9 @@ rm(x)
 # OR
 # beta.mtrx <- readR(paste0(src.data.dir, "betas_mtrx_after_gap_extreme_outliers_na.rds"))
 
-meth.age      <- estimateCellCounts(beta.mtrx, 
-                                    type = "hovath", 
-                                    fastImputaion = F,
-                                    normalize = F)
+meth.age      <- methyAge(beta.mtrx, 
+                          type = "all", 
+                          # fastImputaion = F,
+                          normalize = F)
 
 write.csv(meth.age, file = paste0(report.dir, "DEX-stim-array-human-meth-age.csv"), col.names = T, row.names = T, quote = F, sep = ";")
