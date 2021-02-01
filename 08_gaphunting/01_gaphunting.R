@@ -1,4 +1,4 @@
-# 07 Batch effects correction
+# 08 Gaphunting
 
 # 1. Load data
 
@@ -25,8 +25,8 @@ rm(x)
 
 betas.mtrx <- betas.combated
 n.samples  <- ncol(betas.mtrx)
-threshold  <- 0.1 #c(0.025, 0.05, 0.1)
-cutoff     <- ifelse(5 > (0.025 * n.samples), 5/n.samples ,0.0025)
+threshold  <- 0.05 #c(0.025, 0.05, 0.1)
+cutoff     <- 0.01 #ifelse(5 > (0.025 * n.samples), 5/n.samples ,0.0025)
 
 # Check if there is any missing value
 # Gaphunter function cannot handle missing value
@@ -76,12 +76,12 @@ betas.mtrx.gapped.outliers.na   <- as.data.frame(betas.mtrx)
 # Final betas matrix (saved as betas_after_gap in .Rda format) with all outliers detected as NAs 
 betas.mtrx.gapped.outliers.na [match(rownames(betas.mtrx.tmp) ,rownames(betas.mtrx.gapped.outliers.na )), ] <- betas.mtrx.tmp
 dim(betas.mtrx.gapped.outliers.na)
-saveRDS(betas.mtrx.gapped.outliers.na, file = paste0(src.data.dir, "betas_mtrx_gapped_outliers_na.rds"))
+saveRDS(betas.mtrx.gapped.outliers.na, file = paste0(src.data.dir, "betas_mtrx_after_gap_outliers_na.rds"))
 
 # Beta matrix from original betas combated mtrx with additional NAs for extreme outliers.
 betas.mtrx[is.na(betas.mtrx.tmp)] <- NA; 
 betas.mtrx.gapped.extreme.outliers.na <- betas.mtrx
-saveRDS(betas.mtrx.gapped.extreme.outliers.na, file = paste0(src.data.dir, "betas_mtrx_gapped_extreme_outliers_na.rds")) ## Use this for further analysis
+saveRDS(betas.mtrx.gapped.extreme.outliers.na, file = paste0(src.data.dir, "betas_mtrx_after_gap_extreme_outliers_na.rds")) ## Use this for further analysis
 
 dim(betas.mtrx.gapped.extreme.outliers.na) 
 
@@ -135,3 +135,16 @@ plotProbesMerged <- function(betas){
 pdf (file = paste0(report.dir, "02_stripchart_samlpes_outlier.pdf"))
 plotProbesMerged(as.data.frame(betas.samples.outliers))
 dev.off()
+
+
+
+x <- load("/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/rgSet_clean.Rdata")
+GRset <- get(x)
+snps <- getSnpInfo(GRset)
+snps.outliers <- snps[outliers, ]
+table(is.na(snps.outliers))
+
+x <- load(annotated_data_clean.fn)
+anno <- get(x)
+anno.outliers <- anno[outliers, ]
+anno.outliers["cg26679879", ]
