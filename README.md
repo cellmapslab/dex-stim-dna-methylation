@@ -205,7 +205,7 @@ SNPs:
 
 > `/home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/mixupmapper/`
 
-_Initial step:_
+#### _Initial step:_
 
 Imputed genotypes: 
 
@@ -215,7 +215,7 @@ Batch-adjusted beta values:
 
 > `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/Betas_combated.Rdata`
 
-_Intermediate step:_
+#### _Intermediate step:_
 
 TRITYPER genotypes: 
 
@@ -228,8 +228,6 @@ Trait file: batch-adjusted beta values:
 Genotype - phenotype coupling: 
 
 > `/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/genotypemethylationcoupling.txt`
-
-_Results:_
 
 **Run:**
 
@@ -273,6 +271,37 @@ MIXUPMAPPER_DIR=/home/ahryhorzhevska/mpip/tools/MixupMapper/eqtl-mapping-pipelin
 srun --part=pe --mem=200G --output=$OUT_MIXUPMAPPER_DIR/eqtl_mixupmapper.out java -Xmx15g -Xms15g -jar $MIXUPMAPPER_DIR/eqtl-mapping-pipeline.jar --mode mixupmapper --in $GENOTYPES_TRITYPER_DIR --out $OUT_MIXUPMAPPER_DIR --inexp $TRAIT_NORM_FILENAME --inexpplatform EPIC --inexpannot $ANNOTATION_FILENAME --gte $COUPLING_FILENAME
 ```
 
-/binder/jade/KSP-LMU/methylation/
+**Results:**
+
+Two mix-ups were found
 
 
+| Genotype |  OriginalLinkedTrait | OriginalLinkedTraitScore | BestMatchingTrait | BestMatchingTraitScore | Mixup |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| MPIPSYKL_007875 | 200712160042_R01C01  |    -4.9666422637773895  |   200720060022_R04C01 | -12.023177359249031 |  true |
+| MPIPSYKL_007893 | 200720060022_R04C01 |     -5.231460612404898  |    200712160042_R01C01 |  -6.322773218809481 | true |
+
+## **8. Gaphunter:**
+
+## **9. Cell types estimation:**
+
+## **10. Methylation age estimation:**
+
+Methylation age can reflect a person’s biological age, which may be more related to the person’s health status than chronological age. 
+Three different types of methylation age are estimated using methyAge: Horvath, Hannum and PhenoAge.
+
+**Input Data**
+
+> `Betas_combated.Rdata` : BMIQ normalized combated beta matrix
+
+_Result:_
+
+**Data**
+
+Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/`:
+
+> 
+
+**Reports**
+
+> `BetaValue_Distributions_Norm_Quantile.pdf`
