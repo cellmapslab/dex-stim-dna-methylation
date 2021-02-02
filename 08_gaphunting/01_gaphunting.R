@@ -113,38 +113,38 @@ write.csv(samples.na.before.after, paste0(report.dir, "02_Gaphunter_Samples_Summ
 
 # Additional analysis
 
-cpg.outliers <- read.table(paste0(report.dir, "01_CpG_outliers_threshold_01.txt"))[, 1]
-betas.outliers <- betas.combated[cpg.outliers, ]
-pdf (file = paste0(report.dir, "01_stripchart_cpg_outliers.pdf"))
-stripchart(as.data.frame(t(betas.outliers)), ylab='Beta value', pch='-', vertical=TRUE, las=2, cex.axis=0.6)
-dev.off()
-
-samples.outliers <- read.table(paste0(report.dir, "01_Samples_outliers_threshold_01.txt"))[, 1]
-betas.samples.outliers <- betas.combated[, samples.outliers ]
-
-plotProbesMerged <- function(betas){
-  old_par <- par(no.readonly = TRUE)
-  d <- dim(betas)
-  plot(betas[1], ylim=c(0,1), xlab="Samples", ylab="Beta value")
-  for (i in 2:d[1]) {
-    plot(betas[i], add=TRUE)
-  }
-  par(old_par)
-}
-
-pdf (file = paste0(report.dir, "02_stripchart_samlpes_outlier.pdf"))
-plotProbesMerged(as.data.frame(betas.samples.outliers))
-dev.off()
-
-
-
-x <- load("/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/rgSet_clean.Rdata")
-GRset <- get(x)
-snps <- getSnpInfo(GRset)
-snps.outliers <- snps[outliers, ]
-table(is.na(snps.outliers))
-
-x <- load(annotated_data_clean.fn)
-anno <- get(x)
-anno.outliers <- anno[outliers, ]
-anno.outliers["cg26679879", ]
+# cpg.outliers <- read.table(paste0(report.dir, "01_CpG_outliers_threshold_01.txt"))[, 1]
+# betas.outliers <- betas.combated[cpg.outliers, ]
+# pdf (file = paste0(report.dir, "01_stripchart_cpg_outliers.pdf"))
+# stripchart(as.data.frame(t(betas.outliers)), ylab='Beta value', pch='-', vertical=TRUE, las=2, cex.axis=0.6)
+# dev.off()
+# 
+# samples.outliers <- read.table(paste0(report.dir, "01_Samples_outliers_threshold_01.txt"))[, 1]
+# betas.samples.outliers <- betas.combated[, samples.outliers ]
+# 
+# plotProbesMerged <- function(betas){
+#   old_par <- par(no.readonly = TRUE)
+#   d <- dim(betas)
+#   plot(betas[1], ylim=c(0,1), xlab="Samples", ylab="Beta value")
+#   for (i in 2:d[1]) {
+#     plot(betas[i], add=TRUE)
+#   }
+#   par(old_par)
+# }
+# 
+# pdf (file = paste0(report.dir, "02_stripchart_samlpes_outlier.pdf"))
+# plotProbesMerged(as.data.frame(betas.samples.outliers))
+# dev.off()
+# 
+# 
+# 
+# x <- load("/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/rgSet_clean.Rdata")
+# GRset <- get(x)
+# snps <- getSnpInfo(GRset)
+# snps.outliers <- snps[outliers, ]
+# table(is.na(snps.outliers))
+# 
+# x <- load(annotated_data_clean.fn)
+# anno <- get(x)
+# anno.outliers <- anno[outliers, ]
+# anno.outliers["cg26679879", ]

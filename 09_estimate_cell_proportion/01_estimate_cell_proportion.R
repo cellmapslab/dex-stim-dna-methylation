@@ -15,20 +15,27 @@ input.parameters    <- as.data.frame(input.parameters)
 for (row in 1:nrow(input.parameters))
   assign(input.parameters[row, 1], input.parameters[row, 2])
 
-x      <- load(beta.combat.expr.set.fn)
-rg.set <- get(x)
+# x                    <- load(beta.combat.expr.set.fn)
+# beta.combat.expr.set <- get(x)
+
+x <- load(rgSet_clean.fn)
+rg.set.clean <- get(x)
+
 rm(x)
 
 # 2. Estimate cell type proportion
 
-rg.set.converted <- convertArray(rg.set, outType="IlluminaHumanMethylation450k")
-cell.counts      <- estimateCellCounts(rg.set.converted,
-                                       compositeCellType = "Blood",
-                                       referencePlatform = "IlluminaHumanMethylation450k")
-
 # Error with FlowSorted.Blood.EPIC
-# cell.counts      <- estimateCellCounts(rg.set, 
-#                                       compositeCellType = "Blood", 
-#                                       referencePlatform = "IlluminaHumanMethylationEPIC")
+# Could not find reference data package for compositeCellType 'Blood' and referencePlatform 'EPIC' (inferred package name is 'FlowSorted.Blood.EPIC')
 
-write.csv(cell.counts, file = paste0(report.dir, "DEX-stim-array-human-cellcounts.csv"), col.names = T, row.names = T, quote = F, sep = ";")
+rg.set.clean.converted <- convertArray(rg.set.clean, outType="IlluminaHumanMethylation450k")
+
+pdf(file = paste0(report.dir, "Cell_type_estimation.pdf"))
+cell.counts            <- estimateCellCounts(rg.set.clean.converted,
+                                             compositeCellType = "Blood",
+                                             referencePlatform = "IlluminaHumanMethylation450k", 
+                                             meanPlot = T)
+
+dev.off()
+
+write.table(cell.counts, file = paste0(report.dir, "DEX-stim-array-human-cellcounts.csv"), col.names = T, row.names = T, quote = F, sep = ";")
