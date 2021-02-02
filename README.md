@@ -205,7 +205,7 @@ SNPs:
 
 > `/home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/mixupmapper/`
 
-_Initial step:_
+#### _Initial step:_
 
 Imputed genotypes: 
 
@@ -215,7 +215,7 @@ Batch-adjusted beta values:
 
 > `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/Betas_combated.Rdata`
 
-_Intermediate step:_
+#### _Intermediate step:_
 
 TRITYPER genotypes: 
 
@@ -228,8 +228,6 @@ Trait file: batch-adjusted beta values:
 Genotype - phenotype coupling: 
 
 > `/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/genotypemethylationcoupling.txt`
-
-_Results:_
 
 **Run:**
 
@@ -273,7 +271,7 @@ MIXUPMAPPER_DIR=/home/ahryhorzhevska/mpip/tools/MixupMapper/eqtl-mapping-pipelin
 srun --part=pe --mem=200G --output=$OUT_MIXUPMAPPER_DIR/eqtl_mixupmapper.out java -Xmx15g -Xms15g -jar $MIXUPMAPPER_DIR/eqtl-mapping-pipeline.jar --mode mixupmapper --in $GENOTYPES_TRITYPER_DIR --out $OUT_MIXUPMAPPER_DIR --inexp $TRAIT_NORM_FILENAME --inexpplatform EPIC --inexpannot $ANNOTATION_FILENAME --gte $COUPLING_FILENAME
 ```
 
-4. Results
+**Results:**
 
 Two mix-ups were found
 
