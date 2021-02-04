@@ -329,7 +329,9 @@ Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/`:
     * `dex_methyl_beta_combat_exprset.rds`: final beta expression set after normalization, probes and samples filtering, batch correction and mix-ups removal _(740357 x 399)_
     * `dex_methyl_rgset_final.rds`: final RGChannel Set after removing poor qc samples and mix-ups, number of probes is the same as in initial _(1052641 x 399)_
     * `gaphunter results`:
+    
             - `dex_methyl_betas_mtrx_after_gap_outliers_na.rds`: beta matrix obtained from the beta combated matrix, _dex_methyl_beta_combat_mtrx.rds_, with all outliers detected as NAs 
+            
             - `dex_methyl_betas_mtrx_after_gap_extreme_outliers_na.rds`:  beta matrix obtained from the beta combated matrix, _dex_methyl_beta_combat_mtrx.rds_, with additional NAs for __extreme__ outliers
 
 
