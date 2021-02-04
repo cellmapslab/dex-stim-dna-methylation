@@ -18,7 +18,7 @@ for (row in 1:nrow(input.parameters))
 # x                    <- load(beta.combat.expr.set.fn)
 # beta.combat.expr.set <- get(x)
 rgset.fn    <- paste0(src.final.data.dir, "dex_methyl_rgset_final.rds")
-rgset       <- loadRDS(rgset.fn)
+rgset       <- readRDS(rgset.fn)
 
 # 2. Estimate cell type proportion
 

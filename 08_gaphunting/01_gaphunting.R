@@ -18,7 +18,7 @@ library(minfi)
 # source("05_batch_effects_correction/05_00_functions.R")
 
 beta.mtrx.fn   <- paste0(src.final.data.dir, "dex_methyl_beta_combat_mtrx.rds")
-betas.combated <- loadRDS(beta.mtrx.fn)
+betas.combated <- readRDS(beta.mtrx.fn)
 
 # 2. Set up input parameters
 

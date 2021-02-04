@@ -18,10 +18,10 @@ for (row in 1:nrow(input.parameters))
   assign(input.parameters[row, 1], input.parameters[row, 2])
 
 beta.mtrx.fn <- paste0(src.final.data.dir, "dex_methyl_beta_combat_mtrx.rds")
-beta.mtrx    <- loadRDS(beta.mtrx.fn)
+beta.mtrx    <- readRDS(beta.mtrx.fn)
 
 pheno.fn     <- paste0(src.final.data.dir, "dex_methyl_phenotype.rds")
-pheno        <- load(pheno.fn)
+pheno        <- readRDS(pheno.fn)
 
 # 2. Estimate methylation age
 
