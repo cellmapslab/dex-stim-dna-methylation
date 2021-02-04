@@ -332,4 +332,12 @@ Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/`:
              `dex_methyl_betas_mtrx_after_gap_outliers_na.rds`: beta matrix obtained from the beta combated matrix, _dex_methyl_beta_combat_mtrx.rds_, with all outliers detected as NAs 
              `dex_methyl_betas_mtrx_after_gap_extreme_outliers_na.rds`:  beta matrix obtained from the beta combated matrix, _dex_methyl_beta_combat_mtrx.rds_, with additional NAs for __extreme__ outliers
 
+- `11_cell_types_estimation`:
 
+    * `dex_methyl_phenotype.rds`: final phenotype data after excluding poor qc and mix-ups samples _(399 x 16)_
+    *  `dex_methyl_detP.rds`: final p-values matrix after excluding poor qc and mix-ups samples but not probes
+
+- `12_DNAm_age`:
+
+    * `dex_methyl_phenotype.rds`: final phenotype data after excluding poor qc and mix-ups samples _(399 x 16)_
+    *  `dex_methyl_detP.rds`: final p-values matrix after excluding poor qc and mix-ups samples but not probes
