@@ -17,9 +17,8 @@ for (row in 1:nrow(input.parameters))
 library(minfi)
 # source("05_batch_effects_correction/05_00_functions.R")
 
-x <- load(beta.combat.fn)
-betas.combated <- get(x)
-rm(x) 
+beta.mtrx.fn   <- paste0(src.final.data.dir, "dex_methyl_beta_combat_mtrx.rds")
+betas.combated <- loadRDS(beta.mtrx.fn)
 
 # 2. Set up input parameters
 
@@ -76,12 +75,12 @@ betas.mtrx.gapped.outliers.na   <- as.data.frame(betas.mtrx)
 # Final betas matrix (saved as betas_after_gap in .Rda format) with all outliers detected as NAs 
 betas.mtrx.gapped.outliers.na [match(rownames(betas.mtrx.tmp) ,rownames(betas.mtrx.gapped.outliers.na )), ] <- betas.mtrx.tmp
 dim(betas.mtrx.gapped.outliers.na)
-saveRDS(betas.mtrx.gapped.outliers.na, file = paste0(src.data.dir, "betas_mtrx_after_gap_outliers_na.rds"))
+saveRDS(betas.mtrx.gapped.outliers.na, file = paste0(src.final.data.dir, "dex_methyl_betas_mtrx_after_gap_outliers_na.rds"))
 
 # Beta matrix from original betas combated mtrx with additional NAs for extreme outliers.
 betas.mtrx[is.na(betas.mtrx.tmp)] <- NA; 
 betas.mtrx.gapped.extreme.outliers.na <- betas.mtrx
-saveRDS(betas.mtrx.gapped.extreme.outliers.na, file = paste0(src.data.dir, "betas_mtrx_after_gap_extreme_outliers_na.rds")) ## Use this for further analysis
+saveRDS(betas.mtrx.gapped.extreme.outliers.na, file = paste0(src.final.data.dir, "dex_methyl_betas_mtrx_after_gap_extreme_outliers_na.rds")) ## Use this for further analysis
 
 dim(betas.mtrx.gapped.extreme.outliers.na) 
 

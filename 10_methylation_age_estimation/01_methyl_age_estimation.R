@@ -17,19 +17,17 @@ input.parameters    <- as.data.frame(input.parameters)
 for (row in 1:nrow(input.parameters))
   assign(input.parameters[row, 1], input.parameters[row, 2])
 
-x         <- load(beta.combat.fn)
-beta.mtrx <- get(x)
+beta.mtrx.fn <- paste0(src.final.data.dir, "dex_methyl_beta_combat_mtrx.rds")
+beta.mtrx    <- loadRDS(beta.mtrx.fn)
 
-x     <- load(pd_clean.fn)
-pheno <- get(x)
-
-rm(x)
+pheno.fn     <- paste0(src.final.data.dir, "dex_methyl_phenotype.rds")
+pheno        <- load(pheno.fn)
 
 # 2. Estimate methylation age
 
 meth.age      <- methyAge(beta.mtrx, 
                           type = "all", 
-                           fastImputation = F,
+                          fastImputation = F,
                           normalize = F)
 
 # 3. Merge estimated age with real and write out results
@@ -48,21 +46,21 @@ MedianAbsDev     <- function(dnam.age.method, real.age) signif(MedianAbsDevHelp(
 pdf(file = paste0(report.dir, "DNAm_Age_and_Chronological_Age_Relation.pdf"))
 
 err <- MedianAbsDev (merged.age.tbl$mAge_Hovath, merged.age.tbl$realAge)
-ggplot(merged.age.tbl, aes(x = mAge_Hovath, y = realAge)) + 
+ggplot(merged.age.tbl, aes(x = mAge_Hovath, y = realAge,  color = pheno$Sample_Group)) + 
   geom_point() +
   geom_smooth() +
   labs(title = paste("DNAm age (Hovath) vs Chronological age, err = ", err),
        x = "DNAm Age Hovath", y = "Chronological Age")
 
 err <- MedianAbsDev (merged.age.tbl$mAge_Hannum, merged.age.tbl$realAge)
-ggplot(merged.age.tbl, aes(x = mAge_Hannum, y = realAge)) + 
+ggplot(merged.age.tbl, aes(x = mAge_Hannum, y = realAge, color = pheno$Sample_Group)) + 
   geom_point() +
   geom_smooth() +
   labs(title = paste("DNAm age (Hannum) vs Chronological age, err = ", err),
        x = "DNAm Age Hannum", y = "Chronological Age")
 
 err <- MedianAbsDev (merged.age.tbl$PhenoAge, merged.age.tbl$realAge)
-ggplot(merged.age.tbl, aes(x = PhenoAge, y = realAge)) + 
+ggplot(merged.age.tbl, aes(x = PhenoAge, y = realAge, color = pheno$Sample_Group)) + 
   geom_point() +
   geom_smooth() +
   labs(title = paste("DNAm age (Pheno) vs Chronological age, err = ", err),

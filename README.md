@@ -305,3 +305,10 @@ Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/`:
 **Reports**
 
 > `BetaValue_Distributions_Norm_Quantile.pdf`
+
+
+## **The location of the results**
+
+**On cluster :**
+
+

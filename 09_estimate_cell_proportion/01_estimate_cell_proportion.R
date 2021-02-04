@@ -17,21 +17,18 @@ for (row in 1:nrow(input.parameters))
 
 # x                    <- load(beta.combat.expr.set.fn)
 # beta.combat.expr.set <- get(x)
-
-x <- load(rgSet_clean.fn)
-rg.set.clean <- get(x)
-
-rm(x)
+rgset.fn    <- paste0(src.final.data.dir, "dex_methyl_rgset_final.rds")
+rgset       <- loadRDS(rgset.fn)
 
 # 2. Estimate cell type proportion
 
 # Error with FlowSorted.Blood.EPIC
 # Could not find reference data package for compositeCellType 'Blood' and referencePlatform 'EPIC' (inferred package name is 'FlowSorted.Blood.EPIC')
 
-rg.set.clean.converted <- convertArray(rg.set.clean, outType="IlluminaHumanMethylation450k")
+rgset.converted <- convertArray(rgset, outType="IlluminaHumanMethylation450k")
 
 pdf(file = paste0(report.dir, "Cell_type_estimation.pdf"))
-cell.counts            <- estimateCellCounts(rg.set.clean.converted,
+cell.counts            <- estimateCellCounts(rgset.converted,
                                              compositeCellType = "Blood",
                                              referencePlatform = "IlluminaHumanMethylation450k", 
                                              meanPlot = T)
