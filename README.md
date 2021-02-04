@@ -281,6 +281,12 @@ Two mix-ups were found
 | MPIPSYKL_007875 | 200712160042_R01C01  |    -4.9666422637773895  |   200720060022_R04C01 | -12.023177359249031 |  true |
 | MPIPSYKL_007893 | 200720060022_R04C01 |     -5.231460612404898  |    200712160042_R01C01 |  -6.322773218809481 | true |
 
+4. Remove the individuas (both dex and veh) that we setermined as mix-ups
+
+**Results:**
+
+The results data are the final data. Please look at the Final result section to get location where the data are stores.
+
 ## **8. Gaphunter:**
 
 ## **9. Cell types estimation:**
@@ -310,5 +316,20 @@ Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/`:
 ## **The location of the results**
 
 **On cluster :**
+
+> `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/10_final_qc_data/`
+
+- `10_final_qc_data` : R objects  
+    
+    * `dex_methyl_phenotype.rds`: final phenotype data after excluding poor qc and mix-ups samples _(399 x 16)_
+    * `dex_methyl_detP.rds`: final p-values matrix after excluding poor qc and mix-ups samples but not probes _(866836 x 399)_
+    * `dex_methyl_bmiq_quantileN.rds`: final beta matrix after quantile + BMIQ normalization, samples filtering and mix-ups removal _(865859 x 399)_
+    * `dex_methyl_bmiq_quantileN_filtered.rds`: final beta matrix after normalization, probes and samples filtering and mix-ups removal _(740357 x 399)_
+    * `dex_methyl_beta_combat_mtrx.rds`: final beta matrix after normalization, probes and samples filtering, batch correction and mix-ups removal _(740357 x 399)_
+    * `dex_methyl_beta_combat_exprset.rds`: final beta expression set after normalization, probes and samples filtering, batch correction and mix-ups removal _(740357 x 399)_
+    * `dex_methyl_rgset_final.rds`: final RGChannel Set after removing poor qc samples and mix-ups, number of probes is the same as in initial _(1052641 x 399)_
+    * `gaphunter results`:
+            - `dex_methyl_betas_mtrx_after_gap_outliers_na.rds`: beta matrix obtained from the beta combated matrix, _dex_methyl_beta_combat_mtrx.rds_, with all outliers detected as NAs 
+            - `dex_methyl_betas_mtrx_after_gap_extreme_outliers_na.rds`:  beta matrix obtained from the beta combated matrix, _dex_methyl_beta_combat_mtrx.rds_, with additional NAs for __extreme__ outliers
 
 
