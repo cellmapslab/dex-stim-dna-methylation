@@ -289,7 +289,36 @@ The results data are the final data. Please look at the Final result section to 
 
 ## **8. Gaphunter:**
 
+**Input Data**
+
+> `dex_methyl_beta_combat_mtrx.rds` : final beta matrix after normalization, probes and samples filtering, batch correction and mix-ups removal _(740'357 x 399)_
+
+**Result**
+
+Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/13_gaphunter`:
+
+* `gaphunter RDSs`:    R objects  
+     - `dex_methyl_betas_mtrx_after_gap_outliers_na.rds`: beta matrix obtained from the beta combated matrix, _dex_methyl_beta_combat_mtrx.rds_, with all outliers detected as NAs 
+     - `dex_methyl_betas_mtrx_after_gap_extreme_outliers_na.rds`:  beta matrix obtained from the beta combated matrix, _dex_methyl_beta_combat_mtrx.rds_, with additional NAs for __extreme__ outliers
+     
+* `01_Gaphunter_CpGs_Summary_threshold_0.05.csv`:  summary files for probes
+
+* `02_Gaphunter_Samples_Summary_threshold_0.05.csv`:  summary files for samples
+
+
 ## **9. Cell types estimation:**
+
+**Input Data**
+
+> `dex_methyl_beta_combat_mtrx.rds` : final beta matrix after normalization, probes and samples filtering, batch correction and mix-ups removal _(740'357 x 399)_
+
+**Result**
+
+Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/11_cell_types_estimation`:
+
+>  `dex_stim_array_human_cellcounts.csv`: cell types estimation table
+
+> `dex_stim_cell_type_estimation_plot.pdf`: plots the average DNA methylation across the cell-type discrimating probes within the mixed and sorted samples
 
 ## **10. Methylation age estimation:**
 
@@ -298,26 +327,21 @@ Three different types of methylation age are estimated using methyAge: Horvath, 
 
 **Input Data**
 
-> `Betas_combated.Rdata` : BMIQ normalized combated beta matrix
+> `dex_methyl_beta_combat_mtrx.rds` : final beta matrix after normalization, probes and samples filtering, batch correction and mix-ups removal _(740'357 x 399)_
 
-_Result:_
+**Result**
 
-**Data**
+Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/12_DNAm_age`:
 
-Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/`:
+>  `dex_stim_array_human_meth_age.csv`: table which contains DNAm age predicitons ( Horvath, Hannum and PhenoAge) and chronological age
 
-> 
+> `DNAm_Age_and_Chronological_Age_Relation_plot.pdf`
 
-**Reports**
+## **The final results**
 
-> `BetaValue_Distributions_Norm_Quantile.pdf`
+**Path on cluster :**
 
-
-## **The location of the results**
-
-**On cluster :**
-
-> `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/10_final_qc_data/`
+> `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/`
 
 - `10_final_qc_data` : R objects  
     
@@ -328,25 +352,28 @@ Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/`:
     * `dex_methyl_beta_combat_mtrx.rds`: final beta matrix after normalization, probes and samples filtering, batch correction and mix-ups removal _(740'357 x 399)_
     * `dex_methyl_beta_combat_exprset.rds`: final beta expression set after normalization, probes and samples filtering, batch correction and mix-ups removal _(740'357 x 399)_
     * `dex_methyl_rgset_final.rds`: final RGChannel Set after removing poor qc samples and mix-ups, number of probes is the same as in initial _(1'052'641 x 399)_
-    * `gaphunter results`:    
-             `dex_methyl_betas_mtrx_after_gap_outliers_na.rds`: beta matrix obtained from the beta combated matrix, _dex_methyl_beta_combat_mtrx.rds_, with all outliers detected as NAs 
-             `dex_methyl_betas_mtrx_after_gap_extreme_outliers_na.rds`:  beta matrix obtained from the beta combated matrix, _dex_methyl_beta_combat_mtrx.rds_, with additional NAs for __extreme__ outliers
 
 - `11_cell_types_estimation`:
 
-    * `dex_methyl_phenotype.rds`: final phenotype data after excluding poor qc and mix-ups samples _(399 x 16)_
-    *  `dex_methyl_detP.rds`: final p-values matrix after excluding poor qc and mix-ups samples but not probes
+    * `dex_stim_array_human_cellcounts.csv`: cell types estimation table
+    * `dex_stim_cell_type_estimation_plot.pdf`: plots the average DNA methylation across the cell-type discrimating probes within the mixed and sorted samples
 
 - `12_DNAm_age`:
 
-    * `dex_methyl_phenotype.rds`: final phenotype data after excluding poor qc and mix-ups samples _(399 x 16)_
-    * `dex_methyl_detP.rds`: final p-values matrix after excluding poor qc and mix-ups samples but not probes
+    * `dex_stim_array_human_meth_age.csv`: table which contains DNAm age predicitons ( Horvath, Hannum and PhenoAge) and chronological age
+    * `DNAm_Age_and_Chronological_Age_Relation_plot.pdf`
 
-- `11_reports`: Reports generated during processing the data
+- `13_gaphunter`:
+
+    * `gaphunter RDSs`:    R objects  
+         - `dex_methyl_betas_mtrx_after_gap_outliers_na.rds`: beta matrix obtained from the beta combated matrix, _dex_methyl_beta_combat_mtrx.rds_, with all outliers detected as NAs 
+         - `dex_methyl_betas_mtrx_after_gap_extreme_outliers_na.rds`:  beta matrix obtained from the beta combated matrix, _dex_methyl_beta_combat_mtrx.rds_, with additional NAs for __extreme__ outliers
+
+- `14_reports`: Reports generated during processing the data
 
     The folder contains the set of folders with generated reports for particular step, e.g.:
 
-    * `05_batch_effects_correction`: folder contains all reports generated during batch effect correction steps:
+    * `05_batch_effects_correction`: folder contains all reports generated during batch effect correction step:
         - `00_PCA-map_ANOVA-res_before_correction.pdf`
         - `01_PCA-map_ANOVA-res_PLATE_correction.pdf`
         - `02_PCA-map_ANOVA-res_ARRAY_correction.pdf`
