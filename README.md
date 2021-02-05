@@ -367,3 +367,10 @@ Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/12_DNAm_age`:
         - `02_PCA-map_ANOVA-res_ARRAY_correction.pdf`
         - `03_PCA-map_ANOVA-res_SLIDE_correction.pdf`    
         - `04_BetaComBated_Distributions_Plot.pdf`
+        
+
+## **Notes**
+
+R objects generated during analysis are stored in the folder on cluster:
+
+`/binder/mgp/workspace/2020_DexStim_Array_Human/methylation/rData`
