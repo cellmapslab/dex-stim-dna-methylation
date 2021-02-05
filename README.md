@@ -340,4 +340,15 @@ Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/`:
 - `12_DNAm_age`:
 
     * `dex_methyl_phenotype.rds`: final phenotype data after excluding poor qc and mix-ups samples _(399 x 16)_
-    *  `dex_methyl_detP.rds`: final p-values matrix after excluding poor qc and mix-ups samples but not probes
+    * `dex_methyl_detP.rds`: final p-values matrix after excluding poor qc and mix-ups samples but not probes
+
+- `11_reports`: Reports generated during processing the data
+
+    The folder contains the set of folders with generated reports for particular step, e.g.:
+
+    * `05_batch_effects_correction`: folder contains all reports generated during batch effect correction steps:
+        - `00_PCA-map_ANOVA-res_before_correction.pdf`
+        - `01_PCA-map_ANOVA-res_PLATE_correction.pdf`
+        - `02_PCA-map_ANOVA-res_ARRAY_correction.pdf`
+        - `03_PCA-map_ANOVA-res_SLIDE_correction.pdf`    
+        - `04_BetaComBated_Distributions_Plot.pdf`
