@@ -37,10 +37,6 @@ export LC_CTYPE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 ```
 
-```sh
-srun -u --pty --part=pe -c 8 --mem=200G R --vanilla
-```
-
 ## __Introduction to DNAm array analysis__
 
 _from https://bioconductor.org/packages/devel/workflows/vignettes/methylationArrayAnalysis/inst/doc/methylationArrayAnalysis.html_
@@ -193,9 +189,11 @@ Returned zero surrogate variables
 
 ## **7. MixupMapper:**
 
-Required files description can be found here:
+More information for  methylation mixupmapping:
+- https://github.com/molgenis/systemsgenetics/wiki/Methylation-mixupmapping
 
-https://github.com/molgenis/systemsgenetics/wiki/File-descriptions
+Required files description can be found here:
+- https://github.com/molgenis/systemsgenetics/wiki/File-descriptions
 
 **Data**
 
@@ -309,6 +307,8 @@ Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/13_gaphunter`
 
 
 ## **9. Cell types estimation:**
+
+Biological findings in blood samples can often be confounded with cell type composition. In order to estimate the confounding levels between phenotype and cell type composition, we estimate the cell type composition of blood samples by using a modified version of the Houseman algorithm  (E Andres Houseman et al. 2012). Based on _FlowSorted.Blood.450k_. The function takes as input a RGChannelSet and returns a cell counts vector for each samples.
 
 **Input Data**
 
