@@ -27,7 +27,7 @@ rgset       <- readRDS(rgset.fn)
 
 rgset.converted <- convertArray(rgset, outType="IlluminaHumanMethylation450k")
 
-pdf(file = paste0(report.dir, "Cell_type_estimation.pdf"))
+pdf(file = paste0(report.dir, "dex_stim_cell_type_estimation_plot.pdf"))
 cell.counts            <- estimateCellCounts(rgset.converted,
                                              compositeCellType = "Blood",
                                              referencePlatform = "IlluminaHumanMethylation450k", 
@@ -35,4 +35,4 @@ cell.counts            <- estimateCellCounts(rgset.converted,
 
 dev.off()
 
-write.table(cell.counts, file = paste0(report.dir, "DEX-stim-array-human-cellcounts.csv"), col.names = T, row.names = T, quote = F, sep = ";")
+write.table(cell.counts, file = paste0(report.dir, "dex_stim_array_human_cellcounts.csv"), col.names = T, row.names = T, quote = F, sep = ";")
