@@ -90,7 +90,7 @@ probes.na.before.gap  <- data.frame(Probes = rownames(betas.mtrx),
 probes.na.after.gap <- data.frame(Probes = rownames(betas.mtrx.gapped.outliers.na), 
                                   Nr_NA_after_gap = apply(betas.mtrx.gapped.outliers.na, 1, function(x) sum(is.na(x))))
 
-robes.na.before.after <- merge(probes.na.before.gap, probes.na.after.gap, by.x = "Probes", by.y = "Probes", all.x = TRUE, all.y = TRUE)
+probes.na.before.after <- merge(probes.na.before.gap, probes.na.after.gap, by.x = "Probes", by.y = "Probes", all.x = TRUE, all.y = TRUE)
 probes.na.before.after$outlier_gaphunter <- probes.na.before.after$Nr_NA_after_gap - probes.na.before.after$Nr_NA_before_gap
 probes.na.before.after$percent_outlier_gaphunter <- (probes.na.before.after$outlier_gaphunter/(ncol(betas.mtrx.gapped.outliers.na) - 
                                                                                                  probes.na.before.after$Nr_NA_before_gap)) * 100
