@@ -1,5 +1,7 @@
 # __DEX-stimulated DNAm arrays processing__
 
+[Link to Header](#1. Input data)
+
 ## **Issues**
 
 __On cluster:__
