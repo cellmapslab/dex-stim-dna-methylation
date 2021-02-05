@@ -45,18 +45,13 @@ _from https://bioconductor.org/packages/devel/workflows/vignettes/methylationArr
 - RData: 
 
 `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/`
-
-`/home/ahryhorzhevska/mpip/datasets/methyl/rData` (starting with normalization step, the data are stored in this folder)
-
     * `rgSet_dex`: raw data from the dex IDAT files; organized at the probe (not CpG locus) level and has two channels (Red and Green).
-    
     The following data are obtained from __rgSet_dex__:
-    
-    * `Mset_original`: data organized by the CpG locus level, but not mapped to a genome and has two channels, _Meth (methylated)_ and _Unmeth (unmethylated)_;
-    * `RatioSet_original`: data organized by the CpG locus level, but not mapped to a genome, and has at least one of two channels, _Beta_ and/or _M (logratio of Beta)_;
-    * `RawBetas`: _Beta_ values matrix, obtained from _RatioSet_;
-    * `gRatioSet_original`: the same as _RatioSet_ but mapped to a genome;
-    * `pd_original`: phenotype data
+        * `Mset_original`: data organized by the CpG locus level, but not mapped to a genome and has two channels, _Meth (methylated)_ and _Unmeth (unmethylated)_;
+        * `RatioSet_original`: data organized by the CpG locus level, but not mapped to a genome, and has at least one of two channels, _Beta_ and/or _M (logratio of Beta)_;
+        * `RawBetas`: _Beta_ values matrix, obtained from _RatioSet_;
+        * `gRatioSet_original`: the same as _RatioSet_ but mapped to a genome;
+        * `pd_original`: phenotype data
 
 To get _rgSet_ and the rest of the data, run:
 
