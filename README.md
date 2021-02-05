@@ -145,21 +145,18 @@ _Result:_
 
 Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData`:
 
-> `BMIQ.quantileN.Rdata`
+    1. `BMIQ.quantileN.Rdata`
+    2. `quantileN.Rdata`    
 
->`quantileN.Rdata`
+3. `quantileNBetas.Rdata`
 
->`quantileNBetas.Rdata`
+4. `quantileNMs.Rdat`
 
->`quantileNMs.Rdat`
-
-Folder: `/home/ahryhorzhevska/mpip/datasets/methyl/rData`
-
-> `BMIQ_quantileN.Rdata`
+5.  `BMIQ_quantileN.Rdata`
 
 **Reports**
 
-> `BetaValue_Distributions_Norm_Quantile.pdf`
+ `BetaValue_Distributions_Norm_Quantile.pdf`
 
 ## **4. Filtering:**
 
@@ -169,17 +166,17 @@ _Result:_
 
 Folder: `/home/ahryhorzhevska/mpip/datasets/methyl/rData`
 
-> `quantileN_filtered.Rdata`
+1.  `quantileN_filtered.Rdata`
 
->`BMIQ.quantileN_filtered.Rdata` 
+2. `BMIQ.quantileN_filtered.Rdata` 
 
->`Betas_quantileN_filtered.Rdata`
+3. `Betas_quantileN_filtered.Rdata`
 
->`Ms_quantileN_filtered.Rdata`
+4. `Ms_quantileN_filtered.Rdata`
 
 **Reports**
 
-> `BetaValue_Distributions_Norm_quantile_Filter.png`
+ `BetaValue_Distributions_Norm_quantile_Filter.png`
 
 ## **5. Batch effects correction:**
 
@@ -187,7 +184,7 @@ Description will come soon
 
 ## **6. Surrogate Variable Analysis (SVA):**
 
-Returning zero surrogate variables
+Returned zero surrogate variables
 
 ## **7. MixupMapper:**
 
@@ -197,34 +194,37 @@ https://github.com/molgenis/systemsgenetics/wiki/File-descriptions
 
 **Data**
 
-Methylation data :
+1. Methylation data :
 
-> `/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper`
+    `/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper`
 
-SNPs:
+2. SNPs:
 
-> `/home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/mixupmapper/`
+    `/home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/mixupmapper/`
 
 #### _Initial step:_
 
-Imputed genotypes: 
+1. Imputed genotypes: 
 
-> `/home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/Dex_genoData_SNPs.bed`
+    `/home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/Dex_genoData_SNPs.bed`
 
-Batch-adjusted beta values: 
+2. Batch-adjusted beta values: 
 
-> `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/Betas_combated.Rdata`
+    `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData/Betas_combated.Rdata`
 
 #### _Intermediate step:_
 
-TRITYPER genotypes:    
-    * `/home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/mixupmapper/`
+1. TRITYPER genotypes:    
+    
+    `/home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/mixupmapper/`
 
-Trait file: batch-adjusted beta values: 
-    * `/home/ahryhorzhevska/mpip/da tasets/methylation/mixupmapper/beta_combated_for_mixupmapper.txt`
+2. Trait file: batch-adjusted beta values: 
+    
+    `/home/ahryhorzhevska/mpip/da tasets/methylation/mixupmapper/beta_combated_for_mixupmapper.txt`
 
-Genotype - phenotype coupling: 
-    * `/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/genotypemethylationcoupling.txt`
+3. Genotype - phenotype coupling: 
+    
+    `/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/genotypemethylationcoupling.txt`
 
 **Run:**
 
