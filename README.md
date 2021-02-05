@@ -1,6 +1,10 @@
 # __DEX-stimulated DNAm arrays processing__
 
-[1. Input data](#Input-data)
+[Issues](#issues)
+[Brief introduction to DNAm array analysis](#Introduction-to-DNAm-array-analysis)
+[1. Input data](#1-input-data)
+[2. Quality control check for samples](#2-qc)
+[3. Normalizatopn](#3-normalization)
 
 ## **Issues**
 
@@ -29,7 +33,7 @@ export LC_ALL="en_US.UTF-8"
 srun -u --pty --part=pe -c 8 --mem=200G R --vanilla
 ```
 
-## __Note:__
+## __Introduction to DNAm array analysis__
 
 _from https://bioconductor.org/packages/devel/workflows/vignettes/methylationArrayAnalysis/inst/doc/methylationArrayAnalysis.html_
 
@@ -370,8 +374,7 @@ Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/12_DNAm_age`:
         - `03_PCA-map_ANOVA-res_SLIDE_correction.pdf`    
         - `04_BetaComBated_Distributions_Plot.pdf`
         
-
-## **Notes**
+**Notes:**
 
 R objects generated during analysis are stored in the folder on cluster:
 
