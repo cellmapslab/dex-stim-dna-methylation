@@ -10,14 +10,21 @@
 
 [3. Normalization](#3-normalization)
 
-    [4. Probes filtering](#4-filtering)
-    [5. Batch effect correction](#5-batch-effect-correction)
-- [6. Surrogate Variable Analysis](#6-surrogate-variable-analysis-sva)
-- [7. MixupMapper](#7-mixupmapper)
-- [8. Gaphunter](#8-gaphunter)
-- [9. Cell types estimation](#9-cell-types-estimation)
-- [10. Methylation age estimation](#10-methylation-age-estimation)
-- [Final results](#the-final-results)
+[4. Probes filtering](#4-filtering)
+
+[5. Batch effect correction](#5-batch-effect-correction)
+
+[6. Surrogate Variable Analysis](#6-surrogate-variable-analysis-sva)
+
+[7. MixupMapper](#7-mixupmapper)
+
+[8. Gaphunter](#8-gaphunter)
+
+[9. Cell types estimation](#9-cell-types-estimation)
+
+[10. Methylation age estimation](#10-methylation-age-estimation)
+
+[Final results](#the-final-results)
 
 ## **Issues**
 
