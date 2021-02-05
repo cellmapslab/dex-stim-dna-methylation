@@ -1,9 +1,12 @@
 # __DEX-stimulated DNAm arrays processing__
 
--[Issues](#issues)
-- [Brief introduction to DNAm array analysis](#Introduction-to-DNAm-array-analysis)
-- [1. Input data](#1-input-data)
-- [2. Quality control check for samples](#2-qc)
+[Issues](#issues)
+
+[Brief introduction to DNAm array analysis](#Introduction-to-DNAm-array-analysis)
+
+[1. Input data](#1-input-data)
+
+[2. Quality control check for samples](#2-qc)
 - [3. Normalization](#3-normalization)
 - [4. Probes filtering](#4-filtering)
 - [5. Batch effect correction](#5-batch-effect-correction)
