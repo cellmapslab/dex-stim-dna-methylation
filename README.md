@@ -87,19 +87,13 @@ _Result:_
 
 3. `detP_qc.Rdata` : _p-values_ table;
 
-**Reports**
-
-1. `detectionP.pdf`
-
- 2. `qcReport.pdf`
+**Reports:** `detectionP.pdf`, `qcReport.pdf`
 
 3. Distribution artefacts
 
 _Result:_
 
-**Reports**
-
- `03_beta_densities_report.pdf`
+**Reports:** `03_beta_densities_report.pdf`
 
 **Suspicious observations:**
 
@@ -117,9 +111,7 @@ _Result:_
 
 _The result should be cheked with genotype data_
 
-**Data**
-
-`sex_predicted.Rdata`
+**Data:** `sex_predicted.Rdata`
 
 5. Remove sampleID found at the steps _3_ and _4_
 
@@ -155,9 +147,7 @@ Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData`:
 
 5.  `BMIQ_quantileN.Rdata`
 
-**Reports**
-
-1. `BetaValue_Distributions_Norm_Quantile.pdf`
+**Reports:** `BetaValue_Distributions_Norm_Quantile.pdf`
 
 ## **4. Filtering:**
 
@@ -175,9 +165,7 @@ Folder: `/home/ahryhorzhevska/mpip/datasets/methyl/rData`
 
 4. `Ms_quantileN_filtered.Rdata`
 
-**Reports**
-
- 1. `BetaValue_Distributions_Norm_quantile_Filter.png`
+**Reports:** `BetaValue_Distributions_Norm_quantile_Filter.png`
 
 ## **5. Batch effects correction:**
 
