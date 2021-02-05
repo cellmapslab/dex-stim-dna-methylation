@@ -81,17 +81,17 @@ _Result:_
 
 **Data**
 
-> `rgSet_qc.Rdata`
+1. `rgSet_qc.Rdata`
 
-> `RawBetas_qc.Rdata`
+2. `RawBetas_qc.Rdata`
 
-> `detP_qc.Rdata` : _p-values_ table;
+3. `detP_qc.Rdata` : _p-values_ table;
 
 **Reports**
 
->  `detectionP.pdf`
+1. `detectionP.pdf`
 
-> `qcReport.pdf`
+ 2. `qcReport.pdf`
 
 3. Distribution artefacts
 
@@ -99,15 +99,15 @@ _Result:_
 
 **Reports**
 
-> `03_beta_densities_report.pdf`
+ `03_beta_densities_report.pdf`
 
 **Suspicious observations:**
 
-> From array _R01C01_;
+* From array _R01C01_;
 
-> Partially from _R03C01_;
+* Partially from _R03C01_;
 
-> Sample _200712160065_.
+* Sample _200712160065_.
 
 4. Sex mismatches
 
@@ -119,7 +119,7 @@ _The result should be cheked with genotype data_
 
 **Data**
 
-> `sex_predicted.Rdata`
+`sex_predicted.Rdata`
 
 5. Remove sampleID found at the steps _3_ and _4_
 
@@ -127,15 +127,15 @@ _Result:_
 
 **Data**
 
-> `rgSet_clean.Rdata`
+1. `rgSet_clean.Rdata`
 
-> `RawBetas_clean.Rdata`
+2. `RawBetas_clean.Rdata`
 
-> `detP_clean.Rdata`
+3. `detP_clean.Rdata`
 
-> `pd_celan.Rdata`
+4. `pd_celan.Rdata`
 
-> `annotated_data_clean.Rdata`
+5. `annotated_data_clean.Rdata`
 
 ## **3. Normalization:**
 
@@ -145,8 +145,9 @@ _Result:_
 
 Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData`:
 
-    1. `BMIQ.quantileN.Rdata`
-    2. `quantileN.Rdata`    
+1. `BMIQ.quantileN.Rdata`
+
+2. `quantileN.Rdata`    
 
 3. `quantileNBetas.Rdata`
 
@@ -156,7 +157,7 @@ Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData`:
 
 **Reports**
 
- `BetaValue_Distributions_Norm_Quantile.pdf`
+1. `BetaValue_Distributions_Norm_Quantile.pdf`
 
 ## **4. Filtering:**
 
@@ -176,7 +177,7 @@ Folder: `/home/ahryhorzhevska/mpip/datasets/methyl/rData`
 
 **Reports**
 
- `BetaValue_Distributions_Norm_quantile_Filter.png`
+ 1. `BetaValue_Distributions_Norm_quantile_Filter.png`
 
 ## **5. Batch effects correction:**
 
@@ -338,7 +339,7 @@ Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/12_DNAm_age`:
 
 **Path on cluster :**
 
-> `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/`
+`/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/`
 
 - `10_final_qc_data` : R objects  
     
