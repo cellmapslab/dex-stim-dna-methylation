@@ -217,17 +217,14 @@ Batch-adjusted beta values:
 
 #### _Intermediate step:_
 
-TRITYPER genotypes: 
-
-> `/home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/mixupmapper/`
+TRITYPER genotypes:    
+    * `/home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/mixupmapper/`
 
 Trait file: batch-adjusted beta values: 
-
-> `/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/beta_combated_for_mixupmapper.txt`
+    * `/home/ahryhorzhevska/mpip/da tasets/methylation/mixupmapper/beta_combated_for_mixupmapper.txt`
 
 Genotype - phenotype coupling: 
-
-> `/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/genotypemethylationcoupling.txt`
+    * `/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/genotypemethylationcoupling.txt`
 
 **Run:**
 
@@ -285,13 +282,13 @@ Two mix-ups were found
 
 **Results:**
 
-The results data are the final data. Please look at the Final result section to get location where the data are stores.
+The results data are the final data. Please look at the Final result section to get location where the data are stored.
 
 ## **8. Gaphunter:**
 
 **Input Data**
 
-> `dex_methyl_beta_combat_mtrx.rds` : final beta matrix after normalization, probes and samples filtering, batch correction and mix-ups removal _(740'357 x 399)_
+* `dex_methyl_beta_combat_mtrx.rds` : final beta matrix after normalization, probes and samples filtering, batch correction and mix-ups removal _(740'357 x 399)_
 
 **Result**
 
@@ -310,15 +307,15 @@ Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/13_gaphunter`
 
 **Input Data**
 
-> `dex_methyl_beta_combat_mtrx.rds` : final beta matrix after normalization, probes and samples filtering, batch correction and mix-ups removal _(740'357 x 399)_
+* `dex_methyl_beta_combat_mtrx.rds` : final beta matrix after normalization, probes and samples filtering, batch correction and mix-ups removal _(740'357 x 399)_
 
 **Result**
 
 Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/11_cell_types_estimation`:
 
->  `dex_stim_array_human_cellcounts.csv`: cell types estimation table
+* `dex_stim_array_human_cellcounts.csv`: cell types estimation table
 
-> `dex_stim_cell_type_estimation_plot.pdf`: plots the average DNA methylation across the cell-type discrimating probes within the mixed and sorted samples
+* `dex_stim_cell_type_estimation_plot.pdf`: plots the average DNA methylation across the cell-type discrimating probes within the mixed and sorted samples
 
 ## **10. Methylation age estimation:**
 
@@ -327,15 +324,15 @@ Three different types of methylation age are estimated using methyAge: Horvath, 
 
 **Input Data**
 
-> `dex_methyl_beta_combat_mtrx.rds` : final beta matrix after normalization, probes and samples filtering, batch correction and mix-ups removal _(740'357 x 399)_
+* `dex_methyl_beta_combat_mtrx.rds` : final beta matrix after normalization, probes and samples filtering, batch correction and mix-ups removal _(740'357 x 399)_
 
 **Result**
 
 Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/12_DNAm_age`:
 
->  `dex_stim_array_human_meth_age.csv`: table which contains DNAm age predicitons ( Horvath, Hannum and PhenoAge) and chronological age
+* `dex_stim_array_human_meth_age.csv`: table which contains DNAm age predicitons ( Horvath, Hannum and PhenoAge) and chronological age
 
-> `DNAm_Age_and_Chronological_Age_Relation_plot.pdf`
+* `DNAm_Age_and_Chronological_Age_Relation_plot.pdf`
 
 ## **The final results**
 
