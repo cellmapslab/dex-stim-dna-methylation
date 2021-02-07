@@ -84,3 +84,15 @@ ggplot(data = pheno.real.age.tbl, aes(x = Type, y = Age, fill = Group)) +
   geom_text(aes(label = Group), vjust = 1.6, color = "white", size = 3.5)+
   theme_minimal()
 dev.off()
+
+
+pal <- brewer.pal(8, "Set2")
+pdf(file = paste0(report.dir, "DNAm_Age_and_Chronological_Age_DEX_Relation.pdf"))
+age.tbl.dex <- merged.age.tbl[pheno$Sample_Group == "dex", -1]
+age.tbl.veh <- merged.age.tbl[pheno$Sample_Group == "veh", -1]
+boxplot(age.tbl.dex, xlim = c(0, 12), ylim = range(age.tbl.dex, age.tbl.veh), 
+        at = 0:3 * 3 + 0.5, xaxt = "n", main = "", ylab = "Age", col = pal[5])
+boxplot(age.tbl.veh, at = 0:3 * 3 + 1.5, xaxt = "n", col = pal[6], add = TRUE)
+axis(1, at = 0:3 * 3 + 1.5, labels = colnames(age.tbl.dex), tick = TRUE)
+legend("topleft", legend = c("dex", "veh"), fill = pal[5:6])
+dev.off()

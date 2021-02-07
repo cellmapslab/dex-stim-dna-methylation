@@ -3,6 +3,7 @@
 # 1. MixupMapper Genotype data
 
 mixup.res.fn   <- "/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/out_mixupmapper/MixupMapper/BestMatchPerGenotype.txt"
+mixup.res.fn   <- "/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/out_mixupmapper_removed_mixups/MixupMapper/BestMatchPerGenotype.txt"
 mixup.genotype <- read.table(mixup.res.fn, stringsAsFactors = FALSE)
 
 colnames(mixup.genotype) <- mixup.genotype[1, ]
