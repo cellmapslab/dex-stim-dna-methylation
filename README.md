@@ -235,7 +235,7 @@ Required files description can be found here:
 
 2. Trait file: batch-adjusted beta values: 
     
-    `/home/ahryhorzhevska/mpip/da tasets/methylation/mixupmapper/beta_combated_for_mixupmapper.txt`
+    `/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/beta_combated_for_mixupmapper.txt`
 
 3. Genotype - phenotype coupling: 
     
@@ -261,26 +261,26 @@ java -jar GenotypeHarmonizer.jar -i $DIR_GENOTYPES_BED -I PLINK_BED -o $DIR_GENO
 ```sh
 screen -S mixupmapper
 
-BETA_VALUES_FILENAME=/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/out_eqtl_normalization/betas_combat_veh_mixupmapper.txt
-MIXUPMAPPER_DATA_DIR=/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/out_eqtl_normalization
-MIXUPMAPPER_DIR="/home/ahryhorzhevska/mpip/tools/MixupMapper/eqtl-mapping-pipeline-1.2.4E-SNAPSHOT"
+BETA_VALUES_FILENAME=/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/betas_combat_veh_mixupmapper_removed_mixups.txt
+MIXUPMAPPER_DATA_DIR=/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/out_eqtl_normalization_removed_mixups
+MIXUPMAPPER_DIR=/home/ahryhorzhevska/mpip/tools/MixupMapper/eqtl-mapping-pipeline-1.2.4E-SNAPSHOT
 
 # java -jar $MIXUPMAPPER_DIR/eqtl-mapping-pipeline.jar --mode normalize --in $BETAS_VALUE_FILENAME  --out $MIXUPMAPPER_DATA_DIR --centerscale
-srun --part=pe -c 12 --mem=200G java -jar $MIXUPMAPPER_DIR/eqtl-mapping-pipeline.jar --mode normalize --in $BETA_VALUES_FILENAME  --centerscale
+srun --part=pe -c 8 --mem=200G java -jar $MIXUPMAPPER_DIR/eqtl-mapping-pipeline.jar --mode normalize --in $BETA_VALUES_FILENAME --out $MIXUPMAPPER_DATA_DIR --centerscale
 ```
 
 3. Run MixupMapper 
 
 ```sh
 GENOTYPES_TRITYPER_DIR=/home/ahryhorzhevska/mpip/datasets/2020_DexStim_Array_Human/snps/mixupmapper
-TRAIT_NORM_FILENAME=/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/out_eqtl_normalization/betas_combat_veh_mixupmapper.ProbesCentered.SamplesZTransformed.txt.gz
+TRAIT_NORM_FILENAME=/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/out_eqtl_normalization_removed_mixups/betas_combat_veh_mixupmapper_removed_mixups.ProbesCentered.SamplesZTransformed.txt.gz
 ANNOTATION_FILENAME=/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/annotation.txt
-COUPLING_FILENAME=/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/genotypemethylationcoupling.txt
-OUT_MIXUPMAPPER_DIR=/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/out_mixupmapper
+COUPLING_FILENAME=/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/genotypemethylationcoupling_removed_mixups.txt
+OUT_MIXUPMAPPER_DIR=/home/ahryhorzhevska/mpip/datasets/methylation/mixupmapper/out_mixupmapper_removed_mixups
 
 MIXUPMAPPER_DIR=/home/ahryhorzhevska/mpip/tools/MixupMapper/eqtl-mapping-pipeline-1.2.4E-SNAPSHOT
 
-srun --part=pe --mem=200G --output=$OUT_MIXUPMAPPER_DIR/eqtl_mixupmapper.out java -Xmx15g -Xms15g -jar $MIXUPMAPPER_DIR/eqtl-mapping-pipeline.jar --mode mixupmapper --in $GENOTYPES_TRITYPER_DIR --out $OUT_MIXUPMAPPER_DIR --inexp $TRAIT_NORM_FILENAME --inexpplatform EPIC --inexpannot $ANNOTATION_FILENAME --gte $COUPLING_FILENAME
+srun --job-name="eqtl_mapping_pl" --part=pe --mem=200G --output=$OUT_MIXUPMAPPER_DIR/eqtl_mixupmapper.out java -Xmx30g -Xms30g -jar $MIXUPMAPPER_DIR/eqtl-mapping-pipeline.jar --mode mixupmapper --in $GENOTYPES_TRITYPER_DIR --out $OUT_MIXUPMAPPER_DIR --inexp $TRAIT_NORM_FILENAME --inexpplatform EPIC --inexpannot $ANNOTATION_FILENAME --gte $COUPLING_FILENAME
 ```
 
 **Results:**
