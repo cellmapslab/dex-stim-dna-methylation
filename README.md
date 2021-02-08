@@ -1,5 +1,9 @@
 # __DEX-stimulated DNAm arrays processing__
 
+_by Anastasiia Hryhorzhevska_
+
+_Special thanks to Linda: https://github.com/LindaDi_
+
 [Issues](#issues)
 
 [Brief introduction to DNAm array analysis](#Introduction-to-DNAm-array-analysis)
