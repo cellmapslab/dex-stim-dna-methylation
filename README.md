@@ -8,7 +8,7 @@ _by Anastasiia Hryhorzhevska_
 
 *Special thanks to Linda: https://github.com/LindaDi*
 
-[Issues](#issues)
+[Issues](#issues) 
 
 [Brief introduction to DNAm array analysis](#brief-introduction-to-dnam-array-analysis)
 

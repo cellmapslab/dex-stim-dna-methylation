@@ -32,7 +32,7 @@ meth.age      <- methyAge(beta.mtrx,
 
 # 3. Merge estimated age with real and write out results
 
-real.age.tbl   <- data.frame(SampleID = pheno$Sample_Name, realAge = pheno$age)
+real.age.tbl   <- data.frame(SampleID = pheno$Sample_Name, realAge = pheno$age, Individual = pheno$person )
 merged.age.tbl <- merge(meth.age, real.age.tbl)
 
 write.table(merged.age.tbl, file = paste0(report.dir, "DEX-stim-array-human-meth-age.csv"), col.names = T, row.names = T, quote = F, sep = ";")
@@ -95,4 +95,52 @@ boxplot(age.tbl.dex, xlim = c(0, 12), ylim = range(age.tbl.dex, age.tbl.veh),
 boxplot(age.tbl.veh, at = 0:3 * 3 + 1.5, xaxt = "n", col = pal[6], add = TRUE)
 axis(1, at = 0:3 * 3 + 1.5, labels = colnames(age.tbl.dex), tick = TRUE)
 legend("topleft", legend = c("dex", "veh"), fill = pal[5:6])
+dev.off()
+
+# 6.  Estimate methylation age only for veh
+
+betas.colnames <- colnames(beta.mtrx)
+samples.veh.id <- pheno$Sample_Name[pheno$Sample_Group == "veh"]
+
+betas.mtrx.veh <- beta.mtrx[ , samples.veh.id ]
+
+meth.age.veh   <- methyAge(betas.mtrx.veh, 
+                          type = "all", 
+                          fastImputation = F,
+                          normalize = F)
+
+merged.age.tbl.veh <- merge(meth.age.veh, real.age.tbl)
+
+write.table(merged.age.tbl.veh, file = "/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/12_DNAm_age/DEX-stim-array-human-meth-age-veh.csv", col.names = T, row.names = F, quote = F, sep = ";")
+write.csv2(merged.age.tbl.veh, file = paste0(report.dir, "/DEX-stim-array-human-meth-age-veh.csv"), col.names = T, row.names = F, quote = F, sep = ";")
+
+# Relate DNAm age to chronological age
+
+MedianAbsDevHelp <- function(x, y) median(abs(x-y), na.rm=TRUE)
+MedianAbsDev     <- function(dnam.age.method, real.age) signif(MedianAbsDevHelp(dnam.age.method, real.age), 2)
+
+
+pdf(file = paste0(report.dir, "DNAm_Age_and_Chronological_Age_Relation_VEH.pdf"))
+
+err <- MedianAbsDev (merged.age.tbl.veh$mAge_Hovath, merged.age.tbl.veh$realAge)
+ggplot(merged.age.tbl.veh, aes(x = mAge_Hovath, y = realAge)) + 
+  geom_point() +
+  geom_smooth() +
+  labs(title = paste("DNAm age (Hovath) vs Chronological age, err = ", err),
+       x = "DNAm Age Hovath", y = "Chronological Age")
+
+err <- MedianAbsDev (merged.age.tbl.veh$mAge_Hannum, merged.age.tbl.veh$realAge)
+ggplot(merged.age.tbl.veh, aes(x = mAge_Hannum, y = realAge)) + 
+  geom_point() +
+  geom_smooth() +
+  labs(title = paste("DNAm age (Hannum) vs Chronological age, err = ", err),
+       x = "DNAm Age Hannum", y = "Chronological Age")
+
+err <- MedianAbsDev (merged.age.tbl.veh$PhenoAge, merged.age.tbl.veh$realAge)
+ggplot(merged.age.tbl.veh, aes(x = PhenoAge, y = realAge)) + 
+  geom_point() +
+  geom_smooth() +
+  labs(title = paste("DNAm age (Pheno) vs Chronological age, err = ", err),
+       x = "DNAm Pheno Age ", y = "Chronological Age")
+
 dev.off()
