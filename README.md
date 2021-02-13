@@ -1,7 +1,3 @@
----
-output:
-  html_document: default
----
 # __DEX-stimulated DNAm arrays processing__
 
 _by Anastasiia Hryhorzhevska_
