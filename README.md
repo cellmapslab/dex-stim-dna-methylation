@@ -65,6 +65,11 @@ export LC_ALL="en_US.UTF-8"
 
 - **Beta values** are generally preferable for describing the level of methylation at a locus or for graphical presentation because percentage methylation is easily interpretable. However, due to their distributional properties, **M-values** are more appropriate for statistical testing 
 
+
+The DNAm QC Roadmap
+
+![](DNAm_QC_Roadmap.png)
+
 ## **1. Input data:**
 
 - iData data : `/binder/mgp/workspace/2020_DexStim_Array_Human/methylation/`
