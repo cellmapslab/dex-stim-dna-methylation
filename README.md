@@ -68,7 +68,7 @@ export LC_ALL="en_US.UTF-8"
 
 The DNAm QC Roadmap
 
-![](DNAm_QC_Roadmap.png)
+![](images/DNAm_QC_Roadmap.png)
 
 ## **1. Input data:**
 
