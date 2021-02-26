@@ -2,31 +2,31 @@
 
 _by Anastasiia Hryhorzhevska_
 
-_Special thanks to Linda: https://github.com/LindaDi_
+*Special thanks to Linda: https://github.com/LindaDi*
 
-[Issues](#issues)
+[Issues](#issues) 
 
-[Brief introduction to DNAm array analysis](#Introduction-to-DNAm-array-analysis)
+[Brief introduction to DNAm array analysis](#brief-introduction-to-dnam-array-analysis)
 
-[1. Input data](#1-input-data)
+[1. Input data](#input-data)
 
-[2. Quality control check for samples](#2-qc)
+[2. Quality control check for samples](#qc)
 
-[3. Normalization](#3-normalization)
+[3. Normalization](#normalization)
 
-[4. Probes filtering](#4-filtering)
+[4. Probes filtering](#filtering)
 
-[5. Batch effect correction](#5-batch-effect-correction)
+[5. Batch effect correction](#batch-effect-correction)
 
-[6. Surrogate Variable Analysis](#6-surrogate-variable-analysis-sva)
+[6. Surrogate Variable Analysis](#surrogate-variable-analysis-sva)
 
-[7. MixupMapper](#7-mixupmapper)
+[7. MixupMapper](#mixupmapper)
 
-[8. Gaphunter](#8-gaphunter)
+[8. Gaphunter](#gaphunter)
 
-[9. Cell types estimation](#9-cell-types-estimation)
+[9. Cell types estimation](#cell-types-estimation)
 
-[10. Methylation age estimation](#10-methylation-age-estimation)
+[10. Methylation age estimation](#methylation-age-estimation)
 
 [Final results](#the-final-results)
 
@@ -53,9 +53,9 @@ export LC_CTYPE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 ```
 
-## __Introduction to DNAm array analysis__
+## **Brief introduction to DNAm array analysis**
 
-_from https://bioconductor.org/packages/devel/workflows/vignettes/methylationArrayAnalysis/inst/doc/methylationArrayAnalysis.html_
+*from https://bioconductor.org/packages/devel/workflows/vignettes/methylationArrayAnalysis/inst/doc/methylationArrayAnalysis.html*
 
 - For each CpG, there are two measurements: a methylated intensity (denoted by M) and an unmethylated intensity (denoted by U). These intensity values can be used to determine the proportion of methylation at each CpG locus. Methylation levels are commonly reported as either **beta** values (_β = M/(M+U)_) or **M**-values (_M-value = log2(M/U)_).
 
@@ -64,6 +64,11 @@ _from https://bioconductor.org/packages/devel/workflows/vignettes/methylationArr
 - Beta values and M-values are related through a logit transformation. 
 
 - **Beta values** are generally preferable for describing the level of methylation at a locus or for graphical presentation because percentage methylation is easily interpretable. However, due to their distributional properties, **M-values** are more appropriate for statistical testing 
+
+
+The DNAm QC Roadmap
+
+![](images/DNAm_QC_Roadmap.png)
 
 ## **1. Input data:**
 
