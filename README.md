@@ -8,25 +8,25 @@ _by Anastasiia Hryhorzhevska_
 
 [Brief introduction to DNAm array analysis](#brief-introduction-to-dnam-array-analysis)
 
-[1. Input data](#input-data)
+[1. Input data](#1-input-data)
 
-[2. Quality control check for samples](#qc)
+[2. Quality control check for samples](#2-qc)
 
-[3. Normalization](#normalization)
+[3. Normalization](#3-normalization)
 
-[4. Probes filtering](#filtering)
+[4. Probes filtering](#4-filtering)
 
-[5. Batch effect correction](#batch-effect-correction)
+[5. Batch effect correction](#5-batch-effect-correction)
 
-[6. Surrogate Variable Analysis](#surrogate-variable-analysis-sva)
+[6. Surrogate Variable Analysis](#6-surrogate-variable-analysis-sva)
 
-[7. MixupMapper](#mixupmapper)
+[7. MixupMapper](#7-mixupmapper)
 
-[8. Gaphunter](#gaphunter)
+[8. Gaphunter](#8-gaphunter)
 
-[9. Cell types estimation](#cell-types-estimation)
+[9. Cell types estimation](#9-cell-types-estimation)
 
-[10. Methylation age estimation](#methylation-age-estimation)
+[10. Methylation age estimation](#10-methylation-age-estimation)
 
 [Final results](#the-final-results)
 
