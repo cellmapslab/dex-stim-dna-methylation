@@ -14,7 +14,7 @@ _by Anastasiia Hryhorzhevska_
 
 [3. Normalization](#3-normalization)
 
-[4. Probes filtering](#4-probes-filtering)
+[4. Probes filtering](#4-filtering)
 
 [5. Batch effect correction](#5-batch-effect-correction)
 
