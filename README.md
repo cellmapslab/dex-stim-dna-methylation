@@ -402,6 +402,10 @@ Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/12_DNAm_age`:
 
 `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/`
 
+and 
+
+`/binder/common/methylation/qc_methylation/DexStim_EPIC_2020`
+
 - `10_final_qc_data` : R objects  
     
     * `dex_methyl_phenotype.rds`: final phenotype data after excluding poor qc and mix-ups samples _(399 x 16)_
