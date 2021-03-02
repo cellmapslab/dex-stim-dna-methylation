@@ -164,6 +164,8 @@ _Result:_
 
 ## **3. Normalization:**
 
+_Beta_ values were normalized using stratified quantile normalization (Touleimat & Tost, 2012), followed by BMIQ (Teschendorff et al., 2013). 
+
 _Result:_
 
 **Data**
@@ -184,6 +186,18 @@ Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData`:
 
 ## **4. Filtering:**
 
+The following probes in one or more samples were removed: 
+
+- probes on _X_ or _Y_ chromosomes
+
+- probes containing SNPs 
+
+- cross-hybridizing and polymorphic probes according to Chen et al. (2013) 
+
+- and McCartney et al. (2016)
+
+- probes with a detection _p-value > 0.01_ 
+
 _Result:_
 
 **Data**
@@ -202,7 +216,29 @@ Folder: `/home/ahryhorzhevska/mpip/datasets/methyl/rData`
 
 ## **5. Batch effect correction:**
 
-Description will come soon
+_Beta_ values were transformed into _M_-values, and batch-effects were removed using Combat. For this, principal component analysis (PCA) was performed on the M-values and then checked which batches were most strongly associated with the principal components (PCs). The strongest batches for the respective data set were iteratively removed. First, the the correction was done for _Plate_. Then, PCA was performed on corrected data and _p-values_ were computed. The results showed associaiton between PC2 and _Array_. Therefore, the correction was done for _Array_. And later, for _Slide_, since the was still strong association between PC2 and _Slide_.  Corrected _M_-values were re-transformed into _beta_ values. Attached pdf files shows the evaluation results after each step. Important to mention that the most variation was explained by DEX treatment. 
+
+Result:_
+
+**Data**
+
+Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/rData`
+
+1.  `Betas_combated.Rdata`:  normalized and batch-adjusted beta values df
+
+2.  `Betas_combated_ExprSet.Rdata`:  expression set with normalized and batch-adjusted beta values
+
+**Reports:** `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/14_reports/05_batch_effects_correction`
+
+1. `00_PCA-map_ANOVA-res_before_correction.pdf`: PCA Individual Map, Density Plot for each batch, Group (dex or veh) and Gender before any batch correction, ANOVA summary statistics
+
+2.  `01_PCA-map_ANOVA-res_PLATE_correction.pdf`: PCA Individual Map, Density Plot for each batch, Group (dex or veh) and Gender after correction on PLATE, ANOVA summary statistics
+
+3.  `01_PCA-map_ANOVA-res_ARRAY_correction.pdf`: PCA Individual Map, Density Plot for each batch, Group (dex or veh) and Gender after correction on ARRAY, ANOVA summary statistics
+
+4.  `01_PCA-map_ANOVA-res_SLIDE_correction.pdf`: PCA Individual Map, Density Plot for each batch, Group (dex or veh) and Gender after correction on SLIDE, ANOVA summary statistics
+
+5.   `04_BetaComBated_Distributions_Plot.pdf`: Normalized and batch corrected beta distribution plots
 
 ## **6. Surrogate Variable Analysis (SVA):**
 
@@ -365,6 +401,10 @@ Folder: `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/12_DNAm_age`:
 **Path on cluster :**
 
 `/binder/mgp/datasets/2020_DexStim_Array_Human/methylation/`
+
+and 
+
+`/binder/common/methylation/qc_methylation/DexStim_EPIC_2020`
 
 - `10_final_qc_data` : R objects  
     
